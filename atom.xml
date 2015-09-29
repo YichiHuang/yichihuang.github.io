@@ -1,0 +1,1908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Karry.Blog]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-09-29T13:46:46.082Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Karry Huang(黄艺驰)]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Matlab command汇总]]></title>
+    <link href="http://yoursite.com/2015/09/29/matlab-command/"/>
+    <id>http://yoursite.com/2015/09/29/matlab-command/</id>
+    <published>2015-09-29T07:11:16.000Z</published>
+    <updated>2015-09-29T13:46:46.082Z</updated>
+    <content type="html"><![CDATA[<h1 id="Basic_Operations">Basic Operations</h1><h2 id="算术运算">算术运算</h2><pre><code><span class="prompt">&gt;&gt;</span><span class="number">1</span>+<span class="number">2</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">3</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">10</span>-<span class="number">7</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">3</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">2</span>*<span class="number">10</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">20</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">1</span>/<span class="number">2</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">0</span>.<span class="number">50000</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">2</span>^<span class="number">6</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">64</span>
+</code></pre><h2 id="逻辑运算">逻辑运算</h2><pre><code><span class="prompt">&gt;&gt;</span><span class="number">1</span> == <span class="number">2</span> %comparison
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">0</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">1</span> ~= <span class="number">2</span> %not equal
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">1</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">1</span> &amp;&amp; <span class="number">0</span> %<span class="constant">AND</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">0</span>
+
+<span class="prompt">&gt;&gt;</span><span class="number">1</span> || <span class="number">0</span> %<span class="constant">OR</span>
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">1</span>
+
+<span class="prompt">&gt;&gt;</span>xor(<span class="number">1</span>,<span class="number">0</span>)
+<span class="prompt">&gt;&gt;</span>ans=<span class="number">1</span>
+</code></pre><h2 id="变量">变量</h2><h3 id="变量赋值">变量赋值</h3><pre><code><span class="prompt">&gt;&gt;</span>a=<span class="number">3</span>; %加上“；”表示不打印结果
+<span class="prompt">&gt;&gt;</span>b=<span class="string">'hi'</span>
+<span class="prompt">&gt;&gt;</span>c= (<span class="number">3</span>&gt;=<span class="number">1</span>)
+c=<span class="number">1</span>
+</code></pre><h3 id="显示变量">显示变量</h3><pre><code>&gt;&gt;<span class="literal">a</span>=pi<span class="comment">;</span>
+&gt;&gt;<span class="literal">a</span>
+<span class="literal">a</span>=<span class="number">3.1416</span>
+&gt;&gt;disp(<span class="literal">a</span>)<span class="comment">;</span>
+<span class="number">3.1416</span>
+</code></pre><h3 id="保留小数点后两位输出">保留小数点后两位输出</h3><pre><code>&gt;&gt;<span class="function"><span class="title">disp</span><span class="params">(sprintf(<span class="string">'2 decimals: %0.2f'</span>,a)</span></span>)
+<span class="number">2</span> decimals: <span class="number">3.14</span>
+</code></pre><h3 id="高精度&amp;低精度输出">高精度&amp;低精度输出</h3><pre><code><span class="prompt">&gt;&gt;</span>a=<span class="number">3.1416</span>
+<span class="prompt">&gt;&gt;</span>format long
+<span class="prompt">&gt;&gt;</span>a
+a=<span class="number">3.14159265358979</span>
+<span class="prompt">&gt;&gt;</span>format short
+<span class="prompt">&gt;&gt;</span>a
+a=<span class="number">3.1416</span>
+</code></pre><h3 id="向量与矩阵（Vector_and_Matrix）">向量与矩阵（Vector and Matrix）</h3><h4 id="矩阵表示">矩阵表示</h4><pre><code>&gt;&gt;A=[<span class="number">1</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">4</span>;<span class="number">5</span> <span class="number">6</span>]  %A是一个<span class="number">2</span>*<span class="number">3</span>的矩阵，分号表示另起一行
+A=
+    <span class="number">1</span> <span class="number">2</span>
+    <span class="number">3</span> <span class="number">4</span>
+    <span class="number">5</span> <span class="number">6</span>
+</code></pre><h4 id="向量表示">向量表示</h4><pre><code>&gt;&gt;v=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]   %v是一个<span class="number">1</span>*<span class="number">3</span>的矩阵或者说是行向量
+v=
+    <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>
+&gt;&gt;v=[<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>]   %v是一个<span class="number">3</span>*<span class="number">1</span>的矩阵或者说是列向量
+</code></pre><h4 id="在[m,n]范围内以固定步长生成元素">在[m,n]范围内以固定步长生成元素</h4><pre><code>&gt;&gt;v=<span class="number">1</span>:<span class="number">0.1</span>:<span class="number">2</span>   %以<span class="number">0.1</span>的步长生成范围在<span class="number">1</span>~<span class="number">2</span>之间的元素
+&gt;&gt;v=<span class="number">1</span>:<span class="number">6</span>       %默认以<span class="number">1</span>为步长
+</code></pre><h4 id="取矩阵的整行或整列">取矩阵的整行或整列</h4><pre><code>&gt;&gt;A(<span class="number">2</span>,:) %取A的第二行所有元素
+&gt;&gt;A<span class="comment">(:,2) %取A的第二列所有元素
+&gt;&gt;A([1 3],:)</span>  %取A得第一行和第三行所有元素
+</code></pre><h4 id="矩阵赋值">矩阵赋值</h4><pre><code>&gt;&gt;A=[<span class="number">1</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">4</span>;<span class="number">5</span> <span class="number">6</span>]
+A=
+    <span class="number">1</span> <span class="number">2</span>
+    <span class="number">3</span> <span class="number">4</span>
+    <span class="number">5</span> <span class="number">6</span>
+&gt;&gt;A(:<span class="number">2</span>)=[<span class="number">10</span>;<span class="number">11</span>;<span class="number">12</span>]  %把列向量[<span class="number">10</span>;<span class="number">11</span>;<span class="number">12</span>]赋给A的第二列
+A=
+    <span class="number">1</span> <span class="number">10</span>
+    <span class="number">3</span> <span class="number">11</span>
+    <span class="number">5</span> <span class="number">12</span>
+</code></pre><h4 id="给矩阵增一列">给矩阵增一列</h4><pre><code>&gt;&gt;A=[A, [<span class="number">100</span>;<span class="number">101</span>;<span class="number">102</span>]
+A=
+    <span class="number">1</span> <span class="number">10</span> <span class="number">100</span>
+    <span class="number">3</span> <span class="number">11</span> <span class="number">101</span>
+    <span class="number">5</span> <span class="number">12</span> <span class="number">102</span>
+</code></pre><h4 id="把A中所有元素放入一个列向量">把A中所有元素放入一个列向量</h4><pre><code>&gt;&gt;A(:)
+ans=
+    <span class="number">1</span>
+    <span class="number">3</span>
+    <span class="number">5</span>
+    <span class="number">10</span>
+    <span class="number">11</span>
+    <span class="number">12</span>
+    <span class="number">100</span>
+    <span class="number">101</span>
+    <span class="number">102</span>
+</code></pre><h4 id="合并矩阵">合并矩阵</h4><pre><code>&gt;&gt;A=[<span class="number">1</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">4</span>;<span class="number">5</span> <span class="number">6</span>]
+A=
+    <span class="number">1</span> <span class="number">2</span>
+    <span class="number">3</span> <span class="number">4</span>
+    <span class="number">5</span> <span class="number">6</span>
+&gt;&gt;B=[<span class="number">11</span> <span class="number">12</span>;<span class="number">13</span> <span class="number">14</span>;<span class="number">15</span> <span class="number">16</span>]
+B=
+    <span class="number">11</span> <span class="number">12</span>
+    <span class="number">13</span> <span class="number">14</span>
+    <span class="number">15</span> <span class="number">16</span>
+&gt;&gt;C=[A B]
+C=
+    <span class="number">1</span> <span class="number">2</span> <span class="number">11</span> <span class="number">12</span>
+    <span class="number">3</span> <span class="number">4</span> <span class="number">13</span> <span class="number">14</span>
+    <span class="number">5</span> <span class="number">6</span> <span class="number">15</span> <span class="number">16</span>
+
+&gt;&gt;C=[A;B]  %分号表示把B放到A下面
+C=
+    <span class="number">1</span> <span class="number">2</span>
+    <span class="number">3</span> <span class="number">4</span>
+    <span class="number">5</span> <span class="number">6</span>
+    <span class="number">11</span> <span class="number">12</span>
+    <span class="number">13</span> <span class="number">14</span>
+    <span class="number">15</span> <span class="number">16</span>
+</code></pre><h4 id="生成全0或全1矩阵">生成全0或全1矩阵</h4><pre><code>&gt;&gt;ones(<span class="number">2</span>,<span class="number">3</span>)
+ans=
+    <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>
+    <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>    
+&gt;&gt;zeros(<span class="number">2</span>,<span class="number">3</span>)
+ans=
+    <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+    <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+</code></pre><h4 id="生成随机矩阵">生成随机矩阵</h4><pre><code>&gt;&gt;rand(<span class="number">3</span>,<span class="number">3</span>)   %生成<span class="number">3</span>*<span class="number">3</span>的矩阵，矩阵里所有元素值介于[<span class="number">0</span>,<span class="number">1</span>]
+&gt;&gt;rands(<span class="number">3</span>,<span class="number">3</span>)  %生成<span class="number">3</span>*<span class="number">3</span>的矩阵，矩阵的所有元素符合均值为<span class="number">0</span>，标准差为<span class="number">1</span>的高斯分布
+</code></pre><h4 id="绘制向量直方图">绘制向量直方图</h4><pre><code>&gt;&gt;w=-<span class="number">6</span>+<span class="built_in">sqrt</span>(<span class="number">10</span>)*randn(<span class="number">1</span>,<span class="number">10000</span>))
+&gt;&gt;hist(w)
+&gt;&gt;hist(w,<span class="number">50</span>)  %<span class="number">50</span>代表把横坐标分隔为<span class="number">50</span>条
+</code></pre><h4 id="单位矩阵">单位矩阵</h4><pre><code>&gt;&gt;eye(<span class="number">4</span>)
+<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>
+<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>
+<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>
+</code></pre><h4 id="获取矩阵的维数">获取矩阵的维数</h4><pre><code>&gt;&gt;A=[<span class="number">1</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">4</span>;<span class="number">5</span> <span class="number">6</span>]
+&gt;&gt;size(A)
+ans=
+    <span class="number">3</span> <span class="number">2</span>
+</code></pre><h4 id="获取向量的长度">获取向量的长度</h4><pre><code>&gt;&gt;v=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]
+&gt;&gt;length(v)
+ans=<span class="number">4</span>
+</code></pre><h1 id="加载和存储数据">加载和存储数据</h1><h2 id="显示当前path">显示当前path</h2><pre><code><span class="prompt">&gt;&gt;</span>pwd
+</code></pre><h2 id="显示当前path所有文件">显示当前path所有文件</h2><pre><code><span class="prompt">&gt;&gt;</span>ls
+</code></pre><h2 id="更改path">更改path</h2><pre><code><span class="prompt">&gt;&gt;</span>cd <span class="string">'C:...'</span>
+</code></pre><h2 id="加载数据">加载数据</h2><pre><code><span class="prompt">&gt;&gt;</span>load data.dat
+或者
+<span class="prompt">&gt;&gt;</span>load (<span class="string">'data.data'</span>)
+</code></pre><h2 id="查看当前所有变量">查看当前所有变量</h2><pre><code><span class="prompt">&gt;&gt;</span>who
+或者
+<span class="prompt">&gt;&gt;</span>whos
+</code></pre><h2 id="清除变量">清除变量</h2><pre><code><span class="prompt">&gt;&gt;</span>clear
+</code></pre><h1 id="对数据进行运算">对数据进行运算</h1><h2 id="假设">假设</h2><pre><code>&gt;&gt;A=[<span class="number">1</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">4</span>;<span class="number">5</span> <span class="number">6</span>]
+A=
+    <span class="number">1</span> <span class="number">2</span>
+    <span class="number">3</span> <span class="number">4</span>
+    <span class="number">5</span> <span class="number">6</span>
+&gt;&gt;B=[<span class="number">11</span> <span class="number">12</span>;<span class="number">13</span> <span class="number">14</span>;<span class="number">15</span> <span class="number">16</span>]
+B=
+    <span class="number">11</span> <span class="number">12</span>
+    <span class="number">13</span> <span class="number">14</span>
+    <span class="number">15</span> <span class="number">16</span>
+&gt;&gt;C=[<span class="number">1</span> <span class="number">1</span>;<span class="number">2</span> <span class="number">2</span>]
+C=
+    <span class="number">1</span> <span class="number">1</span>
+    <span class="number">2</span> <span class="number">2</span>
+</code></pre><h2 id="矩阵乘法">矩阵乘法</h2><h3 id="矩阵*矩阵">矩阵*矩阵</h3><pre><code>&gt;&gt;A*C  %矩阵乘法
+ans=
+    <span class="number">5</span> <span class="number">5</span>
+    <span class="number">11</span> <span class="number">11</span>
+    <span class="number">17</span> <span class="number">17</span>
+</code></pre><h3 id="矩阵-*矩阵">矩阵.*矩阵</h3><pre><code>&gt;&gt;A.*B  %对应元素相乘
+ans=
+    <span class="number">11</span> <span class="number">24</span>
+    <span class="number">39</span> <span class="number">56</span>
+    <span class="number">75</span> <span class="number">96</span>
+</code></pre><h2 id="矩阵转置">矩阵转置</h2><pre><code>&gt;&gt;A'
+ans=
+    <span class="number">1</span> <span class="number">3</span> <span class="number">5</span>
+    <span class="number">2</span> <span class="number">4</span> <span class="number">6</span>
+</code></pre><h2 id="向量运算">向量运算</h2><pre><code>&gt;&gt;v=[<span class="number">1</span>;<span class="number">2</span>;<span class="number">3</span>]
+v=
+    <span class="number">1</span> 
+    <span class="number">2</span> 
+    <span class="number">3</span>
+&gt;&gt;<span class="number">1.</span>/v
+ans
+    <span class="number">1.00000</span>
+    <span class="number">0.50000</span>
+    <span class="number">0.33333</span>
+&gt;&gt;<span class="built_in">log</span>(v)  %取指数
+ans=
+    <span class="number">0.00000</span>
+    <span class="number">0.69315</span>
+    <span class="number">1.09861</span>
+&gt;&gt;<span class="built_in">exp</span>(v)  %取对数
+ans=
+    <span class="number">2.7183</span>
+    <span class="number">7.3891</span>
+    <span class="number">20.0855</span>
+&gt;&gt;-v
+v=
+    -<span class="number">1</span>
+    -<span class="number">2</span>
+    -<span class="number">3</span>
+&gt;&gt;<span class="built_in">abs</span>(v)  %取绝对值
+ans=
+    <span class="number">1</span>
+    <span class="number">2</span>
+    <span class="number">3</span>
+&gt;&gt;v+ones(length(v),<span class="number">1</span>)  %等价于v+<span class="number">1</span>，给v的每个元素加<span class="number">1</span>
+ans=
+    <span class="number">2</span>
+    <span class="number">3</span>
+    <span class="number">4</span>
+</code></pre><h2 id="有用的函数">有用的函数</h2><pre><code>&gt;&gt;a=[<span class="number">1</span> <span class="number">15</span> <span class="number">2</span> <span class="number">0.5</span>];
+</code></pre><h3 id="找最值">找最值</h3><pre><code>&gt;&gt;<span class="variable"><span class="keyword">val</span></span>=max(a)
+<span class="variable"><span class="keyword">val</span></span>=<span class="number">15</span>
+&gt;&gt;[<span class="variable"><span class="keyword">val</span>,ind]</span>=max(a）
+<span class="variable"><span class="keyword">val</span></span>=<span class="number">15</span>
+ind=<span class="number">2</span>
+</code></pre><h3 id="将元素逐个与3比较">将元素逐个与3比较</h3><pre><code>%将元素逐个与<span class="number">3</span>比较
+&gt;&gt;a&lt;<span class="number">3</span>
+ans=
+    <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>
+</code></pre><h3 id="魔方阵">魔方阵</h3><pre><code>%魔方阵--所有的行和列加起来值相同
+&gt;&gt;A=magic(<span class="number">3</span>)
+&gt;&gt;A=
+    <span class="number">8</span> <span class="number">1</span> <span class="number">6</span>
+    <span class="number">3</span> <span class="number">5</span> <span class="number">7</span>
+    <span class="number">4</span> <span class="number">9</span> <span class="number">2</span>
+</code></pre><h3 id="寻找大于/小于/等于某值的元素">寻找大于/小于/等于某值的元素</h3><pre><code>&gt;&gt;[r,c]=find(A&gt;=<span class="number">7</span>) %返回元素所在的行和列
+r=
+    <span class="number">1</span>
+    <span class="number">3</span>
+    <span class="number">2</span>
+c=
+    <span class="number">1</span>
+    <span class="number">2</span>
+    <span class="number">3</span>
+</code></pre><h3 id="向量之和">向量之和</h3><pre><code><span class="prompt">&gt;&gt;</span>sum(a）
+<span class="prompt">&gt;&gt;</span>floor(a)
+<span class="prompt">&gt;&gt;</span>ceil(a)
+</code></pre><h3 id="取矩阵每一列、行的最大元素">取矩阵每一列、行的最大元素</h3><pre><code>&gt;&gt;A=[<span class="number">8</span> <span class="number">1</span> <span class="number">6</span>;<span class="number">3</span> <span class="number">5</span> <span class="number">7</span>;<span class="number">4</span> <span class="number">9</span> <span class="number">2</span>]
+A=
+    <span class="number">8</span> <span class="number">1</span> <span class="number">6</span>
+    <span class="number">3</span> <span class="number">5</span> <span class="number">7</span>
+    <span class="number">4</span> <span class="number">9</span> <span class="number">2</span>
+&gt;&gt;max(A,[],<span class="number">1</span>)  %<span class="number">1</span>表示每一列的最大值,也可以用max(A)
+ans=
+    <span class="number">8</span> <span class="number">9</span> <span class="number">7</span>
+&gt;&gt;max(A,[],<span class="number">2</span>)  %<span class="number">2</span>表示每一行的最大值
+ans=
+    <span class="number">8</span>
+    <span class="number">7</span>
+    <span class="number">9</span>
+&gt;&gt;max(max(A))  %取A得最大元素
+或者
+&gt;&gt;A(:)
+&gt;&gt;max(A(:))
+</code></pre><h3 id="取对角元素">取对角元素</h3><pre><code>&gt;&gt;<span class="keyword">A</span>=magic(9)<span class="comment">;</span>
+&gt;&gt;<span class="keyword">A</span>.*eye(9)<span class="comment">;</span>
+&gt;&gt;sum(sum(<span class="keyword">A</span>.*eye(9)))  %对角元素之和
+</code></pre><h1 id="画数据">画数据</h1><h2 id="画函数曲线">画函数曲线</h2><pre><code><span class="prompt">&gt;&gt;</span>t=[<span class="number">0</span><span class="symbol">:</span><span class="number">0</span>.<span class="number">01</span><span class="symbol">:</span><span class="number">0</span>.<span class="number">98</span>];
+&gt;&gt;y1=sin(<span class="number">2</span>*pi*<span class="number">4</span>*t);
+&gt;&gt;plot(t,y1);
+&gt;&gt;hold on;
+&gt;&gt;y2=cos(<span class="number">2</span>*pi*<span class="number">4</span>*t);
+&gt;&gt;plot(t,y2,<span class="string">'r'</span>);
+&gt;&gt;xlabel(<span class="string">'time'</span>);
+&gt;&gt;ylabel(<span class="string">'value'</span>);
+&gt;&gt;legend(<span class="string">'sin'</span>,<span class="string">'cos'</span>)%标记曲线
+<span class="prompt">&gt;&gt;</span>title(<span class="string">'my plot'</span>);
+
+&gt;&gt;subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)  %<span class="number">1</span>行放两张图，编号为<span class="number">1</span>（从左往右第一张）
+<span class="prompt">&gt;&gt;</span>plot(t,y1);
+&gt;&gt;subplot1，<span class="number">2</span>，<span class="number">2</span>） %<span class="number">1</span>行放两张图，编号为<span class="number">2</span>（从左往右第二张）
+<span class="prompt">&gt;&gt;</span>plot(t,y2);
+&gt;&gt;axis([<span class="number">0</span>.<span class="number">5</span> <span class="number">1</span> -<span class="number">1</span> <span class="number">1</span>]) %固定横纵坐标值的范围
+</code></pre><h2 id="color_bar">color bar</h2><pre><code>&gt;&gt;A=magic<span class="comment">(5)</span>;
+&gt;&gt;imagesc<span class="comment">(A)</span>
+&gt;&gt;imagesc<span class="comment">(A)</span>,colorbar,colormap gray;<span class="preprocessor">%</span>逗号用于连接命令
+</code></pre><h1 id="控制语句">控制语句</h1><h2 id="for">for</h2><pre><code>&gt;&gt;<span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">10</span>
+    v(<span class="built_in">i</span>)=<span class="number">2</span>^<span class="built_in">i</span>;
+&gt;&gt;<span class="keyword">end</span>;
+</code></pre><h2 id="while">while</h2><pre><code>&gt;&gt;<span class="keyword">while</span> <span class="built_in">i</span>&lt;=<span class="number">5</span>
+    v(<span class="built_in">i</span>)=<span class="number">100</span>;
+    <span class="built_in">i</span>=<span class="built_in">i</span>+<span class="number">1</span>;
+&gt;&gt;<span class="keyword">end</span>;
+</code></pre><h2 id="if">if</h2><pre><code>&gt;&gt;<span class="built_in">i</span>=<span class="number">1</span>;
+&gt;&gt;<span class="keyword">while</span> true
+&gt;   v(<span class="built_in">i</span>)=<span class="number">999</span>;
+&gt;   <span class="built_in">i</span>=<span class="built_in">i</span>+<span class="number">1</span>;
+&gt;   <span class="keyword">if</span> <span class="built_in">i</span>==<span class="number">6</span>
+&gt;        <span class="keyword">break</span>;
+&gt;    <span class="keyword">elseif</span> <span class="built_in">i</span>==<span class="number">7</span>
+&gt;        <span class="keyword">break</span>;
+&gt;    <span class="keyword">end</span>;
+&gt;&gt;<span class="keyword">end</span>;
+</code></pre><h1 id="向量化表示（Vectorization)">向量化表示（Vectorization)</h1><p>${h<em>\theta(x)}={\sum</em>(j=0)^n}{\theta_j}{x_j}$=${\theta^T}{x}$</p>
+<p>${\theta}={\left[\theta_0\ \theta_1\ theta_2]^T\right}$<br>${x}={\left[\x_0\ \x_1\ x_2]^T\right}$</p>
+<h2 id="Unvertorized_implementation">Unvertorized implementation</h2><h3 id="Eg-1">Eg.1</h3><pre><code>prediction=<span class="number">0.0</span>
+<span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:n+<span class="number">1</span>,
+    prediction=prediction+theta(<span class="built_in">j</span>)*x(<span class="built_in">j</span>)
+<span class="keyword">end</span>;
+</code></pre><h3 id="Eg-2">Eg.2</h3><pre><code><span class="keyword">double</span> prediction=<span class="number">0.0</span>;
+<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n;j++)
+    prediction+=theta[j]*x[j];
+</code></pre><h2 id="Vectorized_implementation">Vectorized implementation</h2><h3 id="Eg-1-1">Eg.1</h3><pre><code>prediction=theta'*x<span class="comment">;</span>
+</code></pre><h3 id="Eg-2-1">Eg.2</h3><pre><code><span class="type">double</span> prediction=theta.<span class="built_in">transpose</span>()*x;
+</code></pre><h2 id="Gradient_descent的向量化实现">Gradient descent的向量化实现</h2><h3 id="Gradient_descent的数学表达式">Gradient descent的数学表达式</h3><p>${\theta_j}:={\theta<em>j}-{\alpha}{\frac1m}{\sum</em>{i=1}^m}{h_\theta}{(x^(i)-y^(i))}{x_j^(i)}$<br>(for all j)</p>
+<h3 id="matlab向量化实现">matlab向量化实现</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Basic_Operations">Basic Operations</h1><h2 id="算术运算">算术运算</h2><pre><code><span class="prompt">&gt;&gt;</span><span class="number">1<]]>
+    </summary>
+    
+      <category term="machine learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+      <category term="matlab" scheme="http://yoursite.com/tags/matlab/"/>
+    
+      <category term="matlab" scheme="http://yoursite.com/categories/matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[resume]]></title>
+    <link href="http://yoursite.com/2015/09/21/resume/"/>
+    <id>http://yoursite.com/2015/09/21/resume/</id>
+    <published>2015-09-21T02:10:02.000Z</published>
+    <updated>2015-09-25T06:58:25.796Z</updated>
+    <content type="html"><![CDATA[<h2 id="Self-info"><strong>Self-info</strong></h2><blockquote>
+<ul>
+<li><p>Graduate student in school of Electronics and Computer Engineering(SECE), Peking University. </p>
+<ul>
+<li><p>Research interests include Pattern Recognition, Machine Learning applied in voice, image and video. I am especially keen to develop voice-driven products and applications.My goal is letting people using <code>Tongue</code> instead of <code>Hands</code>.As an old Chinese saying <code>君子动口不动手</code></p>
+</li>
+<li><p>Big fan of Data structure and Alogrithm.</p>
+</li>
+<li><p>Jogging, gym and badminton is my hobbies.After all, health is of greate importance. </p>
+</li>
+<li><p>Nothing for nothing. Enjoy every day. </p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="Video_about_myself">Video about myself</h2><blockquote>
+<p><a href="http://yichihuang.github.io/404.html/" target="_blank" rel="external">Video</a></p>
+</blockquote>
+<h2 id="Past"><strong>Past</strong></h2><ul>
+<li><p>Part-time ACMer<br><img src="http://i.imgur.com/JbJFR8a.jpg" alt="Firework members"><br><img src="http://i.imgur.com/DEKIAmU.jpg" alt=""><br><img src="http://i.imgur.com/5UghiJD.jpg" alt=""></p>
+</li>
+<li><p>2015.7 Graduted from Beijing University of Posts and Telecommunications(BUPT)<br><img src="http://i.imgur.com/g31V693.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="Publication"><strong>Publication</strong></h3><blockquote>
+<p>《CO-OFDM光纤通信系统接收算法中时序同步的研究》（Research on timing synchronization algorithm of coherent optical OFDM systems)，发表在《光学学报（增刊）》，CIOP-2014-543.<a href="https://github.com/YichiHuang/publications" target="_blank" rel="external">文章链接</a></p>
+</blockquote>
+<h3 id="Projects"><strong>Projects</strong></h3><blockquote>
+<ul>
+<li><p>Leader of college student innovation project(national class),responsible for matlab coding and algorithm verification.</p>
+</li>
+<li><p>Web development——Lab management system. <a href="http://pan.baidu.com/s/1mgvQiEG" target="_blank" rel="external">demo视频地址</a></p>
+</li>
+</ul>
+</blockquote>
+<h2 id="Skills"><strong>Skills</strong></h2><h3 id="IT_skills">IT skills</h3><blockquote>
+<ul>
+<li>Knowledge of WIndows and Windows-based programs</li>
+</ul>
+<ul>
+<li>Experienced in coding with C/C++/Java/Web front/Matlab</li>
+</ul>
+</blockquote>
+<h3 id="English_skills">English skills</h3><blockquote>
+<ul>
+<li>Have a good command of both spoken and written in English. Have past CET-6.</li>
+<li>About half of my courses are taught by foreign teachers. Capable of working with English-speaking colleagues.</li>
+<li>All lecture notes are written in English as well as coursework, report,exam paper and any other materials. Chinese and other languages are not allowed.</li>
+</ul>
+</blockquote>
+<h3 id="Teamwork">Teamwork</h3><blockquote>
+<ul>
+<li><p>I worked in different teams during each term pratical courses, such as personal development plan, mini-term project, labs and management-related coursework(including market research reports and presentations).</p>
+</li>
+<li><p>As a member of editorial department of Student Union, I have organization term-time events(e.g. promotional activities, proofreading articles etc.)</p>
+</li>
+<li><p>In 2013, I took part in a college student innovation project and worked with four other classmates on weekly basis. I was responsible for using Matlab to simulate a communication system and verify algorithm. I always finished my task ahead of schedule. </p>
+</li>
+</ul>
+</blockquote>
+<h3 id="Problem_solving">Problem solving</h3><blockquote>
+<ul>
+<li><p>Strongly self-motivated </p>
+</li>
+<li><p>Dislike attending classes. Hate listening lecturer reading PPT word by word.It wastes of my time.</p>
+</li>
+<li><p>Favor of problem-driven learning style</p>
+</li>
+</ul>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Self-info"><strong>Self-info</strong></h2><blockquote>
+<ul>
+<li><p>Graduate student in school of Electronics and Computer Engineerin]]>
+    </summary>
+    
+      <category term="me" scheme="http://yoursite.com/tags/me/"/>
+    
+      <category term="photo" scheme="http://yoursite.com/tags/photo/"/>
+    
+      <category term="photo" scheme="http://yoursite.com/categories/photo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj3253最小堆 Huffman 贪心]]></title>
+    <link href="http://yoursite.com/2015/09/20/poj3253/"/>
+    <id>http://yoursite.com/2015/09/20/poj3253/</id>
+    <published>2015-09-20T11:57:30.000Z</published>
+    <updated>2015-09-20T13:33:37.004Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=3253" target="_blank" rel="external">Fence-Repair</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Fence Repair</strong></p>
+<p><strong>题目大意：</strong></p>
+<p>Farmer John想修围墙，需要一堆木头。木头的数量N(1&lt;=N&lt;=20,000)，每段木头长度为Li(1&lt;=Li&lt;=50,000)。他买了一根无线长的木头，需要锯N-1次，花费的钱和据木头的长度一样。求FJ的最小花费。</p>
+<p><strong>输入</strong></p>
+<blockquote>
+<p>第一行：一个整数N，代表需要锯的木头数量</p>
+<p>第二行-第N+1行：每段木头的长度</p>
+</blockquote>
+<p><strong>输出</strong></p>
+<blockquote>
+<p>一行：一个整数–最小花费</p>
+</blockquote>
+<p><strong>样例输入</strong></p>
+<blockquote>
+<p>3</p>
+<p>8</p>
+<p>5</p>
+<p>8</p>
+</blockquote>
+<p><strong>样例输出</strong></p>
+<blockquote>
+<p>34</p>
+</blockquote>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><h2 id="数据存储"><strong>数据存储</strong></h2><ul>
+<li>创建一个一维数组，存每根木头的长度，注意取值范围（可能有大数据），用C++中的<code>long long</code>更保险，否则会<code>WA</code>。</li>
+<li>一个<code>long long</code>全局变量存结果<code>ans</code>。 </li>
+</ul>
+<h2 id="算法"><strong>算法</strong></h2><ul>
+<li>类似<code>Huffman Tree</code>，利用<strong>贪心算法</strong>，采用<code>最小堆</code>的结构，自下而上。每次从剩下的木头中选取长度最短的两根，计算二者之和，直到堆中只有一个元素；</li>
+<li>一开始，把堆顶元素（最小值）赋值给<code>node[0]</code>，然后取堆的最尾元素插入堆顶，自上而下调整生成最小堆，取堆顶元素<code>node[1]</code>。此时<code>node[0]</code>和<code>node[1]</code>是最小的两个元素，计算二者之和，结果存于<code>node[1]</code>，<code>ans</code>加<code>node[1]</code>计算最小花费，再调整生成最小堆；</li>
+<li>重复第二步，直到堆里只有一个元素，循环结束输出<code>ans</code>。</li>
+</ul>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">long</span> <span class="keyword">long</span> node[<span class="number">40020</span>],ans;
+<span class="comment">/*从根节点开始向下调整*/</span>
+<span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> size)</span>
+</span>{
+    <span class="keyword">long</span> <span class="keyword">long</span> i,j,tmp;
+    tmp=node[x];
+    i=x;
+    j=<span class="number">2</span>*i;
+    <span class="keyword">while</span>(j&lt;=size)
+    {
+        <span class="keyword">if</span>(j&lt;size&amp;&amp;node[j]&gt;node[j+<span class="number">1</span>])
+            j++;
+        <span class="keyword">if</span>(tmp&gt;node[j])
+        {
+            node[i]=node[j];
+            i=j;
+            j=<span class="number">2</span>*i;
+        }
+        <span class="keyword">else</span>
+                <span class="keyword">break</span>;
+    }
+    node[i]=tmp;
+}
+<span class="comment">/*从根节点开始插入元素建堆*/</span>
+<span class="function"><span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a[],<span class="keyword">long</span> <span class="keyword">long</span> size)</span>
+</span>{
+    <span class="keyword">long</span> <span class="keyword">long</span> i;
+    <span class="keyword">for</span>(i=size/<span class="number">2</span>; i&gt;<span class="number">0</span>; i--)
+    {
+        down(i,size);
+    }
+}
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">long</span> <span class="keyword">long</span> n,k;
+    <span class="built_in">cin</span>&gt;&gt;n;
+    ans=<span class="number">0</span>;
+    <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)
+    {
+        <span class="built_in">cin</span>&gt;&gt;node[k];
+    }
+    buildHeap(node,n);
+    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)
+    {
+        node[<span class="number">0</span>]=node[<span class="number">1</span>];<span class="comment">/*取出堆顶元素*/</span>
+        node[<span class="number">1</span>]=node[n--];<span class="comment">/*把Node的最后一个元素放到堆顶*/</span>
+        down(<span class="number">1</span>,n);<span class="comment">/*向下调整建立最小堆*/</span>
+        node[<span class="number">1</span>]+=node[<span class="number">0</span>];
+        ans+=node[<span class="number">1</span>];
+        down(<span class="number">1</span>,n);
+    }
+    <span class="built_in">cout</span>&lt;&lt;ans;
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=3253" target="_blank" rel="external">Fence-Repair</a></p>
+<h1 id="题目描述(Descript]]>
+    </summary>
+    
+      <category term="Heap" scheme="http://yoursite.com/tags/Heap/"/>
+    
+      <category term="Huffman" scheme="http://yoursite.com/tags/Huffman/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode题目汇总]]></title>
+    <link href="http://yoursite.com/2015/09/20/leecode-index/"/>
+    <id>http://yoursite.com/2015/09/20/leecode-index/</id>
+    <published>2015-09-20T08:32:26.000Z</published>
+    <updated>2015-09-20T13:00:11.355Z</updated>
+    <content type="html"><![CDATA[<h3 id="Array">Array</h3><ul>
+<li><a href="http://yichihuang.github.io/2015/04/09/leetcode-Rotate-Array/" target="_blank" rel="external">旋转数组Rotate-Array</a></li>
+</ul>
+<h3 id="List">List</h3><ul>
+<li><p><a href="http://yichihuang.github.io/leetcode/2015/05/03/leetcode-remove-linked-list-elements/" target="_blank" rel="external">移除链表的元素Remove-Linked-List-Elements</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/03/31/leetcode-Reverse-Linked-List-II/" target="_blank" rel="external">逆转链表Reverse-Linked-List-II</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/21/leetcode-Intersection-of-Two-Linked-Lists/" target="_blank" rel="external">找到两链表的交点Intersection-of-Two-Linked-Lists</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/11/leetcode-linked-list-cycle/" target="_blank" rel="external">链表有环Linked-List-Cycle</a></p>
+</li>
+</ul>
+<h3 id="Stack">Stack</h3><ul>
+<li><p><a href="http://yichihuang.github.io/2015/05/03/leetcode-trapping-rain-water/" target="_blank" rel="external">能乘多少水Trapping-Rain-Water</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/05/02/leetcode-min-stack/" target="_blank" rel="external">带有min操作的栈Min-Stack</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/05/02/leetcode-valid-parentheses/" target="_blank" rel="external">判断字符串的括号是否匹配Valid-Parentheses</a></p>
+</li>
+</ul>
+<h3 id="Tree">Tree</h3><ul>
+<li><p><a href="http://yichihuang.github.io/2015/04/06/leetcode-binary-tree-preorder-traversal/" target="_blank" rel="external">二叉树遍历Binary-Tree-Preorder-Traversal</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/08/leetcode-validate-binary-search-tree/" target="_blank" rel="external">有效二叉搜索树Validate-Binary-Search-Tree</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/11/leetcode-same-tree/" target="_blank" rel="external">判断两树是否相同Same-Tree</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/11/leetcode-symmetric-tree/" target="_blank" rel="external">判断对称二叉树Symmetric-Tree</a></p>
+</li>
+<li><p><a href="http://yichihuang.github.io/2015/04/11/leetcode-depth-of-binary-tree/" target="_blank" rel="external">二叉树的最大深度和最小深度Depth-of-Binary-Tree</a></p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="Array">Array</h3><ul>
+<li><a href="http://yichihuang.github.io/2015/04/09/leetcode-Rotate-Array/" target="_blank" rel="external">旋转数]]>
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[POJ算法分类]]></title>
+    <link href="http://yoursite.com/2015/09/20/poj-solution/"/>
+    <id>http://yoursite.com/2015/09/20/poj-solution/</id>
+    <published>2015-09-20T07:00:44.000Z</published>
+    <updated>2015-09-20T13:05:52.235Z</updated>
+    <content type="html"><![CDATA[<h3 id="OJ上的一些水题(可用来练手和增加自信)">OJ上的一些水题(可用来练手和增加自信)</h3><p>（poj3299,poj2159,poj2739,poj1083,poj2262,poj1503,poj3006,poj2255,poj3094)</p>
+<h1 id="初期:">初期:</h1><h3 id="一-基本算法:">一.基本算法:</h3><p>(1)枚举. (poj1753,poj2965)</p>
+<p>(2)贪心(poj1328,poj2109,poj2586)</p>
+<p>(3)递归和分治法. </p>
+<p>(4)递推. </p>
+<p>(5)构造法.(poj3295)</p>
+<p>(6)模拟法.(poj1068,poj2632,poj1573,poj2993,poj2996)</p>
+<h3 id="二-图算法:">二.图算法:</h3><p>(1)图的深度优先遍历和广度优先遍历. </p>
+<p>(2)最短路径算法(dijkstra,bellman-ford,floyd,heap+dijkstra) </p>
+<p>(poj1860,poj3259,poj1062,poj2253,poj1125,poj2240)</p>
+<p>(3)最小生成树算法(prim,kruskal)</p>
+<p>(poj1789,poj2485,poj1258,poj3026)</p>
+<p>(4)拓扑排序 (poj1094)</p>
+<p>(5)二分图的最大匹配 (匈牙利算法) (poj3041,poj3020)</p>
+<p>(6)最大流的增广路算法(KM算法). (poj1459,poj3436)</p>
+<h3 id="三-数据结构-">三.数据结构.</h3><p>(0)栈（<a href="http://yichihuang.github.io/2015/05/02/poj2082/" target="_blank" rel="external">poj2082</a>）和队列（poj2259)</p>
+<p>(1)串 (poj1035,poj3080,poj1936)</p>
+<p>(2)排序(快排、归并排(与逆序数有关)、堆排)(poj2388,poj2299)</p>
+<p>(3)简单并查集的应用.</p>
+<p>(4)哈希表和二分查找等高效查找法(数的Hash,串的Hash)   </p>
+<p>(poj3349,poj3274,POJ2151,poj1840,poj2002,<a href="http://yichihuang.github.io/2015/04/17/poj2503-hash/" target="_blank" rel="external">poj2503</a>)</p>
+<p>(5)哈夫曼树 (<a href="http://yichihuang.github.io/2015/09/20/poj3253/" target="_blank" rel="external">poj3253</a>)</p>
+<p>(6)堆 (<a href="http://yichihuang.github.io/2015/04/10/poj2051/" target="_blank" rel="external">poj2051</a>)</p>
+<p>(7)trie树(静态建树、动态建树) (<a href="http://yichihuang.github.io/poj/2015/04/17/poj2503/" target="_blank" rel="external">poj2503</a>,<a href="http://yichihuang.github.io/2015/04/17/poj2503/" target="_blank" rel="external">poj3630</a>,poj2001)</p>
+<h3 id="四-简单搜索">四.简单搜索</h3><p>(1)深度优先搜索 </p>
+<p>(poj2488,poj3083,poj3009,poj1321,poj2251)</p>
+<p>(2)广度优先搜索</p>
+<p>(poj3278,poj1426,poj3126,poj3087.poj3414)</p>
+<p>(3)简单搜索技巧和剪枝</p>
+<p>(poj2531,poj1416,poj2676,1129)</p>
+<h3 id="五-动态规划">五.动态规划</h3><p>(1)背包问题. (poj1837,poj1276)</p>
+<p>(2)型如下表的简单DP(可参考lrj的书 page149): </p>
+<pre><code>1.E[j]=opt{D[i]+w(i,j)} 
+
+  (poj3267,poj1836,poj1260,poj2533)
+
+2.E[<span class="link_label">i,j</span>]=opt{D[<span class="link_label">i-1,j</span>]+xi,D[<span class="link_label">i,j-1</span>]+yj,D[<span class="link_label">i-1</span>][<span class="link_reference">j-1</span>]+zij} (最长公共子序列)    
+
+  (poj3176,poj1080,poj1159)
+
+3.C[i,j]=w[i,j]+opt{C[i,k-1]+C[k,j]}.(最优二分检索树问题) 
+</code></pre><h3 id="六-数学">六.数学</h3><p>(1)组合数学: </p>
+<pre><code><span class="number">1.</span>加法原理和乘法原理. 
+
+<span class="number">2.</span>排列组合. 
+
+<span class="number">3.</span>递推关系. 
+</code></pre><p>(POJ3252,poj1850,poj1019,poj1942)</p>
+<p>(2)数论. </p>
+<pre><code><span class="number">1.</span>素数与整除问题 
+
+<span class="number">2.</span>进制位. 
+
+<span class="number">3.</span>同余模运算.
+</code></pre><p>(poj2635, poj3292,poj1845,poj2115)</p>
+<p>(3)计算方法. </p>
+<pre><code><span class="number">1.</span>二分法求解单调函数相关知识.
+</code></pre><p>(poj3273,poj3258,poj1905,poj3122)</p>
+<h3 id="七-计算几何学-">七.计算几何学.</h3><p>(1)几何公式.</p>
+<p>(2)叉积和点积的运用(如线段相交的判定,点到线段的距离等). </p>
+<p>(poj2031,poj1039)</p>
+<p>(3)多边型的简单算法(求面积)和相关判定(点在多边型内,多边型是否相交) </p>
+<p>(poj1408,poj1584)</p>
+<p>(4)凸包.  </p>
+<p>(poj2187,poj1113)</p>
+<h1 id="中级:">中级:</h1><h3 id="一-基本算法:-1">一.基本算法:</h3><p>(1)C++的标准模版库的应用. (poj3096,poj3007)</p>
+<p>(2)较为复杂的模拟题的训练</p>
+<p>(poj3393,poj1472,poj3371,poj1027,poj2706)</p>
+<h3 id="二-图算法:-1">二.图算法:</h3><p>(1)差分约束系统的建立和求解. (poj1201,poj2983)</p>
+<p>(2)最小费用最大流(poj2516,poj2516,poj2195)</p>
+<p>(3)双连通分量(poj2942)</p>
+<p>(4)强连通分支及其缩点.(poj2186)</p>
+<p>(5)图的割边和割点(poj3352)</p>
+<p>(6)最小割模型、网络流规约(poj3308)</p>
+<h3 id="三-数据结构--1">三.数据结构.</h3><p>(1)线段树. (poj2528,poj2828,poj2777,poj2886,poj2750)</p>
+<p>(2)静态二叉检索树. (poj2482,poj2352,<a href="http://yichihuang.github.io/2015/04/08/poj2418/" target="_blank" rel="external">poj2418</a>)</p>
+<p>(3)树状树组(poj1195,poj3321)</p>
+<p>(4)RMQ. (poj3264,poj3368)</p>
+<p>(5)并查集的高级应用. (poj1703,2492)</p>
+<p>(6)KMP算法. (<a href="http://yichihuang.github.io/2015/04/16/poj1961/" target="_blank" rel="external">poj1961</a>,<a href="http://yichihuang.github.io/2015/04/16/poj2406/" target="_blank" rel="external">poj2406</a>,<a href="http://yichihuang.github.io/2015/04/16/poj2752/" target="_blank" rel="external">poj2752</a>)</p>
+<h3 id="四-搜索">四.搜索</h3><p>(1)最优化剪枝和可行性剪枝 </p>
+<p>(2)搜索的技巧和优化 (poj3411,poj1724)</p>
+<p>(3)记忆化搜索(poj3373,poj1691)</p>
+<h3 id="五-动态规划-1">五.动态规划</h3><p>(1)较为复杂的动态规划(如动态规划解特别的施行商问题等)<br>        (poj1191,poj1054,poj3280,poj2029,poj2948,poj1925,poj3034)</p>
+<p>(2)记录状态的动态规划. (poj3254,poj2411,poj1185)</p>
+<p>(3)树型动态规划(poj2057,poj1947,poj2486,poj3140)</p>
+<h3 id="六-数学-1">六.数学</h3><p>(1)组合数学: </p>
+<pre><code> <span class="number">1.</span>容斥原理. 
+
+<span class="number">2.</span>抽屉原理. 
+
+<span class="number">3.</span>置换群与Polya定理
+
+ (poj1286,poj2409,poj3270,poj1026). 
+
+<span class="number">4.</span>递推关系和母函数. 
+</code></pre><p>(2)数学. </p>
+<pre><code> <span class="number">1.</span>高斯消元法
+
+ <span class="comment">(poj2947,poj1487, poj2065,poj1166,poj1222)</span>
+
+<span class="number">2.</span>概率问题. <span class="comment">(poj3071,poj3440)</span>
+
+<span class="number">3.</span>GCD、扩展的欧几里德<span class="comment">(中国剩余定理)</span> <span class="comment">(poj3101)</span> 
+</code></pre><p>(3)计算方法. </p>
+<pre><code><span class="number">1.0</span>/<span class="number">1</span>分数规划. (poj2976)
+
+<span class="number">2.</span>三分法求解单峰(单谷)的极值. 
+
+<span class="number">3.</span>矩阵法(poj3150,poj3422,poj3070)
+
+<span class="number">4.</span>迭代逼近(poj3301)
+</code></pre><p>(4)随机化算法(poj3318,poj2454)</p>
+<p>(5)杂题.</p>
+<pre><code><span class="list">(<span class="keyword">poj1870</span>,poj3296,poj3286,poj1095)</span>
+</code></pre><h3 id="七-计算几何学--1">七.计算几何学.</h3><p>(1)坐标离散化. </p>
+<p>(2)扫描线算法(例如求矩形的面积和周长并,常和线段树或堆一起使用). </p>
+<p>(poj1765,poj1177,poj1151,poj3277,poj2280,poj3004)</p>
+<p>(3)多边形的内核(半平面交)(poj3130,poj3335)</p>
+<p>(4)几何工具的综合应用.</p>
+<p>(poj1819,poj1066,poj2043,poj3227,poj2165,poj3429)</p>
+<h1 id="高级:">高级:</h1><h3 id="一-基本算法要求:">一.基本算法要求:</h3><p>(1)代码快速写成,精简但不失风格  </p>
+<p>(poj2525,poj1684,poj1421,poj1048,poj2050,poj3306)</p>
+<p>(2)保证正确性和高效性.  poj3434</p>
+<h3 id="二-图算法:-2">二.图算法:</h3><p>(1)度限制最小生成树和第K最短路. (poj1639)</p>
+<p>(2)最短路,最小生成树,二分图,最大流问题的相关理论(主要是模型建立和求解)</p>
+<p>(poj3155,poj2112,poj1966,poj3281,poj1087,poj2289,poj3216,poj2446）</p>
+<p>(3)最优比率生成树.  (poj2728)</p>
+<p>(4)最小树形图(poj3164)</p>
+<p>(5)次小生成树. </p>
+<p>(6)无向图、有向图的最小环   </p>
+<h3 id="三-数据结构--2">三.数据结构.</h3><p>(1)trie图的建立和应用. (poj2778)</p>
+<p>(2)LCA和RMQ问题(LCA(最近公共祖先问题) 有离线算法(并查集+dfs) 和 在线算法 (RMQ+dfs)).(poj1330)</p>
+<p>(3)双端队列和它的应用(维护一个单调的队列,常常在动态规划中起到优化状态转移的目的).  (poj2823)</p>
+<p>(4)左偏树(可合并堆).  </p>
+<p>(5)后缀树(非常有用的数据结构,也是赛区考题的热点). </p>
+<p>(poj3415,poj3294)</p>
+<h3 id="四-搜索-1">四.搜索</h3><p>(1)较麻烦的搜索题目训练</p>
+<p>(poj1069,poj3322,poj1475,poj1924,poj2049,poj3426)</p>
+<p>(2)广搜的状态优化:利用M进制数存储状态、转化为串用hash表判重、按位压缩存储状态、双向广搜、A*算法.</p>
+<p>(poj1768,poj1184,poj1872,poj1324,poj2046,poj1482)</p>
+<p>(3)深搜的优化:尽量用位运算、一定要加剪枝、函数参数尽可能少、层数不易过大、可以考虑双向搜索或者是轮换搜索、IDA*算法. </p>
+<p>(poj3131,poj2870,poj2286)</p>
+<h3 id="五-动态规划-2">五.动态规划</h3><p>(1)需要用数据结构优化的动态规划.</p>
+<p>(poj2754,poj3378,poj3017)</p>
+<p>(2)四边形不等式理论. </p>
+<p>(3)较难的状态DP(poj3133)</p>
+<h3 id="六-数学-2">六.数学</h3><p>(1)组合数学. </p>
+<pre><code> <span class="number">1.</span>MoBius反演(poj2888,poj2154)
+
+<span class="number">2.</span>偏序关系理论. 
+</code></pre><p>(2)博奕论. </p>
+<pre><code><span class="number">1.</span>极大极小过程(poj3317,poj1085)
+
+<span class="number">2.</span>Nim问题. 
+</code></pre><h3 id="七-计算几何学--2">七.计算几何学.</h3><p>(1)半平面求交(poj3384,poj2540)</p>
+<p>(2)可视图的建立(poj2966)</p>
+<p>(3)点集最小圆覆盖. </p>
+<p>(4)对踵点(poj2079)</p>
+<h3 id="八-综合题-">八.综合题.</h3><p>   (poj3109,poj1478,poj1462,poj2729,poj2048,poj3336,poj3315,poj2148,poj1263)</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="OJ上的一些水题(可用来练手和增加自信)">OJ上的一些水题(可用来练手和增加自信)</h3><p>（poj3299,poj2159,poj2739,poj1083,poj2262,poj1503,poj3006,poj2255,poj3094)</p>
+<h1 ]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[记15级北大信息工程学院计算机1班第一次班聚]]></title>
+    <link href="http://yoursite.com/2015/09/20/My-Gallery/"/>
+    <id>http://yoursite.com/2015/09/20/My-Gallery/</id>
+    <published>2015-09-20T02:52:05.000Z</published>
+    <updated>2015-09-20T10:10:34.210Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://i.imgur.com/lyd69rQ.jpg" alt=""></p>
+<h4 id="计算机1班第一次班级聚会"><strong>计算机1班第一次班级聚会</strong></h4><p>经过两个礼拜的PS，陈辰同学终于把聚会的照片PO出来了。计算机1班第一次聚会在哈工大的筒子楼（莘语轩），东北菜馆。作为一个在北京上了四年学的正宗南方人表示，鱼香茄子真的好难吃。虽然菜没点好不咋好吃，但大家玩得都很开心。对了，陈辰你还有半打啤酒下次聚会必须喝掉啊。</p>
+<p>据说隔壁计算机2班的同学都很能喝，所以下次是不是要考虑和二班联谊一下呢？</p>
+<p>看到图片，钟尚儒同学表示又多了PS的素材。</p>
+<p>最后，祝愿大家能开心快乐的度过未来的研究生三年。可能是在学校学习的最后三年了，珍惜。</p>
+<p>一起奔向远大前程！</p>
+<h4 id="大家都很正常的合照"><strong>大家都很正常的合照</strong></h4><p><img src="http://i.imgur.com/lyd69rQ.jpg" alt=""></p>
+<h4 id="第二张照片，陈辰你是要飞起来了吗。O(∩_∩)O哈哈哈~"><strong>第二张照片，陈辰你是要飞起来了吗。O(∩_∩)O哈哈哈~</strong></h4><p><img src="http://i.imgur.com/IuRPEDy.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://i.imgur.com/lyd69rQ.jpg" alt=""></p>
+<h4 id="计算机1班第一次班级聚会"><strong>计算机1班第一次班级聚会</strong></h4><p>经过两个礼拜的PS，陈辰同学终于把聚会的照片PO]]>
+    </summary>
+    
+      <category term="photo" scheme="http://yoursite.com/tags/photo/"/>
+    
+      <category term="计算机1班" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA1%E7%8F%AD/"/>
+    
+      <category term="photo" scheme="http://yoursite.com/categories/photo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[长沙市一中深港小分队喜迎韶哥莅临大学城]]></title>
+    <link href="http://yoursite.com/2015/09/19/photo-changshayizhongjuhui/"/>
+    <id>http://yoursite.com/2015/09/19/photo-changshayizhongjuhui/</id>
+    <published>2015-09-19T03:08:00.000Z</published>
+    <updated>2015-09-20T10:13:55.389Z</updated>
+    <content type="html"><![CDATA[<h4 id="港大的韶哥来大学城"><strong>港大的韶哥来大学城</strong></h4><p>开学第一周，韶哥特意从香港过来深圳，顺便来了大学城看我们。在这边的一中共四位：心一、蔡轩、贺思颖和我。心一和蔡轩都在汇丰，贺思颖和我在信工。</p>
+<p>一起吃了晚饭，之后去唱了K。</p>
+<h4 id="汇丰楼下的尚书房合照"><strong>汇丰楼下的尚书房合照</strong></h4><p>服务员帮忙拍的，拍完后说：“后面那位男同学没笑”</p>
+<p>我们看过来一看，“噗…韶哥你的表情怎么这么严肃…”<br><img src="http://i.imgur.com/HAZUfFk.jpg" alt=""></p>
+<h4 id="爱学习的girl"><strong>爱学习的girl</strong></h4><p>第一周真是太忙了，各种报告各种会。于是趁着等菜的间隙确认了一下第二天的安排，结果被心一偷拍了。</p>
+<p><img src="http://i.imgur.com/Ns9CP0F.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="港大的韶哥来大学城"><strong>港大的韶哥来大学城</strong></h4><p>开学第一周，韶哥特意从香港过来深圳，顺便来了大学城看我们。在这边的一中共四位：心一、蔡轩、贺思颖和我。心一和蔡轩都在汇丰，贺思颖和我在信工。</p>
+<p>一起吃了晚饭，之后]]>
+    </summary>
+    
+      <category term="photo" scheme="http://yoursite.com/tags/photo/"/>
+    
+      <category term="长沙市一中" scheme="http://yoursite.com/tags/%E9%95%BF%E6%B2%99%E5%B8%82%E4%B8%80%E4%B8%AD/"/>
+    
+      <category term="photo" scheme="http://yoursite.com/categories/photo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Remove Linked List Elements]]></title>
+    <link href="http://yoursite.com/2015/05/03/leetcode-remove-linked-list-elements/"/>
+    <id>http://yoursite.com/2015/05/03/leetcode-remove-linked-list-elements/</id>
+    <published>2015-05-03T12:08:26.000Z</published>
+    <updated>2015-09-20T23:51:34.608Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/remove-linked-list-elements/" target="_blank" rel="external">remove-linked-list-elements</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Remove Linked List Elements</strong></p>
+<p>Remove all elements from a linked list of integers that have value val.</p>
+<p>Example<br>Given: <code>1 --&gt; 2 --&gt; 6 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6, val = 6</code><br>Return: <code>1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5</code></p>
+<p><strong>移除链表元素</strong></p>
+<p>给定一个整数，要求从链表中移除包含这个整数的所有结点。</p>
+<p>例如：</p>
+<p>给定链表和值：<code>1 --&gt; 2 --&gt; 6 --&gt; 3 --&gt; 4 --&gt; 5 --&gt; 6, val = 6</code></p>
+<p>返回：<code>1 --&gt; 2 --&gt; 3 --&gt; 4 --&gt; 5</code></p>
+<h1 id="分析（Analysis)">分析（Analysis)</h1><p>这题并不难。起初我考虑到头结点是否需要删去的问题，把问题分为了两部分解决。后来，看了网上的思路，有更好的办法可以把所有问题归为一类，那就是在头结点之前假定一个空闲结点<code>newhead</code>，然后把<code>newhead-&gt;next</code>指向<code>head</code>即可。最后返回<code>newhead-&gt;next</code>。</p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code>/**
+ * <span class="type">Definition</span> <span class="keyword">for</span> singly-linked <span class="built_in">list</span>.
+ * <span class="keyword">struct</span> <span class="type">ListNode</span> {
+ *     <span class="built_in">int</span> <span class="keyword">val</span>;
+ *     <span class="type">ListNode</span> *next;
+ *     <span class="type">ListNode</span>(<span class="built_in">int</span> x) : <span class="keyword">val</span>(x), next(<span class="type">NULL</span>) {}
+ * };
+ */
+<span class="keyword">class</span> <span class="type">Solution</span> {
+public:
+    <span class="type">ListNode</span>* removeElements(<span class="type">ListNode</span>* head, <span class="built_in">int</span> <span class="keyword">val</span>) {
+        <span class="type">ListNode</span>* newhead=<span class="keyword">new</span> <span class="type">ListNode</span>(-<span class="number">1</span>);
+        <span class="type">ListNode</span>* pre=newhead;
+        <span class="type">ListNode</span>* cur=head;
+        newhead-&gt;next=head;
+        <span class="keyword">while</span>(cur){
+            <span class="keyword">if</span>(cur-&gt;<span class="keyword">val</span>==<span class="keyword">val</span>){
+                cur=cur-&gt;next;
+                pre-&gt;next=cur;
+            }
+            <span class="keyword">else</span>{
+                pre=cur;
+                cur=cur-&gt;next;
+            }
+        }
+        return newhead-&gt;next;
+    }
+};
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/remove-linked-list-elements/" target="_blank" rel="external">remove-linked-]]>
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="list" scheme="http://yoursite.com/tags/list/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Trapping Rain Water]]></title>
+    <link href="http://yoursite.com/2015/05/03/leetcode-trapping-rain-water/"/>
+    <id>http://yoursite.com/2015/05/03/leetcode-trapping-rain-water/</id>
+    <published>2015-05-03T12:04:58.000Z</published>
+    <updated>2015-09-20T12:07:39.935Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" rel="external">trapping-rain-water</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Trapping rain water</strong></p>
+<p>Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
+<p>For example,<br>Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.</p>
+<p><img src="http://i.imgur.com/OvjszIy.png" alt=""></p>
+<p>The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Thanks Marcos for contributing this image!</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>这道题放到了<code>stack</code>这一类里，然而一眼望过去这是一道数学几何体。</p>
+<h2 id="方法一(时间复杂度O(n))">方法一(时间复杂度O(n))</h2><pre><code>从两边往中间扫描，对每一个<span class="escape">`h</span>eight[i]<span class="escape">`来</span>说，蓄水量等于左右两边第二高的柱子减去<span class="escape">`h</span>eight[i]<span class="escape">`的</span>值。最后把所有柱子的蓄水量加起来。
+</code></pre><h1 id="代码(Code)">代码(Code)</h1><h2 id="方法一">方法一</h2><pre><code><span class="keyword">class</span> Solution {
+<span class="keyword">public</span>:
+    <span class="built_in">int</span> trap(vector&lt;<span class="built_in">int</span>&gt;&amp; height) {
+        <span class="built_in">int</span> ans=<span class="number">0</span>;
+        <span class="built_in">int</span> <span class="built_in">len</span>=height.size();
+        <span class="built_in">int</span> <span class="built_in">left</span>=<span class="number">0</span>,<span class="built_in">right</span>=<span class="built_in">len</span>-<span class="number">1</span>,secHeight;
+        <span class="keyword">while</span>(<span class="built_in">left</span>&lt;<span class="built_in">right</span>){
+            <span class="keyword">if</span>(height[<span class="built_in">left</span>]&lt;height[<span class="built_in">right</span>]){
+                secHeight=max(height[<span class="built_in">left</span>],secHeight);
+                ans+=secHeight-height[<span class="built_in">left</span>];
+                <span class="built_in">left</span>++;
+            }
+            <span class="keyword">else</span>{
+                secHeight=max(height[<span class="built_in">right</span>],secHeight);
+                ans+=secHeight-height[<span class="built_in">right</span>];
+                <span class="built_in">right</span>--;
+            }
+        }
+        return ans;
+    }
+};
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" rel="external">trapping-rain-water</a]]>
+    </summary>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Min Stack]]></title>
+    <link href="http://yoursite.com/2015/05/02/leetcode-min-stack/"/>
+    <id>http://yoursite.com/2015/05/02/leetcode-min-stack/</id>
+    <published>2015-05-02T12:14:32.000Z</published>
+    <updated>2015-09-20T12:16:34.546Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/min-stack/" target="_blank" rel="external">min-stack</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Min Stack</strong></p>
+<p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<ul>
+<li><p>push(x) – Push element x onto stack.</p>
+</li>
+<li><p>pop() – Removes the element on top of the stack.</p>
+</li>
+<li><p>top() – Get the top element.</p>
+</li>
+<li><p>getMin() – Retrieve the minimum element in the stack.</p>
+</li>
+</ul>
+<p><strong>带有最小值操作的栈</strong></p>
+<p>设计一个栈使其支持压入、弹出、返回栈顶元素和及时返回栈的最小元素。</p>
+<ul>
+<li><p>push(x) –把元素x压入栈中</p>
+</li>
+<li><p>pop() –移除栈顶元素</p>
+</li>
+<li><p>top() –得带栈顶元素</p>
+</li>
+<li><p>getMin() –获得栈的最小元素</p>
+</li>
+</ul>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>本题用C++做非常简单，因为C++里的封装了stack的基本操作。</p>
+<p>本题的难点在于如果获得最小元素，这里要求时间复杂度为O(1)，那么通过遍历的方法找最小值的方法在这里是行不通的。</p>
+<p>我们可以通过维护一个<code>minStack</code>的栈，栈顶元素是当前栈里所有元素的最小值，只要把<code>minStack</code>的栈顶元素返回即可。</p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="keyword">class</span> MinStack {
+<span class="keyword">public</span>:
+    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>{
+        s.push(x);
+        <span class="keyword">if</span>(minS.empty()||minS.top()&gt;=x)
+            minS.push(x);
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>{
+        <span class="keyword">if</span>(s.top()==minS.top())
+                minS.pop();
+        s.pop();
+    }
+
+    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> s.top();
+    }
+
+    <span class="function"><span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> minS.top();
+    }
+<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;
+<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; minS;
+};
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/min-stack/" target="_blank" rel="external">min-stack</a></p>
+<h1 id="题目描述(D]]>
+    </summary>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Valid Parentheses]]></title>
+    <link href="http://yoursite.com/2015/05/02/leetcode-valid-parentheses/"/>
+    <id>http://yoursite.com/2015/05/02/leetcode-valid-parentheses/</id>
+    <published>2015-05-02T12:12:49.000Z</published>
+    <updated>2015-09-20T12:14:19.046Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="external">valid-parentheses/</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Valid Parentheses</strong></p>
+<p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+<p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p>
+<p><strong>有效的括号</strong></p>
+<p>给一个字符串只包含<code>&#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39;  &#39;]&#39;</code>，判断这个字符串时候合法。</p>
+<p>括号必须按照规律匹配，如<code>&quot;()&quot; &quot;()[]{}&quot;</code> 都是合法的，但是<code>&quot;(]&quot; 和 &quot;([)]&quot;</code>不合法.</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>用一个栈模拟，遇到左括号则压入栈，遇到右括号则与栈顶进行匹配，如果失配则返回<code>false</code>，如果匹配就弹出。如果没有右括号，返回<code>false</code>。最后，如果栈不为空，则说明还有左括号没有匹配，返回<code>false</code>，如果栈不为空，则说明所有括号都已经匹配返回<code>true</code>，最终返回<code>st.empty()</code>即可。</p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="keyword">class</span> Solution {
+<span class="keyword">public</span>:
+    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>{
+        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;
+        <span class="keyword">char</span> c;
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++){
+            <span class="keyword">if</span>(s[i]==<span class="string">'('</span>||s[i]==<span class="string">'{'</span>||s[i]==<span class="string">'['</span>)
+                st.push(s[i]);
+            <span class="keyword">if</span>(s[i]==<span class="string">')'</span>||s[i]==<span class="string">'}'</span>||s[i]==<span class="string">']'</span>)
+            {
+                   <span class="keyword">if</span>(st.empty())
+                    <span class="keyword">return</span> <span class="literal">false</span>;
+                <span class="keyword">else</span>
+                {
+                    c=st.top();
+                    <span class="keyword">if</span>((s[i]==<span class="string">')'</span>&amp;&amp;c!=<span class="string">'('</span>)||(s[i]==<span class="string">'}'</span>&amp;&amp;c!=<span class="string">'{'</span>)||(s[i]==<span class="string">']'</span>&amp;&amp;c!=<span class="string">'['</span>))
+                        <span class="keyword">return</span> <span class="literal">false</span>;
+                    <span class="keyword">else</span>
+                        st.pop();
+                }
+            }
+        }
+            <span class="keyword">return</span> st.empty();
+    }
+};
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="external">valid-parentheses/</a></]]>
+    </summary>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj2082栈的应用之给定每个矩形的长和宽求可以形成的最大矩形]]></title>
+    <link href="http://yoursite.com/2015/05/02/poj2082/"/>
+    <id>http://yoursite.com/2015/05/02/poj2082/</id>
+    <published>2015-05-02T12:10:27.000Z</published>
+    <updated>2015-09-20T12:12:24.982Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2082" target="_blank" rel="external">Terrible Sets</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Terrible Sets（糟糕的集合）</strong></p>
+<p>假设N是自然数集合，R是表示所有实数的集合，wi,hi(i=1…n)是N里的一些元素，w0=0.<br>定义集合B={<x,y>|x,y $\in$ R,存在i&gt;0使得0&lt;=y&lt;=hi,$\prod<em>{0\leqj\leq(i-1)}wj \leq x \leq \prod</em>{0\leqj\leqi}wj$} </x,y></p>
+<p>定义集合S={A|A=WH,W,H$\in$ $R^+$,在N中存在x0,y0使得集合T={<x,y>|x,y$\in$ $R^+$,x0 &lt;= x &lt;= x0 +W, y0 &lt;= y &lt;= y0 + H} 包含于集合B}</x,y></p>
+<p>你的任务是求S的最大值。</p>
+<p><strong>题目大意：</strong>这个题目描述的好绕，其实大意是：紧贴想x轴有一些相互挨着的矩形，给定连续的宽和长，求出最大的连续矩形的面积。</p>
+<p><strong>样例输入</strong></p>
+<pre><code><span class="number">3</span>
+<span class="number">1</span> <span class="number">2</span>
+<span class="number">3</span> <span class="number">4</span>
+<span class="number">1</span> <span class="number">2</span>
+<span class="number">3</span>
+<span class="number">3</span> <span class="number">4</span>
+<span class="number">1</span> <span class="number">2</span>
+<span class="number">3</span> <span class="number">4</span>
+-<span class="number">1</span>
+</code></pre><p><strong>样例输出</strong></p>
+<pre><code><span class="number">12</span>
+<span class="number">14</span>
+</code></pre><h1 id="分析(Analysis)">分析(Analysis)</h1><p>这道题的题目描述实在太晦涩。</p>
+<p>直接看样例：</p>
+<p>Case#1：</p>
+<p><img src="http://i.imgur.com/ZFuAr1v.png" alt=""></p>
+<p>Case#2:</p>
+<p><img src="http://i.imgur.com/hYS5TNz.png" alt=""></p>
+<ol>
+<li>可以用一个栈<code>stact&lt;Node&gt;s</code>模拟，将矩形入栈，如果矩形的高度递增，即<code>rect.h</code>大于栈顶矩形的高度，则将此矩形入栈；</li>
+<li>如果矩形的高度比当前栈顶矩形的高度小，此时该矩形不入栈，但是要计算此高度的矩形与之前入栈的矩形所能围成的最大矩形，矩形高度已知为<code>rect.h</code>，主要计算到达的最大宽度。最大宽度设为<code>width</code>,初始化为0，如果<code>栈非空&amp;&amp;s.top().h&gt;rect.h</code>,则<code>width+=s.top.w</code>，然后把新的大矩形压入栈；</li>
+<li>注意到测试2的情况，最后还要扫描所有入栈的矩形，否则如果最后一个入栈的矩形高度比栈顶矩形高度大小，则会少加一部分面积。</li>
+</ol>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">struct</span> Node{
+    <span class="keyword">int</span> w,h;<span class="comment">//宽和高 </span>
+}rect;
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">int</span> n,ans,curArea,width;
+    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)&amp;&amp;n!=-<span class="number">1</span>)
+    {
+        ans=<span class="number">0</span>;
+        <span class="built_in">stack</span>&lt;Node&gt; s;
+        <span class="keyword">while</span>(n--)
+        {
+            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;rect.w,&amp;rect.h);
+            <span class="keyword">if</span>(s.empty()||rect.h&gt;=s.top().h){
+                s.push(rect);<span class="comment">//如果栈为空或矩形高度递增，则压入栈； </span>
+            }
+            <span class="keyword">else</span>{
+                width=<span class="number">0</span>;
+                curArea=<span class="number">0</span>;
+                <span class="keyword">while</span>(!s.empty()&amp;&amp;s.top().h&gt;rect.h)
+                {<span class="comment">//计算最大宽度 </span>
+                    width+=s.top().w;
+                    curArea=width*s.top().h;
+                    <span class="keyword">if</span>(curArea&gt;ans)
+                        ans=curArea;
+                     s.pop();
+                }
+                <span class="comment">//将新的大矩形压入栈</span>
+                width+=rect.w;
+                rect.w=width;
+                 s.push(rect);
+            }
+        }
+        width=<span class="number">0</span>;
+        curArea=<span class="number">0</span>;
+        <span class="keyword">while</span>(!s.empty())
+        {<span class="comment">//再次扫面看是否存在更大的矩形（例如测试样例2所示） </span>
+            width+=s.top().w;
+            curArea=s.top().h*width;
+            <span class="keyword">if</span>(curArea&gt;ans)
+                ans=curArea;
+            s.pop();
+        }
+        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+} 
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2082" target="_blank" rel="external">Terrible Sets</a></p>
+<h1 id="题目描述(Descrip]]>
+    </summary>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Intersection of Two Linked Lists]]></title>
+    <link href="http://yoursite.com/2015/04/21/leetcode-Intersection-of-Two-Linked-Lists/"/>
+    <id>http://yoursite.com/2015/04/21/leetcode-Intersection-of-Two-Linked-Lists/</id>
+    <published>2015-04-21T10:17:18.000Z</published>
+    <updated>2015-09-20T10:18:43.755Z</updated>
+    <content type="html"><![CDATA[<p><strong>题目链接：</strong><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="external">Intersection of Two Linked Lists</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Intersection of Two Linked Lists</strong></p>
+<p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+<p>For example, the following two linked lists:</p>
+<p><img src="http://i.imgur.com/rX7Oanr.png" alt=""></p>
+<p>begin to intersect at node c1.</p>
+<p>Notes:</p>
+<ul>
+<li><p>If the two linked lists have no intersection at all, return null.</p>
+</li>
+<li><p>The linked lists must retain their original structure after the function returns.</p>
+</li>
+<li><p>You may assume there are no cycles anywhere in the entire linked structure.</p>
+</li>
+<li><p>Your code should preferably run in O(n) time and use only O(1) memory.</p>
+</li>
+</ul>
+<p><strong>找到两个链表的交点</strong></p>
+<p>写一个程序找到两个链表的相交结点。</p>
+<p>例如，如下有两个链表A,B：</p>
+<p><img src="http://i.imgur.com/1zi86bS.png" alt=""></p>
+<p>A,B开始交汇于结点<code>c1</code>。</p>
+<p>注意：</p>
+<ul>
+<li><p>如果两个链表没有交点，返回<code>null</code></p>
+</li>
+<li><p>在函数返回后，链表必须保持原来的结构不变</p>
+</li>
+<li><p>你可以假设在整个的链表结构里没有环</p>
+</li>
+<li><p>你的代码时间复杂度为<code>O(n)</code>，空间复杂度<code>O(1)</code>。</p>
+</li>
+</ul>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><ol>
+<li><p>对于两个链表A,B，如果有交点，那么它们的尾指针必定重合，以此判断两链表是否相交。</p>
+</li>
+<li><p>如果A,B相交，把相交前的部分和相交后的部分分开来看，相交后的部分链表长度是一样的，那么如果两链表不一样长，则只可能是相交前部分不一样长。分别统计出两链表的长度<code>lenA</code>和<code>lenB</code>，然后做差值<code>d</code>，把较长的链表头指针向移动<code>d</code>个结点，然后再同时移动两个链表的头指针，如果头指针相同，就是我们要找的相交结点。</p>
+</li>
+</ol>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code>/**
+ * Definition <span class="keyword">for</span> singly-linked list.
+ * struct ListNode {
+ *     <span class="built_in">int</span> val<span class="comment">;</span>
+ *     ListNode *<span class="keyword">next</span><span class="comment">;</span>
+ *     ListNode(<span class="built_in">int</span> x) : val(x), <span class="keyword">next</span>(<span class="literal">NULL</span>) {}
+ * }<span class="comment">;</span>
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        <span class="keyword">if</span>(!headA||!headB)
+            <span class="keyword">return</span> <span class="literal">NULL</span><span class="comment">;</span>
+        ListNode *curA=headA<span class="comment">;</span>
+        ListNode *curB=headB<span class="comment">;</span>
+        <span class="built_in">int</span> lenA=<span class="number">1</span>,lenB=<span class="number">1</span><span class="comment">;</span>
+        <span class="keyword">while</span>(curA-&gt;<span class="keyword">next</span>){
+            curA=curA-&gt;<span class="keyword">next</span><span class="comment">;</span>
+            ++lenA<span class="comment">;</span>
+        }
+        <span class="keyword">while</span>(curB-&gt;<span class="keyword">next</span>){
+            curB=curB-&gt;<span class="keyword">next</span><span class="comment">;</span>
+            ++lenB<span class="comment">;</span>
+        }
+        <span class="keyword">if</span>(curA!=curB)
+            <span class="keyword">return</span> <span class="literal">NULL</span><span class="comment">;</span>
+        <span class="keyword">else</span>{
+            <span class="built_in">int</span> d<span class="comment">;</span>
+            <span class="keyword">if</span>(lenA&gt;lenB){
+                d=lenA-lenB<span class="comment">;</span>
+                <span class="keyword">while</span>(d--)
+                    headA=headA-&gt;<span class="keyword">next</span><span class="comment">;</span>
+            }
+            <span class="keyword">else</span>{
+                d=lenB-lenA<span class="comment">;</span>
+                <span class="keyword">while</span>(d--)
+                    headB=headB-&gt;<span class="keyword">next</span><span class="comment">;</span>
+            }
+            <span class="keyword">while</span>(headA!=headB){
+                headA=headA-&gt;<span class="keyword">next</span><span class="comment">;</span>
+                headB=headB-&gt;<span class="keyword">next</span><span class="comment">;</span>
+            }
+            <span class="keyword">return</span> headA<span class="comment">;</span>
+        }
+    }
+}<span class="comment">;</span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>题目链接：</strong><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="external">Intersecti]]>
+    </summary>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="list" scheme="http://yoursite.com/tags/list/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj3630字典树应用找字符串中有没另一个字符串的前缀]]></title>
+    <link href="http://yoursite.com/2015/04/17/poj3630/"/>
+    <id>http://yoursite.com/2015/04/17/poj3630/</id>
+    <published>2015-04-17T11:55:06.000Z</published>
+    <updated>2015-09-20T11:56:43.109Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=3630" target="_blank" rel="external">Phone List</a></p>
+<h1 id="题目描述（Description)">题目描述（Description)</h1><p>给出一列电话号码，判断这些号码里时候有的号码是另一个号码的前缀，如果是，则此号码不符合条件（输出NO），否则输出YES。</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>属于字典树的应用。这里的<code>branch</code>是<code>0-9</code>这10个字符。设置<code>flag</code>作为判断的标志。</p>
+<p>分两步：</p>
+<ul>
+<li>当前插入单词<code>word</code>是否为之前字符串的前缀</li>
+<li>之前的字符串是否为<code>word</code>的前缀</li>
+</ul>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">100001</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> branch=<span class="number">10</span>;
+<span class="keyword">struct</span> tree_node{
+    <span class="keyword">bool</span> end;
+    tree_node *next[branch];
+}root,node[maxn];
+<span class="keyword">int</span> p;
+<span class="keyword">bool</span> flag;
+<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *word)</span>
+</span>{
+    tree_node *location=&amp;root;
+    <span class="keyword">bool</span> newflag=<span class="literal">false</span>;
+    <span class="keyword">while</span>(*word){
+        <span class="keyword">if</span>(location-&gt;end)<span class="comment">//前面的串是word的前缀 </span>
+        {
+            flag=<span class="literal">false</span>;
+            <span class="keyword">return</span>;    
+        }
+        <span class="keyword">if</span>(location-&gt;next[*word-<span class="string">'0'</span>]==<span class="literal">NULL</span>){<span class="comment">//建立新的分支，word不是之前串的前缀 </span>
+            newflag=<span class="literal">true</span>;
+            node[p].end=<span class="literal">false</span>;
+            <span class="built_in">memset</span>(node[p].next,<span class="literal">NULL</span>,<span class="keyword">sizeof</span>(node[p].next));
+            location-&gt;next[*word-<span class="string">'0'</span>]=&amp;node[p++];
+        }
+        location=location-&gt;next[*word-<span class="string">'0'</span>];
+        word++;
+    }
+    location-&gt;end=<span class="literal">true</span>; 
+    <span class="keyword">if</span>(!newflag)<span class="comment">//word是之前串的前缀 </span>
+        flag=<span class="literal">false</span>;
+}
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">int</span> t,n;
+    <span class="keyword">char</span> s[<span class="number">11</span>];
+    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);
+    <span class="keyword">while</span>(t--){
+        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);
+        p=<span class="number">0</span>;
+        flag=<span class="literal">true</span>;
+        <span class="built_in">memset</span>(root.next,<span class="literal">NULL</span>,<span class="keyword">sizeof</span>(root.next));
+        <span class="keyword">while</span>(n--){
+            <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);
+            <span class="keyword">if</span>(flag)<span class="comment">//没有出现一个字符串是另一个字符串的前缀的情况下插入字典树 </span>
+                insert(s);
+        }
+        <span class="keyword">if</span>(flag)
+            <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);
+        <span class="keyword">else</span>
+            <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=3630" target="_blank" rel="external">Phone List</a></p>
+<h1 id="题目描述（Descriptio]]>
+    </summary>
+    
+      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj2503哈希表实现字符串查找]]></title>
+    <link href="http://yoursite.com/2015/04/17/poj2503-hash/"/>
+    <id>http://yoursite.com/2015/04/17/poj2503-hash/</id>
+    <published>2015-04-17T11:52:31.000Z</published>
+    <updated>2015-09-20T11:54:45.125Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。</p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100003</span>;
+<span class="keyword">struct</span> Node{
+    <span class="keyword">int</span> hash;
+    <span class="keyword">struct</span> Node *next;
+}*link[M]={<span class="literal">NULL</span>};
+
+<span class="keyword">char</span> word[<span class="number">100000</span>][<span class="number">11</span>],dialect[<span class="number">100000</span>][<span class="number">11</span>];
+
+<span class="comment">/*Unix系统ELF字符串散列函数*/</span>
+<span class="function"><span class="keyword">int</span> <span class="title">ELFhash</span><span class="params">(<span class="keyword">char</span> *key)</span>
+</span>{
+    <span class="keyword">unsigned</span> <span class="keyword">long</span> h=<span class="number">0</span>,g;
+    <span class="keyword">while</span>(*key){
+        h=(h&lt;&lt;<span class="number">4</span>)+*key++;
+        g=h&amp;<span class="number">0x0000000</span>L;
+        <span class="keyword">if</span>(g)
+            h^=g&gt;&gt;<span class="number">24</span>;
+        h&amp;=~g;
+    }
+    <span class="keyword">return</span> h%M;
+} 
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">int</span> i,j,e,n=<span class="number">0</span>;
+    <span class="keyword">struct</span> Node *p;
+    <span class="keyword">char</span> str[<span class="number">100</span>];
+    gets(str);
+    <span class="keyword">while</span>(<span class="built_in">strcmp</span>(str,<span class="string">""</span>)!=<span class="number">0</span>)
+    {
+        <span class="keyword">for</span>(i=<span class="number">0</span>;str[i]!=<span class="string">' '</span>;i++){
+            word[n][i]=str[i];
+        }
+        word[n][i++]=<span class="string">'\0'</span>;
+        <span class="built_in">strcpy</span>(dialect[n],str+i);
+        e=ELFhash(dialect[n]);
+        p=(<span class="keyword">struct</span> Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));
+        p-&gt;hash=n;
+        p-&gt;next=link[e];
+        link[e]=p;
+        n++;
+        gets(str);
+    }
+    <span class="keyword">while</span>(gets(str)!=<span class="literal">NULL</span>){
+        e=ELFhash(str);
+        p=link[e];
+        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){<span class="comment">//哈希冲突处理</span>
+            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,dialect[p-&gt;hash])==<span class="number">0</span>)
+                <span class="keyword">break</span>;
+            <span class="keyword">else</span>
+                p=p-&gt;next;    
+        }
+        <span class="keyword">if</span>(!p)
+            <span class="built_in">printf</span>(<span class="string">"eh\n"</span>);
+        <span class="keyword">else</span>
+            <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,word[p-&gt;hash]);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
+<h1 id="题目描述(Description]]>
+    </summary>
+    
+      <category term="Hash" scheme="http://yoursite.com/tags/Hash/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj2503字典树的应用]]></title>
+    <link href="http://yoursite.com/2015/04/17/poj2503/"/>
+    <id>http://yoursite.com/2015/04/17/poj2503/</id>
+    <published>2015-04-17T11:45:48.000Z</published>
+    <updated>2015-09-20T11:51:06.965Z</updated>
+    <content type="html"><![CDATA[<h1 id="*题目链接">*题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
+<h1 id="字典树介绍">字典树介绍</h1><p>字典树是一种树形结构，也叫单词搜索树、Trie树，优点是可以利用字符串的公共前缀来节约存储空间，最大限度地减少无谓的字符串的比较。</p>
+<h2 id="特点"><strong>特点</strong></h2><pre><code>-<span class="ruby"> 根节点不包含任何字母，二除它以外的每个结点仅包含一个字母；
+</span>-<span class="ruby"> 从跟结点到某个结点，路径上经过的字母一次连接起来所构成的字母序列，称为该结点对应的单词。单词列表中的每个词，都是该字母树某个结点所对应的单词；
+</span>-<span class="ruby"> 每个结点的所有儿子包含的字母各不相同。字典树的插入、删除、查找都非常简单，用一个重循环即可，即第i次循环找到前i个字母所对应的子树，然后进行相应操作。</span>
+</code></pre><h2 id="字典树的静态与动态实现（模板）"><strong>字典树的静态与动态实现（模板）</strong></h2><h3 id="静态数组实现（费空间）">静态数组实现（费空间）</h3><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> branch=<span class="number">26</span>;
+<span class="keyword">struct</span> tree_node{
+    <span class="keyword">int</span> count;
+    <span class="keyword">bool</span> end;
+    tree_node *next[branch];
+}root,node[maxn];
+<span class="keyword">int</span> p;<span class="comment">//静态建树的特点，记录用了几个tree_node，则下一个结点是node[p]</span>
+<span class="comment">/*插入*/</span>
+<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *word)</span>
+</span>{
+    tree_node *location=&amp;root;<span class="comment">//起初指向根节点，再一层层向下找</span>
+    <span class="keyword">while</span>(*word){
+        <span class="keyword">if</span>(location-&gt;next[*word-<span class="string">'a'</span>]==<span class="literal">NULL</span>){
+            node[p].count=<span class="number">0</span>;<span class="comment">//初始化新节点</span>
+            node[p].end=<span class="literal">false</span>;
+            <span class="built_in">memset</span>(node[p],<span class="number">0</span>,<span class="keyword">sizeof</span>(node[p]));
+            location-&gt;next[*word-<span class="string">'a'</span>]=&amp;node[p++];
+        }
+        location=location-&gt;next[*word-<span class="string">'a'</span>];
+        location-&gt;count++;
+        word++;
+    }
+    location-&gt;end=<span class="literal">true</span>;
+}
+<span class="comment">/*查找*/</span>
+<span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(cahr *word)</span>
+</span>{
+    tree_node *location=&amp;root;
+    <span class="keyword">while</span>(*word&amp;&amp;location){
+        location=location-&gt;next[*word-<span class="string">'a'</span>];
+        word++;
+    }
+    <span class="keyword">return</span> (location!=<span class="literal">NULL</span>&amp;&amp;location-&gt;end);
+}
+</code></pre><h3 id="动态建树（费时间）">动态建树（费时间）</h3><pre><code>struct tree_node{
+    boot end;
+    tree_node *<span class="keyword">next</span>[branch];<span class="comment">//指向各子树的指针，下标0-25代表26个字符</span>
+    tree_node(){
+        end=<span class="keyword">false</span>;
+        memset(<span class="keyword">next</span>,<span class="keyword">NULL</span>,sizeof(<span class="keyword">next</span>));
+    }
+}root;
+<span class="comment">/*插入*/</span>
+<span class="keyword">void</span> insert(<span class="keyword">char</span> *word)
+{
+    tree_node *location=&amp;root;<span class="comment">//向以root为根节点的树中插入word</span>
+    <span class="keyword">while</span>(*word){
+        <span class="keyword">if</span>(location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>]==<span class="keyword">NULL</span>){
+            tree_node *tmp=<span class="keyword">new</span> tree_node();
+            location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>]=tmp;
+        }
+        location=location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>];
+        word++;
+    }
+    location-&gt;end=<span class="keyword">true</span>;
+}
+<span class="comment">/*查找*/</span>
+bool search(<span class="keyword">char</span> *word)
+{
+    tree_node *location=&amp;root;
+    <span class="keyword">while</span>(*word&amp;&amp;location){
+        location=location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>];
+        word++;
+    }
+    <span class="keyword">return</span> (location!=<span class="keyword">NULL</span>&amp;&amp;location-&gt;end);
+}
+</code></pre><h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p>直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。</p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2600010</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> branchNum=<span class="number">26</span>;
+<span class="keyword">struct</span> tree_node{
+    <span class="keyword">char</span> dia[<span class="number">11</span>];
+    tree_node *next[branchNum];
+}root,node[maxn];
+<span class="keyword">int</span> p=<span class="number">0</span>;
+<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *word,<span class="keyword">char</span> *dia)</span>
+</span>{
+    tree_node *location=&amp;root;
+    <span class="keyword">while</span>(*word)
+    {
+        <span class="keyword">if</span>(location-&gt;next[*word-<span class="string">'a'</span>]==<span class="literal">NULL</span>){
+            <span class="built_in">memset</span>(node[p].next,<span class="literal">NULL</span>,<span class="keyword">sizeof</span>(node[p].next));
+            location-&gt;next[*word-<span class="string">'a'</span>]=&amp;node[p++];
+        }
+        location=location-&gt;next[*word-<span class="string">'a'</span>];
+        word++;
+    }
+    <span class="built_in">strcpy</span>(location-&gt;dia,dia);
+}
+<span class="function"><span class="keyword">void</span> <span class="title">search</span><span class="params">(<span class="keyword">char</span> *word)</span>
+</span>{
+    tree_node *location=&amp;root;
+    <span class="keyword">while</span>(*word&amp;&amp;location)
+    {
+        location=location-&gt;next[*word-<span class="string">'a'</span>];
+        word++;
+    }
+    <span class="keyword">if</span>(location!=<span class="literal">NULL</span>&amp;&amp;location-&gt;dia!=<span class="number">0</span>)
+        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,location-&gt;dia);
+    <span class="keyword">else</span>
+        <span class="built_in">printf</span>(<span class="string">"eh\n"</span>);
+}
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">char</span> word[<span class="number">11</span>],dia[<span class="number">11</span>],c;
+    <span class="keyword">while</span>(<span class="number">1</span>)
+    {
+        <span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,word,dia);
+        insert(dia,word);
+        getchar();
+        c=getchar();
+        <span class="keyword">if</span>(c==<span class="string">'\n'</span>)
+            <span class="keyword">break</span>;
+        ungetc(c,<span class="built_in">stdin</span>);
+    }
+    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,dia)!=EOF)
+    {
+        search(dia);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="*题目链接">*题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
+<h1 id="字典树介绍">字典树介绍</]]>
+    </summary>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="Trie" scheme="http://yoursite.com/tags/Trie/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj2752KMP算法找前缀后缀串]]></title>
+    <link href="http://yoursite.com/2015/04/16/poj2752/"/>
+    <id>http://yoursite.com/2015/04/16/poj2752/</id>
+    <published>2015-04-16T11:42:55.000Z</published>
+    <updated>2015-09-20T11:45:09.387Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2752" target="_blank" rel="external">Seek the Name,Seek the Fame</a></p>
+<h1 id="题目（Description)">题目（Description)</h1><p>给一个串S,如果它的前缀串和后缀串相同，请输出它的长度。</p>
+<p>例如：<code>S=&quot;alala&quot;</code>，符合条件的串是<code>{&quot;a&quot;,&quot;ala&quot;,&quot;alala&quot;}</code>，程序应该输出<code>1 3 5</code></p>
+<p>S只含有小写字母，S的长度为[1,400000].</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><h2 id="KMP字符串匹配算法简述"><strong>KMP字符串匹配算法简述</strong></h2><p>KMP字符匹配算法的精华就是<code>next</code>数组，由于这个数组的引入，直接将暴力匹配的<code>O(m*n)</code>的时间复杂度降为<code>O(m+n)</code>，<code>next</code>数组的主要作用就是避免当文本串和模式串失配时，模式串的下标不从0开始匹配，而是从<code>next[j]</code>开始。</p>
+<h2 id="解题思路："><strong>解题思路：</strong></h2><p><a href="http://blog.csdn.net/niushuai666/article/details/6968507" target="_blank" rel="external">参考</a></p>
+<p>这道题是<code>next</code>数组的一个应用。</p>
+<ul>
+<li><p>首先，我们求出<code>next</code>数组。</p>
+</li>
+<li><p>然后分析怎么用<code>next</code>数组完成查找前后缀的匹配：</p>
+<p>  以题目给的样例为例：</p>
+<p>  下标         0  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</p>
+<p>  模式串        a  b a b c a b a b a  b  a  b  c  a  b  a  b</p>
+<p>  next[j]    -1  0 0 1 2 0 1 2 3 4  3  4  3  4  5  6  7  8  9</p>
+</li>
+</ul>
+<p>得出的结论如下：</p>
+<ol>
+<li><p>当<code>j=len</code>时，<code>next[len]=next[18]=9</code>，说明整个字符串的前9个字符和后9个字符相同，所以9是满足条件的。</p>
+</li>
+<li><p><code>next[9]=4</code>，说明在<code>0-8</code>中的前<code>4</code>个字符和后<code>4</code>个字符相同。由上一条可知前<code>9</code>个字符和后<code>9</code>个字符相同，所以，S串的<code>0-3</code>等于<code>5-8</code>，而<code>0-3</code>又等于<code>9-12</code>，<code>5-8</code>又等于<code>14-17</code>，所以结果是<code>0-3</code>等于<code>14-17</code>，即4也是满足条件的。</p>
+</li>
+<li><p><code>next[4]=2</code>，满足条件。</p>
+</li>
+<li><p><code>next[2]=0</code>，表明没有相同的前缀和后缀了，这事就已经找到了这个S串的所有前缀和后缀。</p>
+</li>
+<li><p>结果就是2，4，9，18.</p>
+</li>
+</ol>
+<p>所以，我们可以得出这样的结论：<strong>凡是next[i]!=0的，都是模式串的前缀和后缀相同的字符数。</strong></p>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">400001</span>;
+<span class="keyword">char</span> s[maxn];
+<span class="keyword">int</span> next[maxn],ans[maxn];
+<span class="keyword">int</span> len;
+
+<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
+</span>{
+    next[<span class="number">0</span>]=-<span class="number">1</span>;
+    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
+    <span class="keyword">while</span>(j&lt;len)
+    {
+        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k]){
+                next[++j]=++k;
+        }
+        <span class="keyword">else</span>
+            k=next[k];
+    }
+}
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,s)!=EOF)
+    {
+        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
+        len=<span class="built_in">strlen</span>(s);
+        get_next();
+        <span class="keyword">int</span> j=<span class="number">0</span>;
+        ans[<span class="number">0</span>]=len;
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=len;next[i]!=<span class="number">0</span>;)
+        {
+            ans[++j]=next[i];
+            i=next[i];
+        }
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=j-<span class="number">1</span>;j&gt;=<span class="number">0</span>;j--)
+            <span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[j]);
+        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+    }
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2752" target="_blank" rel="external">Seek the Name,Seek the Fame</a></p>
+<h1 id]]>
+    </summary>
+    
+      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
+    
+      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj2406字符串的级联]]></title>
+    <link href="http://yoursite.com/2015/04/16/poj2406/"/>
+    <id>http://yoursite.com/2015/04/16/poj2406/</id>
+    <published>2015-04-16T11:41:38.000Z</published>
+    <updated>2015-09-20T11:42:43.101Z</updated>
+    <content type="html"><![CDATA[<p><strong>题目链接：</strong><a href="http://poj.org/problem?id=2406" target="_blank" rel="external">power string</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给一个字符串，求出其最大的循环子串。</p>
+<p>比如：</p>
+<pre><code>输入：
+    abcd
+    aaaa
+    ababab
+    ababcab
+输出：
+    <span class="number">1</span>
+    <span class="number">4</span>
+    <span class="number">3</span>
+    <span class="number">1</span>
+</code></pre><h1 id="分析(Analysis)">分析(Analysis)</h1><ul>
+<li><p>直接用KMP的next数组求，然后计算循环节的长度</p>
+</li>
+<li><p>注意给出的第四种情况，虽然有循环前缀<code>abab</code>，但后面的字符串不是循环形式，所以输出结果还是1.</p>
+</li>
+</ul>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000001</span>;
+<span class="keyword">char</span> s[maxn];
+<span class="keyword">int</span> next[maxn];
+<span class="keyword">int</span> len;
+<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
+</span>{
+    next[<span class="number">0</span>]=-<span class="number">1</span>;
+    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
+    <span class="keyword">while</span>(j&lt;len)
+    {
+        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k])
+            next[++j]=++k;
+        <span class="keyword">else</span>
+            k=next[k];
+    }
+}
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,s)&amp;&amp;s[<span class="number">0</span>]!=<span class="string">'.'</span>)
+    {
+        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
+        len=<span class="built_in">strlen</span>(s);
+        get_next();
+        <span class="keyword">int</span> length=len-next[len];
+        <span class="keyword">if</span>(length!=len&amp;&amp;(len%length)==<span class="number">0</span>)
+            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,len/length);
+        <span class="keyword">else</span>
+            <span class="built_in">printf</span>(<span class="string">"1\n"</span>);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>题目链接：</strong><a href="http://poj.org/problem?id=2406" target="_blank" rel="external">power string</a></p>
+<h1 id="题目描述(Descripti]]>
+    </summary>
+    
+      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
+    
+      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[poj1961字符串循环前缀的周期]]></title>
+    <link href="http://yoursite.com/2015/04/16/poj1961/"/>
+    <id>http://yoursite.com/2015/04/16/poj1961/</id>
+    <published>2015-04-16T11:39:36.000Z</published>
+    <updated>2015-09-20T11:41:19.883Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1961" target="_blank" rel="external">Period</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一个字符串S（长度2 &lt;= N &lt;= 1 000 000），只包含小写字母，找出S的循环前缀的长度和循环的周期。</p>
+<p>例如：</p>
+<pre><code>输入：
+aaa
+输出：
+<span class="number">2</span> <span class="number">2</span>
+<span class="number">3</span> <span class="number">3</span>
+
+输入：
+aabaabaabaab
+输出：
+<span class="number">2</span> <span class="number">2</span>
+<span class="number">6</span> <span class="number">2</span>
+<span class="number">9</span> <span class="number">3</span>
+<span class="number">12</span> <span class="number">4</span>
+</code></pre><h1 id="分析(Analysis)">分析(Analysis)</h1><p>KMP算法的又一大应用。</p>
+<ul>
+<li><p>先求出S串的<code>next</code>数组。</p>
+</li>
+<li><p>如果出现循环前缀，那么循环节的长度是<code>length=i(下标)-next(i)</code>，循环前缀结束的出现在<code>i%length==0</code>的时候。</p>
+</li>
+</ul>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000010</span>;
+<span class="keyword">char</span> s[maxn];
+<span class="keyword">int</span> next[maxn];
+<span class="keyword">int</span> len;
+<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
+</span>{
+    next[<span class="number">0</span>]=-<span class="number">1</span>;
+    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
+    <span class="keyword">while</span>(j&lt;len)
+    {
+        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k])
+        {
+            next[++j]=++k;    
+        }
+        <span class="keyword">else</span>
+            k=next[k];
+    }
+}
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+    <span class="keyword">int</span> kase=<span class="number">0</span>;
+    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;len)&amp;&amp;len!=<span class="number">0</span>)
+    {
+        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);
+        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
+        get_next();
+        <span class="built_in">printf</span>(<span class="string">"Test case #%d\n"</span>,++kase);
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=len;i++)
+        {
+            <span class="keyword">if</span>(next[i]==<span class="number">0</span>)
+                <span class="keyword">continue</span>;
+            <span class="keyword">int</span> length=i-next[i];
+            <span class="keyword">if</span>((i%length)==<span class="number">0</span>)
+                <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,i,i/length);
+        }
+        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1961" target="_blank" rel="external">Period</a></p>
+<h1 id="题目描述(Description)">]]>
+    </summary>
+    
+      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
+    
+      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[leetcode Symmetric Tree]]></title>
+    <link href="http://yoursite.com/2015/04/11/leetcode-symmetric-tree/"/>
+    <id>http://yoursite.com/2015/04/11/leetcode-symmetric-tree/</id>
+    <published>2015-04-11T11:37:06.000Z</published>
+    <updated>2015-09-20T11:38:25.188Z</updated>
+    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="external">symmetric-tree</a></p>
+<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Symmertic Tree</strong></p>
+<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
+<p>For example, this binary tree is symmetric:</p>
+<p><img src="http://i.imgur.com/XMPcmDq.png" alt=""></p>
+<p>But the following is not:</p>
+<p><img src="http://i.imgur.com/5j4nghB.png" alt=""></p>
+<p>Note:<br>Bonus points if you could solve it both recursively and iteratively.</p>
+<p><strong>对称二叉树</strong></p>
+<p>给一个二叉树，检查它的镜像数是否和原来的树一样（也就是说，关于原树的中心对称）</p>
+<p>例如：第一个二叉树是对称的，第二个树不对称。</p>
+<p>注意：</p>
+<p>如果分别用递归和迭代解答会有奖励。</p>
+<h1 id="分析(Analysis)">分析(Analysis)</h1><p><strong>递归解法：</strong></p>
+<ul>
+<li><p>先判断根节点是否为空或者是否只有一个根节点，若空，返回<code>True</code>。</p>
+</li>
+<li><p>另外写一个函数，判断结点的左右子树是否对称。要判断对称，则只要判断<code>left</code>结点的左子树与<code>right</code>结点的左子树是否相同，<code>left</code>结点的右子树与<code>right</code>结点的左子树是否相同。</p>
+</li>
+<li><p>两树不相同的条件：<code>左子为空右子不为空</code>、<code>右子为空左子不为空</code>、<code>左右子都不为空但数值不同</code>。</p>
+</li>
+</ul>
+<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="comment">/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
+public:
+    bool isMir(<span class="type">TreeNode</span> *<span class="keyword">left</span>,<span class="type">TreeNode</span> *<span class="keyword">right</span>){
+        <span class="keyword">if</span>(!<span class="keyword">left</span>&amp;&amp;!<span class="keyword">right</span>)
+            <span class="keyword">return</span> <span class="literal">true</span>;
+        <span class="keyword">if</span>((!<span class="keyword">left</span>&amp;&amp;<span class="keyword">right</span>)||(<span class="keyword">left</span>&amp;&amp;!<span class="keyword">right</span>)||(<span class="keyword">left</span>-&gt;val!=<span class="keyword">right</span>-&gt;val))<span class="comment">//两树不相同的条件</span>
+            <span class="keyword">return</span> <span class="literal">false</span>;
+        <span class="keyword">return</span> isMir(<span class="keyword">left</span>-&gt;<span class="keyword">left</span>,<span class="keyword">right</span>-&gt;<span class="keyword">right</span>)&amp;&amp;isMir(<span class="keyword">left</span>-&gt;<span class="keyword">right</span>,<span class="keyword">right</span>-&gt;<span class="keyword">left</span>);
+    }
+    bool isSymmetric(<span class="type">TreeNode</span> *root) {
+        <span class="keyword">if</span>(!root)<span class="comment">//空结点</span>
+            <span class="keyword">return</span> <span class="literal">true</span>;
+        <span class="keyword">if</span>(!root-&gt;<span class="keyword">left</span>&amp;&amp;!root-&gt;<span class="keyword">right</span>)<span class="comment">//只有一个根节点</span>
+            <span class="keyword">return</span> <span class="literal">true</span>;
+        <span class="keyword">else</span>
+            <span class="keyword">return</span> isMir(root-&gt;<span class="keyword">left</span>,root-&gt;<span class="keyword">right</span>);
+    }
+};
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="external">symmetric-tree</a></p>
+<h1 ]]>
+    </summary>
+    
+      <category term="binary tree" scheme="http://yoursite.com/tags/binary-tree/"/>
+    
+      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+  </entry>
+  
+</feed>
