@@ -308,7 +308,7 @@ hr {
 blockquote {
   padding: 0 15px;
   color: #666;
-  border-left: 4px solid #FFA54F;
+  border-left: 4px solid #ddd;
 }
 blockquote cite::before {
   content: "-";
@@ -990,7 +990,7 @@ body {
 .site-description {
   margin-top: 5px;
   font-size: 14px;
-  color: #F0FFF0;
+  color: #555;
 }
 .site-state {
   overflow: hidden;
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff28;
+  background: #ff6a6c;
 }
 .sidebar-nav {
   margin: 0;

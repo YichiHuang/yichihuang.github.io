@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-09-29T13:46:46.082Z</updated>
+  <updated>2015-10-15T14:25:38.267Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,196 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[排序算法汇总]]></title>
+    <link href="http://yoursite.com/2015/10/15/sorting/"/>
+    <id>http://yoursite.com/2015/10/15/sorting/</id>
+    <published>2015-10-15T14:05:44.000Z</published>
+    <updated>2015-10-15T14:25:38.267Z</updated>
+    <content type="html"><![CDATA[<h1 id="排序综述">排序综述</h1><h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,...,n</code>的一种排列<code>p1,p2,...,pn</code>，使其关键字满足<code>kp1&lt;=kp2&lt;=...&lt;=kpn</code>非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。</p>
+<h2 id="内排序和外排序">内排序和外排序</h2><p>1、内排序是在排序整个过程中，待排序的所有记录全部放置在内存中；<br>2、外排序是由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外村之间多次交换才能进行。</p>
+<p>这里只讨论内排序。</p>
+<h2 id="排序算法的性能">排序算法的性能</h2><p><strong>1、时间性能</strong><br>排序算法的时间开销是衡量其好坏的最重要指标。在内排序中，主要进行两种操作：<code>比较和移动</code>。</p>
+<p>高效率的内排序算法应该是具有尽可能少的关键字比较次数和尽可能少的记录移动次数。</p>
+<p><strong>2、辅助空间</strong><br>辅助空间是除了存放待排序数据所占用的存储空间之外，执行算法所需要的其他存储空间。</p>
+<p><strong>3、内排序算法总览</strong></p>
+<h2 id="交换排序">交换排序</h2><h3 id="冒泡排序">冒泡排序</h3><pre><code><span class="comment">/*交换x,y*/</span>
+<span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> *x,<span class="keyword">int</span> *y)</span>
+</span>{
+    <span class="keyword">int</span> temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+}
+<span class="comment">/*交换排序之冒泡排序*/</span>
+<span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> length)</span>
+</span>{
+    <span class="keyword">int</span> i,j;
+    <span class="keyword">bool</span> flag=<span class="literal">true</span>;<span class="comment">//用于标记是否交换，如果没有交换直接跳过 </span>
+    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;length&amp;&amp;flag;i++){
+        flag=<span class="literal">false</span>;
+        <span class="keyword">for</span>(j=length-<span class="number">2</span>;j&gt;=i;j--){
+            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>]){
+                swap(&amp;a[j],&amp;a[j+<span class="number">1</span>]);
+                flag=<span class="literal">true</span>;
+            }
+        }
+    }
+}
+</code></pre><h3 id="快速排序">快速排序</h3><pre><code><span class="function"><span class="keyword">int</span> <span class="title">Patition</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span>
+</span>{
+    <span class="keyword">int</span> pivotkey=a[low];
+    <span class="keyword">while</span>(low&lt;high){
+        <span class="keyword">while</span>(low&lt;high&amp;&amp;a[high]&gt;pivotkey)
+            --high;
+        swap(&amp;a[high],&amp;a[high]);
+        <span class="keyword">while</span>(low&lt;high&amp;&amp;a[low]&lt;pivotkey)
+            ++low;
+        swap(&amp;a[low],&amp;a[high]);
+    }
+    <span class="keyword">return</span> low;
+}
+<span class="function"><span class="keyword">void</span> <span class="title">Qsort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span>
+</span>{
+    <span class="keyword">int</span> pivot;
+    <span class="keyword">if</span>(low&lt;high){
+        pivot=Patition(a,low,high);
+        Qsort(a,low,pivot-<span class="number">1</span>);
+        Qsort(a,pivot+<span class="number">1</span>,high);
+    }
+}
+</code></pre><h2 id="选择排序">选择排序</h2><h3 id="简单选择排序">简单选择排序</h3><pre><code><span class="keyword">void</span> SelectSort(<span class="keyword">int</span> a[],<span class="keyword">int</span> <span class="built_in">length</span>)
+{
+    <span class="keyword">int</span> i,j,<span class="built_in">min</span>;
+    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="built_in">length</span>;i++){
+        <span class="built_in">min</span>=i;
+        <span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;<span class="built_in">length</span>;j++){
+            <span class="keyword">if</span>(a[<span class="built_in">min</span>]&gt;a[j])
+                <span class="built_in">min</span>=j;
+        }
+        <span class="keyword">if</span>(i!=<span class="built_in">min</span>)
+            swap(&amp;a[i],&amp;a[<span class="built_in">min</span>]);    
+    }
+}
+</code></pre><h3 id="堆排序">堆排序</h3><pre><code><span class="function"><span class="keyword">void</span> <span class="title">HeapDown</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> s,<span class="keyword">int</span> m)</span>
+</span>{
+    <span class="keyword">int</span> i,temp;
+    temp=a[s];
+    <span class="keyword">for</span>(i=s*<span class="number">2</span>;i&lt;=m;i*=<span class="number">2</span>){
+        <span class="keyword">if</span>(i&lt;m&amp;&amp;a[i]&lt;a[i+<span class="number">1</span>])
+            ++i;
+        <span class="keyword">if</span>(temp&gt;=a[i])
+            <span class="keyword">break</span>;
+        a[s]=a[i];
+        s=i;
+    }
+    a[s]=temp;
+}
+<span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> length)</span>
+</span>{
+    <span class="keyword">int</span> i,j;
+    <span class="keyword">for</span>(i=length/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--)
+        HeapDown(a,i,length-<span class="number">1</span>);
+    <span class="keyword">for</span>(j=length-<span class="number">1</span>;j&gt;<span class="number">0</span>;j--)
+    {
+        swap(&amp;a[<span class="number">0</span>],&amp;a[j]);
+        HeapDown(a,<span class="number">0</span>,j-<span class="number">1</span>);    
+    }
+}
+</code></pre><h2 id="插入排序">插入排序</h2><h3 id="直接插入排序">直接插入排序</h3><pre><code>void InsertSort(int a[],int length)
+<span class="comment">{
+    int i,j,temp;
+    for(i=1;i&lt;length;i++){
+        if(a[i]&lt;a[i-1]){
+            temp=a[i];
+            for(j=i-1;j&gt;=0&amp;&amp;a[j]&gt;temp;j--)
+                a[j+1]=a[j];
+            a[j+1]=temp;
+        }</span>
+    }
+}
+</code></pre><h3 id="希尔排序">希尔排序</h3><h2 id="归并排序">归并排序</h2><pre><code><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> T[],<span class="keyword">int</span> s,<span class="keyword">int</span> m,<span class="keyword">int</span> t)</span>
+</span>{
+    <span class="keyword">int</span> j,k,l;
+    <span class="keyword">for</span>(j=m+<span class="number">1</span>,k=s;s&lt;=m&amp;&amp;j&lt;=t;k++){
+        <span class="keyword">if</span>(S[s]&lt;S[j])
+            T[k]=S[s++];
+        <span class="keyword">else</span>
+            T[k]=S[j++];
+    }
+    <span class="keyword">if</span>(s&lt;=m){
+        <span class="keyword">for</span>(l=<span class="number">0</span>;l&lt;=m-s;l++)
+            T[k+l]=S[s+l];
+    }
+    <span class="keyword">if</span>(j&lt;=t){
+        <span class="keyword">for</span>(l=<span class="number">0</span>;l&lt;=t-j;l++)
+            T[k+l]=S[j+l];
+    }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">MSort</span><span class="params">(<span class="keyword">int</span> S[],<span class="keyword">int</span> T1[],<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span>
+</span>{
+    <span class="keyword">int</span> m;
+    <span class="keyword">int</span> T2[<span class="number">200</span>];
+    <span class="keyword">if</span>(s==t)
+        T1[s]=S[s];
+    <span class="keyword">else</span>{
+        m=(s+t)/<span class="number">2</span>;
+        MSort(S,T2,s,m);
+        MSort(S,T2,m+<span class="number">1</span>,t);
+        Merge(T2,T1,s,m,t);
+    }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> length)</span>
+</span>{
+    MSort(a,a,<span class="number">0</span>,length-<span class="number">1</span>);
+} 
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="排序综述">排序综述</h1><h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,.]]>
+    </summary>
+    
+      <category term="Data Structure&amp;Algorithm" scheme="http://yoursite.com/tags/Data-Structure-Algorithm/"/>
+    
+      <category term="Sorting" scheme="http://yoursite.com/tags/Sorting/"/>
+    
+      <category term="Algorithm basic" scheme="http://yoursite.com/categories/Algorithm-basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Standord Machine Learning notes-week5]]></title>
+    <link href="http://yoursite.com/2015/10/11/ML-standord-week5/"/>
+    <id>http://yoursite.com/2015/10/11/ML-standord-week5/</id>
+    <published>2015-10-11T08:02:09.000Z</published>
+    <updated>2015-10-11T09:13:14.803Z</updated>
+    <content type="html"><![CDATA[<h1 id="Neural_Networks:Learning（神经网络：学习）">Neural Networks:Learning（神经网络：学习）</h1><h2 id="Cost_function（代价函数）">Cost function（代价函数）</h2><p>神经网络是最强大的学习算法之一，这周和以下几周课程将会讲述在给定训练集下，为神经网络拟合参数的学习算法。现在从讨论神经网络的代价函数开始讲起。</p>
+<h3 id="神经网络（分类）">神经网络（分类）</h3><p><img src="http://i.imgur.com/irWMLwG.png" alt=""><br>如图所示，假设存在这样一个神经网络，有m个训练样本<code>（x(i),y(i))</code>，<code>L</code>表示这个神经网络结构的总层数。<code>sl</code>第l层的神经元的数量，这其中不包括L层的<code>bias</code>。</p>
+<p>现在讨论两种分类问题：（1）y只能取0或1，只有1类，1个输出单元；（2）多类别的分类问题，有K个输出（K&gt;=3)。<br><img src="http://i.imgur.com/wTsMq3u.png" alt=""></p>
+<p>第一行是逻辑回归的代价函数，这里并没有把偏差项<code>theta0</code>正则化。对于神经网络，我们的代价函数是这个式子的一般化形式。这里不仅只有一个逻辑回归输出单元，取而代之的是K个，h(x)是一个K维向量，<code>i</code>表示选择了神经网络的第i个元素。对k从1到K进行了求和，这是对K个输出单元的求和。代价函数的第二项是正则化项。这里要做的就是把所有theta(ji)的值都相加。这里要除去那些对应于偏差值的项，对于i=0的项要加入其中，当我们计算神经元的激励值时，所有下标i=0的项（Bias）都要加入到正则化项里，因为我们不想正则化这些项，并把这些项设为0。但这只是我们合理的假设，如果i从0加到sl，也依然成立，并且不会有太大差异，但是如果不把偏差项正则化可能更常见一些。</p>
+<h2 id="Backpropagation_algorithm（反向传播）">Backpropagation algorithm（反向传播）</h2><p>让代价函数最小化的算法——反向传播算法。<br><img src="http://i.imgur.com/oHYNoZe.png" alt=""><br>为了能使用梯度下降或者其他高级的算法，我们需要做的就是写好一个可以通过输入一个参数<code>theta</code>，然后计算<code>J(theta）</code>和对应的偏导项。这节主要讲如何计算偏导项。</p>
+<h3 id="Gradient_computation（梯度计算）">Gradient computation（梯度计算）</h3><p>从只有一个训练样本（x,y)说起。<br>首先由前向传播，计算一下在给定输入的时候，假设函数是否会真的输出结果。</p>
+<p><img src="http://i.imgur.com/XHiMOPg.png" alt=""></p>
+<p>具体来说，<code>a(1)</code>就是第一层的激励值，也就是输入层；<code>a(2)是隐藏层的激励值</code>，<code>g</code>是sigmoid函数。这里实现了把前向传播向量化，从而可以计算每一层神经元的激励值。</p>
+<p>接下来为了计算偏导项，引入一种叫做<code>反向传播（backpropagation）算法</code>。</p>
+<h3 id="Gradient_computation（梯度计算）：反向传播算法">Gradient computation（梯度计算）：反向传播算法</h3><p>反向传播算法从直观上说，就是对每个结点，我们计算这样一项<code>thetaj(l)</code>，代表第l层的第i个结点的误差。这项捕捉了在这个神经结点的激励值的误差。<br><img src="http://i.imgur.com/flNStUJ.png" alt=""><br>具体来说，右边这个有四层的神经网络结构做例子。要计算<code>delta(4)</code>就要先计算<code>delta(3)</code>和<code>delta(2)</code>。<code>g&#39;(z(3)</code>实际上是在输入值为z(3)的时候所求的导数。</p>
+<p>这里没有<code>delta(1)</code>，因为第一层对应输入层，那只是表示我们在训练集观察到的，所以不会存在误差。那么这个例子中的误差只有第二层和第三层。</p>
+<p>反向传播这个名字源于我们从输入层开始计算delta项，然后我们返回上一层计算第三层隐藏层的delta，然后不断反向计算。所以，我们是类似于把输入层的误差反向传播给第三层，第二层。</p>
+<p>最后通过复杂的数学推导，我们可以得到J(theta)的偏导数项（PPT最后一行）。</p>
+<p>如果有多个训练样本：</p>
+<p>先初始化，然后便利所有训练样本。对于第一个循环，我们取训练样本(x(i),y(i))，取a(1)=x(1),也就是输入层的激励函数，</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Neural_Networks:Learning（神经网络：学习）">Neural Networks:Learning（神经网络：学习）</h1><h2 id="Cost_function（代价函数）">Cost function（代价函数）</h2><p>神经网]]>
+    </summary>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/tags/Machine-learning/"/>
+    
+      <category term="Machine learning笔记" scheme="http://yoursite.com/tags/Machine-learning%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/categories/Machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Matlab command汇总]]></title>
@@ -597,7 +787,7 @@ ans=
     <link href="http://yoursite.com/2015/09/20/poj-solution/"/>
     <id>http://yoursite.com/2015/09/20/poj-solution/</id>
     <published>2015-09-20T07:00:44.000Z</published>
-    <updated>2015-09-20T13:05:52.235Z</updated>
+    <updated>2015-10-15T14:07:09.719Z</updated>
     <content type="html"><![CDATA[<h3 id="OJ上的一些水题(可用来练手和增加自信)">OJ上的一些水题(可用来练手和增加自信)</h3><p>（poj3299,poj2159,poj2739,poj1083,poj2262,poj1503,poj3006,poj2255,poj3094)</p>
 <h1 id="初期:">初期:</h1><h3 id="一-基本算法:">一.基本算法:</h3><p>(1)枚举. (poj1753,poj2965)</p>
 <p>(2)贪心(poj1328,poj2109,poj2586)</p>
@@ -763,6 +953,10 @@ ans=
     <![CDATA[<h3 id="OJ上的一些水题(可用来练手和增加自信)">OJ上的一些水题(可用来练手和增加自信)</h3><p>（poj3299,poj2159,poj2739,poj1083,poj2262,poj1503,poj3006,poj2255,poj3094)</p>
 <h1 ]]>
     </summary>
+    
+      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
+    
+      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
     
   </entry>
   
@@ -1745,163 +1939,6 @@ bool search(<span class="keyword">char</span> *word)
       <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
     
       <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[poj1961字符串循环前缀的周期]]></title>
-    <link href="http://yoursite.com/2015/04/16/poj1961/"/>
-    <id>http://yoursite.com/2015/04/16/poj1961/</id>
-    <published>2015-04-16T11:39:36.000Z</published>
-    <updated>2015-09-20T11:41:19.883Z</updated>
-    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1961" target="_blank" rel="external">Period</a></p>
-<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一个字符串S（长度2 &lt;= N &lt;= 1 000 000），只包含小写字母，找出S的循环前缀的长度和循环的周期。</p>
-<p>例如：</p>
-<pre><code>输入：
-aaa
-输出：
-<span class="number">2</span> <span class="number">2</span>
-<span class="number">3</span> <span class="number">3</span>
-
-输入：
-aabaabaabaab
-输出：
-<span class="number">2</span> <span class="number">2</span>
-<span class="number">6</span> <span class="number">2</span>
-<span class="number">9</span> <span class="number">3</span>
-<span class="number">12</span> <span class="number">4</span>
-</code></pre><h1 id="分析(Analysis)">分析(Analysis)</h1><p>KMP算法的又一大应用。</p>
-<ul>
-<li><p>先求出S串的<code>next</code>数组。</p>
-</li>
-<li><p>如果出现循环前缀，那么循环节的长度是<code>length=i(下标)-next(i)</code>，循环前缀结束的出现在<code>i%length==0</code>的时候。</p>
-</li>
-</ul>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000010</span>;
-<span class="keyword">char</span> s[maxn];
-<span class="keyword">int</span> next[maxn];
-<span class="keyword">int</span> len;
-<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
-</span>{
-    next[<span class="number">0</span>]=-<span class="number">1</span>;
-    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
-    <span class="keyword">while</span>(j&lt;len)
-    {
-        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k])
-        {
-            next[++j]=++k;    
-        }
-        <span class="keyword">else</span>
-            k=next[k];
-    }
-}
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">int</span> kase=<span class="number">0</span>;
-    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;len)&amp;&amp;len!=<span class="number">0</span>)
-    {
-        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);
-        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
-        get_next();
-        <span class="built_in">printf</span>(<span class="string">"Test case #%d\n"</span>,++kase);
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=len;i++)
-        {
-            <span class="keyword">if</span>(next[i]==<span class="number">0</span>)
-                <span class="keyword">continue</span>;
-            <span class="keyword">int</span> length=i-next[i];
-            <span class="keyword">if</span>((i%length)==<span class="number">0</span>)
-                <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,i,i/length);
-        }
-        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
-    }
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=1961" target="_blank" rel="external">Period</a></p>
-<h1 id="题目描述(Description)">]]>
-    </summary>
-    
-      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
-    
-      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[leetcode Symmetric Tree]]></title>
-    <link href="http://yoursite.com/2015/04/11/leetcode-symmetric-tree/"/>
-    <id>http://yoursite.com/2015/04/11/leetcode-symmetric-tree/</id>
-    <published>2015-04-11T11:37:06.000Z</published>
-    <updated>2015-09-20T11:38:25.188Z</updated>
-    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="external">symmetric-tree</a></p>
-<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Symmertic Tree</strong></p>
-<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<p>For example, this binary tree is symmetric:</p>
-<p><img src="http://i.imgur.com/XMPcmDq.png" alt=""></p>
-<p>But the following is not:</p>
-<p><img src="http://i.imgur.com/5j4nghB.png" alt=""></p>
-<p>Note:<br>Bonus points if you could solve it both recursively and iteratively.</p>
-<p><strong>对称二叉树</strong></p>
-<p>给一个二叉树，检查它的镜像数是否和原来的树一样（也就是说，关于原树的中心对称）</p>
-<p>例如：第一个二叉树是对称的，第二个树不对称。</p>
-<p>注意：</p>
-<p>如果分别用递归和迭代解答会有奖励。</p>
-<h1 id="分析(Analysis)">分析(Analysis)</h1><p><strong>递归解法：</strong></p>
-<ul>
-<li><p>先判断根节点是否为空或者是否只有一个根节点，若空，返回<code>True</code>。</p>
-</li>
-<li><p>另外写一个函数，判断结点的左右子树是否对称。要判断对称，则只要判断<code>left</code>结点的左子树与<code>right</code>结点的左子树是否相同，<code>left</code>结点的右子树与<code>right</code>结点的左子树是否相同。</p>
-</li>
-<li><p>两树不相同的条件：<code>左子为空右子不为空</code>、<code>右子为空左子不为空</code>、<code>左右子都不为空但数值不同</code>。</p>
-</li>
-</ul>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="comment">/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */</span>
-<span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-public:
-    bool isMir(<span class="type">TreeNode</span> *<span class="keyword">left</span>,<span class="type">TreeNode</span> *<span class="keyword">right</span>){
-        <span class="keyword">if</span>(!<span class="keyword">left</span>&amp;&amp;!<span class="keyword">right</span>)
-            <span class="keyword">return</span> <span class="literal">true</span>;
-        <span class="keyword">if</span>((!<span class="keyword">left</span>&amp;&amp;<span class="keyword">right</span>)||(<span class="keyword">left</span>&amp;&amp;!<span class="keyword">right</span>)||(<span class="keyword">left</span>-&gt;val!=<span class="keyword">right</span>-&gt;val))<span class="comment">//两树不相同的条件</span>
-            <span class="keyword">return</span> <span class="literal">false</span>;
-        <span class="keyword">return</span> isMir(<span class="keyword">left</span>-&gt;<span class="keyword">left</span>,<span class="keyword">right</span>-&gt;<span class="keyword">right</span>)&amp;&amp;isMir(<span class="keyword">left</span>-&gt;<span class="keyword">right</span>,<span class="keyword">right</span>-&gt;<span class="keyword">left</span>);
-    }
-    bool isSymmetric(<span class="type">TreeNode</span> *root) {
-        <span class="keyword">if</span>(!root)<span class="comment">//空结点</span>
-            <span class="keyword">return</span> <span class="literal">true</span>;
-        <span class="keyword">if</span>(!root-&gt;<span class="keyword">left</span>&amp;&amp;!root-&gt;<span class="keyword">right</span>)<span class="comment">//只有一个根节点</span>
-            <span class="keyword">return</span> <span class="literal">true</span>;
-        <span class="keyword">else</span>
-            <span class="keyword">return</span> isMir(root-&gt;<span class="keyword">left</span>,root-&gt;<span class="keyword">right</span>);
-    }
-};
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="external">symmetric-tree</a></p>
-<h1 ]]>
-    </summary>
-    
-      <category term="binary tree" scheme="http://yoursite.com/tags/binary-tree/"/>
-    
-      <category term="leetcode" scheme="http://yoursite.com/tags/leetcode/"/>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
   </entry>
   

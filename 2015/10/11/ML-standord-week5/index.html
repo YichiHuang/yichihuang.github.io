@@ -1,0 +1,780 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video." />
+
+
+
+  <meta name="keywords" content="Machine learning,Machine learning笔记," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Karry.Blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="Neural Networks:Learning（神经网络：学习）Cost function（代价函数）神经网络是最强大的学习算法之一，这周和以下几周课程将会讲述在给定训练集下，为神经网络拟合参数的学习算法。现在从讨论神经网络的代价函数开始讲起。
+神经网络（分类）如图所示，假设存在这样一个神经网络，有m个训练样本（x(i),y(i))，L表示这个神经网络结构的总层数。sl第l层的神经元的数量，这其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Standord Machine Learning notes-week5">
+<meta property="og:url" content="http://yoursite.com/2015/10/11/ML-standord-week5/index.html">
+<meta property="og:site_name" content="Karry.Blog">
+<meta property="og:description" content="Neural Networks:Learning（神经网络：学习）Cost function（代价函数）神经网络是最强大的学习算法之一，这周和以下几周课程将会讲述在给定训练集下，为神经网络拟合参数的学习算法。现在从讨论神经网络的代价函数开始讲起。
+神经网络（分类）如图所示，假设存在这样一个神经网络，有m个训练样本（x(i),y(i))，L表示这个神经网络结构的总层数。sl第l层的神经元的数量，这其">
+<meta property="og:image" content="http://i.imgur.com/irWMLwG.png">
+<meta property="og:image" content="http://i.imgur.com/wTsMq3u.png">
+<meta property="og:image" content="http://i.imgur.com/oHYNoZe.png">
+<meta property="og:image" content="http://i.imgur.com/XHiMOPg.png">
+<meta property="og:image" content="http://i.imgur.com/flNStUJ.png">
+<meta property="og:updated_time" content="2015-10-11T09:13:14.803Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Standord Machine Learning notes-week5">
+<meta name="twitter:description" content="Neural Networks:Learning（神经网络：学习）Cost function（代价函数）神经网络是最强大的学习算法之一，这周和以下几周课程将会讲述在给定训练集下，为神经网络拟合参数的学习算法。现在从讨论神经网络的代价函数开始讲起。
+神经网络（分类）如图所示，假设存在这样一个神经网络，有m个训练样本（x(i),y(i))，L表示这个神经网络结构的总层数。sl第l层的神经元的数量，这其">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> Standord Machine Learning notes-week5 | Karry.Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?50c15455e37f70aea674ff4a663eef27";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Karry.Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            <i class="menu-item-icon icon-next-search"></i> <br />
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'aXgZrwYG_3NxX3KswKAg','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Standord Machine Learning notes-week5
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-11T16:02:09+08:00" content="2015-10-11">
+            2015-10-11
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Machine-learning/" itemprop="url" rel="index">
+                  <span itemprop="name">Machine learning</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/10/11/ML-standord-week5/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/11/ML-standord-week5/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Neural_Networks:Learning（神经网络：学习）">Neural Networks:Learning（神经网络：学习）</h1><h2 id="Cost_function（代价函数）">Cost function（代价函数）</h2><p>神经网络是最强大的学习算法之一，这周和以下几周课程将会讲述在给定训练集下，为神经网络拟合参数的学习算法。现在从讨论神经网络的代价函数开始讲起。</p>
+<h3 id="神经网络（分类）">神经网络（分类）</h3><p><img src="http://i.imgur.com/irWMLwG.png" alt=""><br>如图所示，假设存在这样一个神经网络，有m个训练样本<code>（x(i),y(i))</code>，<code>L</code>表示这个神经网络结构的总层数。<code>sl</code>第l层的神经元的数量，这其中不包括L层的<code>bias</code>。</p>
+<p>现在讨论两种分类问题：（1）y只能取0或1，只有1类，1个输出单元；（2）多类别的分类问题，有K个输出（K&gt;=3)。<br><img src="http://i.imgur.com/wTsMq3u.png" alt=""></p>
+<p>第一行是逻辑回归的代价函数，这里并没有把偏差项<code>theta0</code>正则化。对于神经网络，我们的代价函数是这个式子的一般化形式。这里不仅只有一个逻辑回归输出单元，取而代之的是K个，h(x)是一个K维向量，<code>i</code>表示选择了神经网络的第i个元素。对k从1到K进行了求和，这是对K个输出单元的求和。代价函数的第二项是正则化项。这里要做的就是把所有theta(ji)的值都相加。这里要除去那些对应于偏差值的项，对于i=0的项要加入其中，当我们计算神经元的激励值时，所有下标i=0的项（Bias）都要加入到正则化项里，因为我们不想正则化这些项，并把这些项设为0。但这只是我们合理的假设，如果i从0加到sl，也依然成立，并且不会有太大差异，但是如果不把偏差项正则化可能更常见一些。</p>
+<h2 id="Backpropagation_algorithm（反向传播）">Backpropagation algorithm（反向传播）</h2><p>让代价函数最小化的算法——反向传播算法。<br><img src="http://i.imgur.com/oHYNoZe.png" alt=""><br>为了能使用梯度下降或者其他高级的算法，我们需要做的就是写好一个可以通过输入一个参数<code>theta</code>，然后计算<code>J(theta）</code>和对应的偏导项。这节主要讲如何计算偏导项。</p>
+<h3 id="Gradient_computation（梯度计算）">Gradient computation（梯度计算）</h3><p>从只有一个训练样本（x,y)说起。<br>首先由前向传播，计算一下在给定输入的时候，假设函数是否会真的输出结果。</p>
+<p><img src="http://i.imgur.com/XHiMOPg.png" alt=""></p>
+<p>具体来说，<code>a(1)</code>就是第一层的激励值，也就是输入层；<code>a(2)是隐藏层的激励值</code>，<code>g</code>是sigmoid函数。这里实现了把前向传播向量化，从而可以计算每一层神经元的激励值。</p>
+<p>接下来为了计算偏导项，引入一种叫做<code>反向传播（backpropagation）算法</code>。</p>
+<h3 id="Gradient_computation（梯度计算）：反向传播算法">Gradient computation（梯度计算）：反向传播算法</h3><p>反向传播算法从直观上说，就是对每个结点，我们计算这样一项<code>thetaj(l)</code>，代表第l层的第i个结点的误差。这项捕捉了在这个神经结点的激励值的误差。<br><img src="http://i.imgur.com/flNStUJ.png" alt=""><br>具体来说，右边这个有四层的神经网络结构做例子。要计算<code>delta(4)</code>就要先计算<code>delta(3)</code>和<code>delta(2)</code>。<code>g&#39;(z(3)</code>实际上是在输入值为z(3)的时候所求的导数。</p>
+<p>这里没有<code>delta(1)</code>，因为第一层对应输入层，那只是表示我们在训练集观察到的，所以不会存在误差。那么这个例子中的误差只有第二层和第三层。</p>
+<p>反向传播这个名字源于我们从输入层开始计算delta项，然后我们返回上一层计算第三层隐藏层的delta，然后不断反向计算。所以，我们是类似于把输入层的误差反向传播给第三层，第二层。</p>
+<p>最后通过复杂的数学推导，我们可以得到J(theta)的偏导数项（PPT最后一行）。</p>
+<p>如果有多个训练样本：</p>
+<p>先初始化，然后便利所有训练样本。对于第一个循环，我们取训练样本(x(i),y(i))，取a(1)=x(1),也就是输入层的激励函数，</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-learning/" rel="tag">#Machine learning</a>
+          
+            <a href="/tags/Machine-learning笔记/" rel="tag">#Machine learning笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/15/sorting/" rel="prev">排序算法汇总</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/29/matlab-command/" rel="next">Matlab command汇总</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/hyc.jpg" alt="Karry Huang(黄艺驰)" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Karry Huang(黄艺驰)</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YichiHuang" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2405696121/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://adsp.szpku.edu.cn/" target="_blank">ADSPLab</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Neural_Networks:Learning（神经网络：学习）"><span class="nav-number">1.</span> <span class="nav-text">Neural Networks:Learning（神经网络：学习）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cost_function（代价函数）"><span class="nav-number">1.1.</span> <span class="nav-text">Cost function（代价函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络（分类）"><span class="nav-number">1.1.1.</span> <span class="nav-text">神经网络（分类）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backpropagation_algorithm（反向传播）"><span class="nav-number">1.2.</span> <span class="nav-text">Backpropagation algorithm（反向传播）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient_computation（梯度计算）"><span class="nav-number">1.2.1.</span> <span class="nav-text">Gradient computation（梯度计算）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient_computation（梯度计算）：反向传播算法"><span class="nav-number">1.2.2.</span> <span class="nav-text">Gradient computation（梯度计算）：反向传播算法</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karry Huang(黄艺驰)</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'karrysblog';
+      var disqus_identifier = '2015/10/11/ML-standord-week5/';
+      var disqus_title = 'Standord Machine Learning notes-week5';
+      var disqus_url = 'http://yoursite.com/2015/10/11/ML-standord-week5/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"3","bdPos":"left","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
