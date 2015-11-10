@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-10-15T14:25:38.267Z</updated>
+  <updated>2015-11-10T12:28:38.440Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,12 +15,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[百度世界2015，“度秘”（Duer)讲了一则怎样的故事]]></title>
+    <link href="http://yoursite.com/2015/11/10/01-info/"/>
+    <id>http://yoursite.com/2015/11/10/01-info/</id>
+    <published>2015-11-10T09:21:56.000Z</published>
+    <updated>2015-11-10T12:28:38.440Z</updated>
+    <content type="html"><![CDATA[<p>文章转载自：<a href="http://www.huxiu.com/article/125411/1.html" target="_blank" rel="external">百度世界2015，“度秘”讲了一则怎样的故事</a></p>
+<p><img src="http://i.imgur.com/6oraXok.png" alt=""><br>阿兰·图灵认为，如果一台机器能够与人类展开对话而不能被辨别其机器身份，那么它就抵达了可被称为人工智能的境地。</p>
+<p>有趣的是，以1991年为始，不断有人宣称某款聊天机器人“史上首次”通过图灵测试，由于人类样本缺少标准，多数用于挑战的机器人程序都力求“伶牙俐齿”，注以讽刺、反问、厌倦等情绪语句试图蒙蔽人类对象。</p>
+<p>一言蔽之，我们对于“人性”的要求，或许与阿兰·图灵在六十多年前的设计初衷早已分道扬镳：人工智能的优劣，在于它能否取悦规则，而非伦理或是哲学层面的突破。</p>
+<p>故而微软小冰的卖萌战术能够横扫中文社交网络，调戏Siri也成为了风靡世界的某种恶趣味。不是恐怖的拥有自我学习能力的机器人在挑战位于智慧种族顶端的人类，而是愚蠢不堪的人类在绞尽脑汁的挑战机器人、试图难倒后者或是使其“出尽洋相”。</p>
+<p>娱乐至上始终是主旋律，就像当今智能手机的计算能力早已远超美国发射阿波罗11号探月的大型计算机，但是人们仍然只会摩擦屏幕玩着《愤怒的小鸟》。然而，这并不妨碍科技企业抢占未来机遇的决心，人工智能的性质意味着它作为解决方案具有高度的统筹能力，不可替代性极高。</p>
+<p>在美国，语义分析、深度学习等领域的专家早被瓜分一空，苹果、Google、亚马逊和微软，纷纷开始尝试说服本土高校的教授们放弃终身制的教职加入商业公司，它们同时还要提防学习能力过强的中国竞敌横刀夺爱，当Google失去了吴恩达、微软失去了张亚勤之后，接盘者的受益效果很快显现：“BAT”之中，百度第一个拿出了完成度极高的机器人助理产品“度秘”。</p>
+<p>“度秘”亮相于百度年度最高规格的活动“百度世界”，李彦宏将其使命描述为“索引真实世界”，一语道出百度对于人工智能的定义：它不应当是一个排解无聊、逗人捧腹的玩物，而是一款具备主动计算能力、接管用户生活需求的工具。</p>
+<p>包括李彦宏在内，百度负责技术的几名高管，都将发言重点聚焦于“度秘”的技术天赋以及解决问题的简洁路径，“百度提供的秘书”这一命名的国情特色相当突出，所谓“秘书”，符合的其实是召之即来挥之即去、能办事儿却不多话的岗位想象。</p>
+<p>如果说“我是谁、我从哪里来、我到何处去”是哲学经验的三大终极问题，用于商业化的人工智能产品同样需要回答这三个问题：“我是谁”意指身份认同问题和能力边界问题；“我从哪里来”意指数据来源问题，处于计算的底层；而“我到何处去”意指用户服务问题，处于计算的前端。</p>
+<p><img src="http://i.imgur.com/koU8nN9.png" alt=""></p>
+<p>这是2014年百度技术开放日揭晓的“百度大脑”项目的运作原理图解，它与李彦宏在今年百度世界上解说“度秘”时划分的三个层级——底层连接3600行、中层全网数据挖掘、上层理解用户需求——是一脉相承的：</p>
+<p>首先要解决的，是突破App的孤岛效应而获取数据。当超链接文本协议在移动端全面失效，通过爬虫进行索引收录的方式也就变得遥不可求，所以“连接能力”进而显得至关重要，即应用方需要主动加入进来贡献数据，而实现这一诉求的前提，是要取得应用方的信赖和足够分而食之的利益。</p>
+<p>其次要解决的，是有了数据之后，怎样处理这些数据。“大数据”的概念虽火，但是数据规模越大，冗余存量也就越多，缺少提炼能力，这些数据就只会消耗储存空间。吴恩达在Google时曾使深度学习系统能够识别猫的图片，这在当时成为一件震惊业界的新闻。吴恩达在百度继续的神经网络技术，目的也是驱动技术的变革，将数据的获取途径进一步延伸到各类传感器上。</p>
+<p>最后剩下的，就是与用户发生沟通，接受市场的检验。百度曾被质疑移动战略杂乱无章，但是随着时间推移，所有的布局都被连成了一条线，即手机百度（入口端）、百度糯米（交易端）、百度地图（本地端）三点一线，“度秘”最为技术支持，成为撑起所有服务的一根支柱。</p>
+<p>李彦宏与比尔·盖茨私交甚好，他们或许属于同一类极客——后者创办微软之前，曾经毫不客气的批评另一群主张破解与共享的极客“使用软件需要付钱”——信奉技术的力量，并追求将之发扬实现回报。</p>
+<p>因此，相比Siri和Google Now，“度秘”的实用主义色彩十分显眼，它的舞台在其诞生之前就已搭好，货币化的前程亦可预期，这种取舍，让人想起李彦宏的早年经历：他在松下信息技术研究所实习时就已在涉足人工智能的识别效率课题，而工业研究解决实际问题的特点使李彦宏放弃校园研究以及博士学位，转投道琼斯旗下开发搜索技术。</p>
+<p>换句话说，在李彦宏看来，不能被商业市场接纳的技术产品，都有违他的职业价值观。这种坚持，亦影响了百度的团队作风，比如还是吴恩达，他在Google用面部识别技术学会了认猫，在百度则是开发出了名为“脸优”的换脸App，上架iOS试图冲击“爆款”。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>文章转载自：<a href="http://www.huxiu.com/article/125411/1.html" target="_blank" rel="external">百度世界2015，“度秘”讲了一则怎样的故事</a></p>
+<p><img src="htt]]>
+    </summary>
+    
+      <category term="IT互联网那些事" scheme="http://yoursite.com/tags/IT%E4%BA%92%E8%81%94%E7%BD%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="IT互联网那些事" scheme="http://yoursite.com/categories/IT%E4%BA%92%E8%81%94%E7%BD%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[排序算法汇总]]></title>
     <link href="http://yoursite.com/2015/10/15/sorting/"/>
     <id>http://yoursite.com/2015/10/15/sorting/</id>
     <published>2015-10-15T14:05:44.000Z</published>
-    <updated>2015-10-15T14:25:38.267Z</updated>
-    <content type="html"><![CDATA[<h1 id="排序综述">排序综述</h1><h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,...,n</code>的一种排列<code>p1,p2,...,pn</code>，使其关键字满足<code>kp1&lt;=kp2&lt;=...&lt;=kpn</code>非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。</p>
+    <updated>2015-10-24T12:10:56.110Z</updated>
+    <content type="html"><![CDATA[<h1 id="排序综述">排序综述</h1><p><img src="http://i.imgur.com/0mmOczf.png" alt=""></p>
+<h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,...,n</code>的一种排列<code>p1,p2,...,pn</code>，使其关键字满足<code>kp1&lt;=kp2&lt;=...&lt;=kpn</code>非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。</p>
 <h2 id="内排序和外排序">内排序和外排序</h2><p>1、内排序是在排序整个过程中，待排序的所有记录全部放置在内存中；<br>2、外排序是由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外村之间多次交换才能进行。</p>
 <p>这里只讨论内排序。</p>
 <h2 id="排序算法的性能">排序算法的性能</h2><p><strong>1、时间性能</strong><br>排序算法的时间开销是衡量其好坏的最重要指标。在内排序中，主要进行两种操作：<code>比较和移动</code>。</p>
@@ -159,7 +196,8 @@
 } 
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="排序综述">排序综述</h1><h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,.]]>
+    <![CDATA[<h1 id="排序综述">排序综述</h1><p><img src="http://i.imgur.com/0mmOczf.png" alt=""></p>
+<h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</c]]>
     </summary>
     
       <category term="Data Structure&amp;Algorithm" scheme="http://yoursite.com/tags/Data-Structure-Algorithm/"/>
@@ -1855,81 +1893,6 @@ bool search(<span class="keyword">char</span> *word)
     <summary type="html">
     <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2752" target="_blank" rel="external">Seek the Name,Seek the Fame</a></p>
 <h1 id]]>
-    </summary>
-    
-      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
-    
-      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[poj2406字符串的级联]]></title>
-    <link href="http://yoursite.com/2015/04/16/poj2406/"/>
-    <id>http://yoursite.com/2015/04/16/poj2406/</id>
-    <published>2015-04-16T11:41:38.000Z</published>
-    <updated>2015-09-20T11:42:43.101Z</updated>
-    <content type="html"><![CDATA[<p><strong>题目链接：</strong><a href="http://poj.org/problem?id=2406" target="_blank" rel="external">power string</a></p>
-<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给一个字符串，求出其最大的循环子串。</p>
-<p>比如：</p>
-<pre><code>输入：
-    abcd
-    aaaa
-    ababab
-    ababcab
-输出：
-    <span class="number">1</span>
-    <span class="number">4</span>
-    <span class="number">3</span>
-    <span class="number">1</span>
-</code></pre><h1 id="分析(Analysis)">分析(Analysis)</h1><ul>
-<li><p>直接用KMP的next数组求，然后计算循环节的长度</p>
-</li>
-<li><p>注意给出的第四种情况，虽然有循环前缀<code>abab</code>，但后面的字符串不是循环形式，所以输出结果还是1.</p>
-</li>
-</ul>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000001</span>;
-<span class="keyword">char</span> s[maxn];
-<span class="keyword">int</span> next[maxn];
-<span class="keyword">int</span> len;
-<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
-</span>{
-    next[<span class="number">0</span>]=-<span class="number">1</span>;
-    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
-    <span class="keyword">while</span>(j&lt;len)
-    {
-        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k])
-            next[++j]=++k;
-        <span class="keyword">else</span>
-            k=next[k];
-    }
-}
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,s)&amp;&amp;s[<span class="number">0</span>]!=<span class="string">'.'</span>)
-    {
-        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
-        len=<span class="built_in">strlen</span>(s);
-        get_next();
-        <span class="keyword">int</span> length=len-next[len];
-        <span class="keyword">if</span>(length!=len&amp;&amp;(len%length)==<span class="number">0</span>)
-            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,len/length);
-        <span class="keyword">else</span>
-            <span class="built_in">printf</span>(<span class="string">"1\n"</span>);
-    }
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<p><strong>题目链接：</strong><a href="http://poj.org/problem?id=2406" target="_blank" rel="external">power string</a></p>
-<h1 id="题目描述(Descripti]]>
     </summary>
     
       <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>

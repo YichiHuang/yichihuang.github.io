@@ -43,19 +43,23 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="排序综述概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
-内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放置">
+<meta name="description" content="排序综述
+概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
+内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法汇总">
 <meta property="og:url" content="http://yoursite.com/2015/10/15/sorting/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="排序综述概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
-内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放置">
-<meta property="og:updated_time" content="2015-10-15T14:25:38.267Z">
+<meta property="og:description" content="排序综述
+概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
+内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放">
+<meta property="og:image" content="http://i.imgur.com/0mmOczf.png">
+<meta property="og:updated_time" content="2015-10-24T12:10:56.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法汇总">
-<meta name="twitter:description" content="排序综述概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
-内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放置">
+<meta name="twitter:description" content="排序综述
+概念假设含有n个记录的序列为{r1,r2,r3,...,rn}，其关键字分别为{k1,k2,k3,...,kn}，需确定1,2,...,n的一种排列p1,p2,...,pn，使其关键字满足kp1&amp;lt;=kp2&amp;lt;=...&amp;lt;=kpn非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。
+内排序和外排序1、内排序是在排序整个过程中，待排序的所有记录全部放">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -264,7 +268,8 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="排序综述">排序综述</h1><h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,...,n</code>的一种排列<code>p1,p2,...,pn</code>，使其关键字满足<code>kp1&lt;=kp2&lt;=...&lt;=kpn</code>非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。</p>
+        <span itemprop="articleBody"><h1 id="排序综述">排序综述</h1><p><img src="http://i.imgur.com/0mmOczf.png" alt=""></p>
+<h2 id="概念">概念</h2><p>假设含有n个记录的序列为<code>{r1,r2,r3,...,rn}</code>，其关键字分别为<code>{k1,k2,k3,...,kn}</code>，需确定<code>1,2,...,n</code>的一种排列<code>p1,p2,...,pn</code>，使其关键字满足<code>kp1&lt;=kp2&lt;=...&lt;=kpn</code>非递减（或非递增）关系，即使得序列成为一个按关键字有序的序列，这样的操作叫排序。</p>
 <h2 id="内排序和外排序">内排序和外排序</h2><p>1、内排序是在排序整个过程中，待排序的所有记录全部放置在内存中；<br>2、外排序是由于排序的记录个数太多，不能同时放置在内存，整个排序过程需要在内外村之间多次交换才能进行。</p>
 <p>这里只讨论内排序。</p>
 <h2 id="排序算法的性能">排序算法的性能</h2><p><strong>1、时间性能</strong><br>排序算法的时间开销是衡量其好坏的最重要指标。在内排序中，主要进行两种操作：<code>比较和移动</code>。</p>
@@ -420,6 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2015/11/10/01-info/" rel="prev">百度世界2015，“度秘”（Duer)讲了一则怎样的故事</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
@@ -513,21 +520,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
