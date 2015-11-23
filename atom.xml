@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-10T13:11:13.359Z</updated>
+  <updated>2015-11-23T12:14:18.907Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[TensorFlow示例程序]]></title>
+    <link href="http://yoursite.com/2015/11/23/TensorFlowInstall/"/>
+    <id>http://yoursite.com/2015/11/23/TensorFlowInstall/</id>
+    <published>2015-11-23T09:40:20.000Z</published>
+    <updated>2015-11-23T12:14:18.907Z</updated>
+    <content type="html"><![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><blockquote>
+<p>$python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import tensorflow as tf<br>hellp=tf.constant(‘Hello, TensorFlow!’)<br>sess=tf.Session()<br>print sess.run(hello)<br>Hello, TensorFlow!<br>a=tf.constant(10)<br>b=tf.constant(32)<br>print sess.run(a+b)<br>42</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="第二个TensorFlow程序">第二个TensorFlow程序</h1><blockquote>
+<p>import tensorflow as tf<br>import numpy as np</p>
+<p>#Make 100 phony data points in NumPy<br>x_data=np.float32(np.random.rand(2,100))#Random input<br>y_data=np.dot([0.100,0.200], x_data)+0.300</p>
+<p>#Construct a linear model<br>b=tf.Variable(tf.zeros([1])<br>W=tf.Variable(tf.random_uniform([1,2],-1.0,1.0))<br>y=tf.matmul(W,x_data)+b</p>
+<p>#Minimize the squared errors<br>loss=tf.reduce_mean(tf.square(y-y_data))<br>optimizer=tf.train.GradientDescentOptimizer(0.5)<br>train=optimizaer.minimize(loss)</p>
+<p>#For initializing the variables.<br>init=tf.initialize_all_variables()</p>
+<p>#Launch the graph<br>sess=tf.Session()<br>sess.run(init)</p>
+<p>#Fit the plane<br>for step in xrange(0,201):<br>    sess.run(train)<br>    if step%20==0:<br>    print step,sess.run(W),sess.run(b)</p>
+<p>#Learns best fit is W:[[0.100 0.200]],b: [0.300]</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><blockquote>
+<p>$python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import tensorflow as tf<b]]>
+    </summary>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/tags/Machine-learning/"/>
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/tags/TensorFlow/"/>
+    
+      <category term="TensorFlow" scheme="http://yoursite.com/categories/TensorFlow/"/>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/categories/TensorFlow/Machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[百度世界2015，“度秘”(Duer)讲了一则怎样的故事]]></title>
@@ -1806,100 +1852,6 @@ bool search(<span class="keyword">char</span> *word)
       <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
     
       <category term="Trie" scheme="http://yoursite.com/tags/Trie/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[poj2752KMP算法找前缀后缀串]]></title>
-    <link href="http://yoursite.com/2015/04/16/poj2752/"/>
-    <id>http://yoursite.com/2015/04/16/poj2752/</id>
-    <published>2015-04-16T11:42:55.000Z</published>
-    <updated>2015-09-20T11:45:09.387Z</updated>
-    <content type="html"><![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2752" target="_blank" rel="external">Seek the Name,Seek the Fame</a></p>
-<h1 id="题目（Description)">题目（Description)</h1><p>给一个串S,如果它的前缀串和后缀串相同，请输出它的长度。</p>
-<p>例如：<code>S=&quot;alala&quot;</code>，符合条件的串是<code>{&quot;a&quot;,&quot;ala&quot;,&quot;alala&quot;}</code>，程序应该输出<code>1 3 5</code></p>
-<p>S只含有小写字母，S的长度为[1,400000].</p>
-<h1 id="分析(Analysis)">分析(Analysis)</h1><h2 id="KMP字符串匹配算法简述"><strong>KMP字符串匹配算法简述</strong></h2><p>KMP字符匹配算法的精华就是<code>next</code>数组，由于这个数组的引入，直接将暴力匹配的<code>O(m*n)</code>的时间复杂度降为<code>O(m+n)</code>，<code>next</code>数组的主要作用就是避免当文本串和模式串失配时，模式串的下标不从0开始匹配，而是从<code>next[j]</code>开始。</p>
-<h2 id="解题思路："><strong>解题思路：</strong></h2><p><a href="http://blog.csdn.net/niushuai666/article/details/6968507" target="_blank" rel="external">参考</a></p>
-<p>这道题是<code>next</code>数组的一个应用。</p>
-<ul>
-<li><p>首先，我们求出<code>next</code>数组。</p>
-</li>
-<li><p>然后分析怎么用<code>next</code>数组完成查找前后缀的匹配：</p>
-<p>  以题目给的样例为例：</p>
-<p>  下标         0  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18</p>
-<p>  模式串        a  b a b c a b a b a  b  a  b  c  a  b  a  b</p>
-<p>  next[j]    -1  0 0 1 2 0 1 2 3 4  3  4  3  4  5  6  7  8  9</p>
-</li>
-</ul>
-<p>得出的结论如下：</p>
-<ol>
-<li><p>当<code>j=len</code>时，<code>next[len]=next[18]=9</code>，说明整个字符串的前9个字符和后9个字符相同，所以9是满足条件的。</p>
-</li>
-<li><p><code>next[9]=4</code>，说明在<code>0-8</code>中的前<code>4</code>个字符和后<code>4</code>个字符相同。由上一条可知前<code>9</code>个字符和后<code>9</code>个字符相同，所以，S串的<code>0-3</code>等于<code>5-8</code>，而<code>0-3</code>又等于<code>9-12</code>，<code>5-8</code>又等于<code>14-17</code>，所以结果是<code>0-3</code>等于<code>14-17</code>，即4也是满足条件的。</p>
-</li>
-<li><p><code>next[4]=2</code>，满足条件。</p>
-</li>
-<li><p><code>next[2]=0</code>，表明没有相同的前缀和后缀了，这事就已经找到了这个S串的所有前缀和后缀。</p>
-</li>
-<li><p>结果就是2，4，9，18.</p>
-</li>
-</ol>
-<p>所以，我们可以得出这样的结论：<strong>凡是next[i]!=0的，都是模式串的前缀和后缀相同的字符数。</strong></p>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">400001</span>;
-<span class="keyword">char</span> s[maxn];
-<span class="keyword">int</span> next[maxn],ans[maxn];
-<span class="keyword">int</span> len;
-
-<span class="function"><span class="keyword">void</span> <span class="title">get_next</span><span class="params">()</span>
-</span>{
-    next[<span class="number">0</span>]=-<span class="number">1</span>;
-    <span class="keyword">int</span> j=<span class="number">0</span>,k=-<span class="number">1</span>;
-    <span class="keyword">while</span>(j&lt;len)
-    {
-        <span class="keyword">if</span>(k==-<span class="number">1</span>||s[j]==s[k]){
-                next[++j]=++k;
-        }
-        <span class="keyword">else</span>
-            k=next[k];
-    }
-}
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,s)!=EOF)
-    {
-        <span class="built_in">memset</span>(next,<span class="number">0</span>,<span class="keyword">sizeof</span>(next));
-        len=<span class="built_in">strlen</span>(s);
-        get_next();
-        <span class="keyword">int</span> j=<span class="number">0</span>;
-        ans[<span class="number">0</span>]=len;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=len;next[i]!=<span class="number">0</span>;)
-        {
-            ans[++j]=next[i];
-            i=next[i];
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=j-<span class="number">1</span>;j&gt;=<span class="number">0</span>;j--)
-            <span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[j]);
-        <span class="built_in">printf</span>(<span class="string">"\n"</span>);
-    }
-}
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2752" target="_blank" rel="external">Seek the Name,Seek the Fame</a></p>
-<h1 id]]>
-    </summary>
-    
-      <category term="Array&amp;String" scheme="http://yoursite.com/tags/Array-String/"/>
-    
-      <category term="KMP" scheme="http://yoursite.com/tags/KMP/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
     
       <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
     
