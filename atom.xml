@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-23T12:16:35.332Z</updated>
+  <updated>2015-11-23T12:23:36.630Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,15 +15,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[TensorFlowWhitePaper]]></title>
+    <title><![CDATA[TensorFlow白皮书【译】]]></title>
     <link href="http://yoursite.com/2015/11/23/TensorFlowWhitePaper/"/>
     <id>http://yoursite.com/2015/11/23/TensorFlowWhitePaper/</id>
     <published>2015-11-23T12:16:35.000Z</published>
-    <updated>2015-11-23T12:16:35.332Z</updated>
-    <content type="html"></content>
+    <updated>2015-11-23T12:23:36.630Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是矩阵概念的推广，其表示更多维度的矩阵。而计算流是一种抽象过程，在如今的深度学习领域，这种一层层地计算可以很形象地看做是张量在计算模型上的流动。而这里的流可以看做是更加一般的计算过程，可以在不同的层级间跨越式流动。</p>
+</blockquote>
+<p>本文作者均来自Google Research:Martín Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen, Craig Citro, Greg S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard, Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh Levenberg, Dan Mane, Rajat Monga, Sherry Moore, Derek Murray, Chris Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Viegas, Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and Xiaoqiang Zheng</p>
+<h1 id="摘要">摘要</h1>]]></content>
     <summary type="html">
-    
+    <![CDATA[<blockquote>
+<p>TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是]]>
     </summary>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/tags/Machine-learning/"/>
+    
+      <category term="TensorFLow" scheme="http://yoursite.com/tags/TensorFLow/"/>
+    
+      <category term="TensorFLow" scheme="http://yoursite.com/categories/TensorFLow/"/>
+    
+      <category term="Machine learning" scheme="http://yoursite.com/categories/TensorFLow/Machine-learning/"/>
     
   </entry>
   
@@ -32,10 +45,10 @@
     <link href="http://yoursite.com/2015/11/23/TensorFlowInstall/"/>
     <id>http://yoursite.com/2015/11/23/TensorFlowInstall/</id>
     <published>2015-11-23T09:40:20.000Z</published>
-    <updated>2015-11-23T12:18:31.744Z</updated>
+    <updated>2015-11-23T12:31:41.274Z</updated>
     <content type="html"><![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><pre><code><span class="variable">$python</span>
 &gt;&gt;&gt;import tensorflow as tf
-&gt;&gt;&gt;hellp=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
+&gt;&gt;&gt;hello=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
 &gt;&gt;&gt;sess=tf.<span class="function"><span class="title">Session</span><span class="params">()</span></span>
 &gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(hello)</span></span>
 Hello, TensorFlow!
@@ -57,7 +70,7 @@ y_data=np.dot([<span class="number">0.100</span>,<span class="number">0.200</spa
 <span class="comment">#Minimize the squared errors</span>
 loss=tf.reduce_mean(tf.square(y-y_data))
 optimizer=tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)
- train=optimizaer.minimize(loss)
+ train=optimizer.minimize(loss)
 
 <span class="comment">#For initializing the variables.</span>
  init=tf.initialize_all_variables()

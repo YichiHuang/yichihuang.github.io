@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Machine learning,voice,Algorithm" />
+  <meta name="keywords" content="Machine learning,TensorFLow," />
 
 
 
@@ -43,16 +43,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
+<meta name="description" content="TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是矩阵概念的推广，其表示更多维度的矩阵。而计算流是一种抽象过程，在如今的深度学习领域，这种一层层地计算可以很形象地看做是张量在计算模型上的流动。而这里的流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlowWhitePaper">
+<meta property="og:title" content="TensorFlow白皮书【译】">
 <meta property="og:url" content="http://yoursite.com/2015/11/23/TensorFlowWhitePaper/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
-<meta property="og:updated_time" content="2015-11-23T12:16:35.332Z">
+<meta property="og:description" content="TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是矩阵概念的推广，其表示更多维度的矩阵。而计算流是一种抽象过程，在如今的深度学习领域，这种一层层地计算可以很形象地看做是张量在计算模型上的流动。而这里的流">
+<meta property="og:updated_time" content="2015-11-23T12:23:36.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlowWhitePaper">
-<meta name="twitter:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
+<meta name="twitter:title" content="TensorFlow白皮书【译】">
+<meta name="twitter:description" content="TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是矩阵概念的推广，其表示更多维度的矩阵。而计算流是一种抽象过程，在如今的深度学习领域，这种一层层地计算可以很形象地看做是张量在计算模型上的流动。而这里的流">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +62,7 @@
   };
 </script>
 
-  <title> TensorFlowWhitePaper | Karry.Blog </title>
+  <title> TensorFlow白皮书【译】 | Karry.Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -211,7 +211,7 @@
           
           
             
-              TensorFlowWhitePaper
+              TensorFlow白皮书【译】
             
           
         </h1>
@@ -225,6 +225,33 @@
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/TensorFLow/" itemprop="url" rel="index">
+                  <span itemprop="name">TensorFLow</span>
+                </a>
+              </span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/TensorFLow/Machine-learning/" itemprop="url" rel="index">
+                  <span itemprop="name">Machine learning</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
@@ -246,11 +273,23 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><blockquote>
+<p>TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常形象的组合。众所周知，矩阵已经成为机器学习中的基础单元，若干的针对矩阵的计算优化使得现如今的机器学习成为可能。而一些矩阵的方法也是一些重要的机器学习算法的基础。张量就是矩阵概念的推广，其表示更多维度的矩阵。而计算流是一种抽象过程，在如今的深度学习领域，这种一层层地计算可以很形象地看做是张量在计算模型上的流动。而这里的流可以看做是更加一般的计算过程，可以在不同的层级间跨越式流动。</p>
+</blockquote>
+<p>本文作者均来自Google Research:Martín Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen, Craig Citro, Greg S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard, Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh Levenberg, Dan Mane, Rajat Monga, Sherry Moore, Derek Murray, Chris Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Viegas, Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and Xiaoqiang Zheng</p>
+<h1 id="摘要">摘要</h1></span>
       
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-learning/" rel="tag">#Machine learning</a>
+          
+            <a href="/tags/TensorFLow/" rel="tag">#TensorFLow</a>
+          
+        </div>
       
 
       
@@ -357,14 +396,14 @@
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -422,7 +461,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -477,7 +516,7 @@
     <script type="text/javascript">
       var disqus_shortname = 'karrysblog';
       var disqus_identifier = '2015/11/23/TensorFlowWhitePaper/';
-      var disqus_title = 'TensorFlowWhitePaper';
+      var disqus_title = 'TensorFlow白皮书【译】';
       var disqus_url = 'http://yoursite.com/2015/11/23/TensorFlowWhitePaper/';
 
       function run_disqus_script(disqus_script){

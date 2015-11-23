@@ -45,7 +45,7 @@
 
 <meta name="description" content="第一个TensorFLow程序$python
 &amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
-&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;hello=tf.constant(&apos;Hello, TensorFlow!&apos;)
 &amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
 &amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
 Hello, TensorFlow!
@@ -56,17 +56,17 @@ Hello, TensorFlow!
 <meta property="og:site_name" content="Karry.Blog">
 <meta property="og:description" content="第一个TensorFLow程序$python
 &amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
-&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;hello=tf.constant(&apos;Hello, TensorFlow!&apos;)
 &amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
 &amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
 Hello, TensorFlow!
 &amp;gt;&amp;g">
-<meta property="og:updated_time" content="2015-11-23T12:18:31.744Z">
+<meta property="og:updated_time" content="2015-11-23T12:31:41.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow示例程序">
 <meta name="twitter:description" content="第一个TensorFLow程序$python
 &amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
-&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;hello=tf.constant(&apos;Hello, TensorFlow!&apos;)
 &amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
 &amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
 Hello, TensorFlow!
@@ -293,7 +293,7 @@ Hello, TensorFlow!
       
         <span itemprop="articleBody"><h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><pre><code><span class="variable">$python</span>
 &gt;&gt;&gt;import tensorflow as tf
-&gt;&gt;&gt;hellp=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
+&gt;&gt;&gt;hello=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
 &gt;&gt;&gt;sess=tf.<span class="function"><span class="title">Session</span><span class="params">()</span></span>
 &gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(hello)</span></span>
 Hello, TensorFlow!
@@ -315,7 +315,7 @@ y_data=np.dot([<span class="number">0.100</span>,<span class="number">0.200</spa
 <span class="comment">#Minimize the squared errors</span>
 loss=tf.reduce_mean(tf.square(y-y_data))
 optimizer=tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)
- train=optimizaer.minimize(loss)
+ train=optimizer.minimize(loss)
 
 <span class="comment">#For initializing the variables.</span>
  init=tf.initialize_all_variables()
@@ -350,7 +350,7 @@ sess=tf.Session()
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/23/TensorFlowWhitePaper/" rel="prev">TensorFlowWhitePaper</a>
+              <a href="/2015/11/23/TensorFlowWhitePaper/" rel="prev">TensorFlow白皮书【译】</a>
             
           </div>
 
@@ -452,14 +452,14 @@ sess=tf.Session()
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
