@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Hash,POJ," />
+  <meta name="keywords" content="Machine learning,voice,Algorithm" />
 
 
 
@@ -43,31 +43,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="题目链接Babelfish
-题目描述(Description)给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。
-分析(Analysis)直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。
-代码(Code)#include&amp;lt;cstdio&amp;gt;
-#include&amp;lt;cstring&amp;gt;
-#include&amp;lt;cstdl">
+<meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="poj2503哈希表实现字符串查找">
-<meta property="og:url" content="http://yoursite.com/2015/04/17/poj2503-hash/index.html">
+<meta property="og:title" content="TensorFlowWhitePaper">
+<meta property="og:url" content="http://yoursite.com/2015/11/23/TensorFlowWhitePaper/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="题目链接Babelfish
-题目描述(Description)给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。
-分析(Analysis)直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。
-代码(Code)#include&amp;lt;cstdio&amp;gt;
-#include&amp;lt;cstring&amp;gt;
-#include&amp;lt;cstdl">
-<meta property="og:updated_time" content="2015-09-20T11:54:45.125Z">
+<meta property="og:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
+<meta property="og:updated_time" content="2015-11-23T12:16:35.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="poj2503哈希表实现字符串查找">
-<meta name="twitter:description" content="题目链接Babelfish
-题目描述(Description)给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。
-分析(Analysis)直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。
-代码(Code)#include&amp;lt;cstdio&amp;gt;
-#include&amp;lt;cstring&amp;gt;
-#include&amp;lt;cstdl">
+<meta name="twitter:title" content="TensorFlowWhitePaper">
+<meta name="twitter:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -77,7 +62,7 @@
   };
 </script>
 
-  <title> poj2503哈希表实现字符串查找 | Karry.Blog </title>
+  <title> TensorFlowWhitePaper | Karry.Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +211,7 @@
           
           
             
-              poj2503哈希表实现字符串查找
+              TensorFlowWhitePaper
             
           
         </h1>
@@ -235,34 +220,19 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-17T19:52:31+08:00" content="2015-04-17">
-            2015-04-17
+          <time itemprop="dateCreated" datetime="2015-11-23T20:16:35+08:00" content="2015-11-23">
+            2015-11-23
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/POJ/" itemprop="url" rel="index">
-                  <span itemprop="name">POJ</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/17/poj2503-hash/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/17/poj2503-hash/" itemprop="commentsCount"></span>
+            <a href="/2015/11/23/TensorFlowWhitePaper/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/23/TensorFlowWhitePaper/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -276,98 +246,22 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
-<h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。</p>
-<h1 id="分析(Analysis)">分析(Analysis)</h1><p>直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。</p>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100003</span>;
-<span class="keyword">struct</span> Node{
-    <span class="keyword">int</span> hash;
-    <span class="keyword">struct</span> Node *next;
-}*link[M]={<span class="literal">NULL</span>};
-
-<span class="keyword">char</span> word[<span class="number">100000</span>][<span class="number">11</span>],dialect[<span class="number">100000</span>][<span class="number">11</span>];
-
-<span class="comment">/*Unix系统ELF字符串散列函数*/</span>
-<span class="function"><span class="keyword">int</span> <span class="title">ELFhash</span><span class="params">(<span class="keyword">char</span> *key)</span>
-</span>{
-    <span class="keyword">unsigned</span> <span class="keyword">long</span> h=<span class="number">0</span>,g;
-    <span class="keyword">while</span>(*key){
-        h=(h&lt;&lt;<span class="number">4</span>)+*key++;
-        g=h&amp;<span class="number">0x0000000</span>L;
-        <span class="keyword">if</span>(g)
-            h^=g&gt;&gt;<span class="number">24</span>;
-        h&amp;=~g;
-    }
-    <span class="keyword">return</span> h%M;
-} 
-
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">int</span> i,j,e,n=<span class="number">0</span>;
-    <span class="keyword">struct</span> Node *p;
-    <span class="keyword">char</span> str[<span class="number">100</span>];
-    gets(str);
-    <span class="keyword">while</span>(<span class="built_in">strcmp</span>(str,<span class="string">""</span>)!=<span class="number">0</span>)
-    {
-        <span class="keyword">for</span>(i=<span class="number">0</span>;str[i]!=<span class="string">' '</span>;i++){
-            word[n][i]=str[i];
-        }
-        word[n][i++]=<span class="string">'\0'</span>;
-        <span class="built_in">strcpy</span>(dialect[n],str+i);
-        e=ELFhash(dialect[n]);
-        p=(<span class="keyword">struct</span> Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));
-        p-&gt;hash=n;
-        p-&gt;next=link[e];
-        link[e]=p;
-        n++;
-        gets(str);
-    }
-    <span class="keyword">while</span>(gets(str)!=<span class="literal">NULL</span>){
-        e=ELFhash(str);
-        p=link[e];
-        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>){<span class="comment">//哈希冲突处理</span>
-            <span class="keyword">if</span>(<span class="built_in">strcmp</span>(str,dialect[p-&gt;hash])==<span class="number">0</span>)
-                <span class="keyword">break</span>;
-            <span class="keyword">else</span>
-                p=p-&gt;next;    
-        }
-        <span class="keyword">if</span>(!p)
-            <span class="built_in">printf</span>(<span class="string">"eh\n"</span>);
-        <span class="keyword">else</span>
-            <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,word[p-&gt;hash]);
-    }
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre></span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Hash/" rel="tag">#Hash</a>
-          
-            <a href="/tags/POJ/" rel="tag">#POJ</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/17/poj3630/" rel="prev">poj3630字典树应用找字符串中有没另一个字符串的前缀</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/17/poj2503/" rel="next">poj2503字典树的应用</a>
+              <a href="/2015/11/23/TensorFlowInstall/" rel="next">TensorFlow示例程序</a>
             
           </div>
         </div>
@@ -528,7 +422,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述(Description)"><span class="nav-number">2.</span> <span class="nav-text">题目描述(Description)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析(Analysis)"><span class="nav-number">3.</span> <span class="nav-text">分析(Analysis)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码(Code)"><span class="nav-number">4.</span> <span class="nav-text">代码(Code)</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -582,9 +476,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'karrysblog';
-      var disqus_identifier = '2015/04/17/poj2503-hash/';
-      var disqus_title = 'poj2503哈希表实现字符串查找';
-      var disqus_url = 'http://yoursite.com/2015/04/17/poj2503-hash/';
+      var disqus_identifier = '2015/11/23/TensorFlowWhitePaper/';
+      var disqus_title = 'TensorFlowWhitePaper';
+      var disqus_url = 'http://yoursite.com/2015/11/23/TensorFlowWhitePaper/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

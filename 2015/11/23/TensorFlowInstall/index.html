@@ -43,31 +43,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="第一个TensorFLow程序
-$python
-
-
-
-import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Session()print sess.run(hello)Hello, TensorFlow!a=tf.constant(10)b=tf.constant(32)print sess.run(a+b)42">
+<meta name="description" content="第一个TensorFLow程序$python
+&amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
+&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
+&amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
+Hello, TensorFlow!
+&amp;gt;&amp;g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow示例程序">
 <meta property="og:url" content="http://yoursite.com/2015/11/23/TensorFlowInstall/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="第一个TensorFLow程序
-$python
-
-
-
-import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Session()print sess.run(hello)Hello, TensorFlow!a=tf.constant(10)b=tf.constant(32)print sess.run(a+b)42">
-<meta property="og:updated_time" content="2015-11-23T12:14:18.907Z">
+<meta property="og:description" content="第一个TensorFLow程序$python
+&amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
+&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
+&amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
+Hello, TensorFlow!
+&amp;gt;&amp;g">
+<meta property="og:updated_time" content="2015-11-23T12:18:31.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow示例程序">
-<meta name="twitter:description" content="第一个TensorFLow程序
-$python
-
-
-
-import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Session()print sess.run(hello)Hello, TensorFlow!a=tf.constant(10)b=tf.constant(32)print sess.run(a+b)42">
+<meta name="twitter:description" content="第一个TensorFLow程序$python
+&amp;gt;&amp;gt;&amp;gt;import tensorflow as tf
+&amp;gt;&amp;gt;&amp;gt;hellp=tf.constant(&apos;Hello, TensorFlow!&apos;)
+&amp;gt;&amp;gt;&amp;gt;sess=tf.Session()
+&amp;gt;&amp;gt;&amp;gt;print sess.run(hello)
+Hello, TensorFlow!
+&amp;gt;&amp;g">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -288,27 +291,47 @@ import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Sessio
       
 
       
-        <span itemprop="articleBody"><h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><blockquote>
-<p>$python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import tensorflow as tf<br>hellp=tf.constant(‘Hello, TensorFlow!’)<br>sess=tf.Session()<br>print sess.run(hello)<br>Hello, TensorFlow!<br>a=tf.constant(10)<br>b=tf.constant(32)<br>print sess.run(a+b)<br>42</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="第二个TensorFlow程序">第二个TensorFlow程序</h1><blockquote>
-<p>import tensorflow as tf<br>import numpy as np</p>
-<p>#Make 100 phony data points in NumPy<br>x_data=np.float32(np.random.rand(2,100))#Random input<br>y_data=np.dot([0.100,0.200], x_data)+0.300</p>
-<p>#Construct a linear model<br>b=tf.Variable(tf.zeros([1])<br>W=tf.Variable(tf.random_uniform([1,2],-1.0,1.0))<br>y=tf.matmul(W,x_data)+b</p>
-<p>#Minimize the squared errors<br>loss=tf.reduce_mean(tf.square(y-y_data))<br>optimizer=tf.train.GradientDescentOptimizer(0.5)<br>train=optimizaer.minimize(loss)</p>
-<p>#For initializing the variables.<br>init=tf.initialize_all_variables()</p>
-<p>#Launch the graph<br>sess=tf.Session()<br>sess.run(init)</p>
-<p>#Fit the plane<br>for step in xrange(0,201):<br>    sess.run(train)<br>    if step%20==0:<br>    print step,sess.run(W),sess.run(b)</p>
-<p>#Learns best fit is W:[[0.100 0.200]],b: [0.300]</p>
-</blockquote>
-</span>
+        <span itemprop="articleBody"><h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><pre><code><span class="variable">$python</span>
+&gt;&gt;&gt;import tensorflow as tf
+&gt;&gt;&gt;hellp=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
+&gt;&gt;&gt;sess=tf.<span class="function"><span class="title">Session</span><span class="params">()</span></span>
+&gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(hello)</span></span>
+Hello, TensorFlow!
+&gt;&gt;&gt;a=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="number">10</span>)</span></span>
+&gt;&gt;&gt;b=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="number">32</span>)</span></span>
+&gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(a+b)</span></span>
+ <span class="number">42</span>
+&gt;&gt;&gt;
+</code></pre><h1 id="第二个TensorFlow程序">第二个TensorFlow程序</h1><pre><code> import tensorflow <span class="keyword">as</span> tf
+import numpy <span class="keyword">as</span> np
+<span class="comment">#Make 100 phony data points in NumPy</span>
+x_data=np.float32(np.random.rand(<span class="number">2</span>,<span class="number">100</span>))<span class="comment">#Random input</span>
+y_data=np.dot([<span class="number">0.100</span>,<span class="number">0.200</span>], x_data)+<span class="number">0.300</span>
+
+ <span class="comment">#Construct a linear model</span>
+ b=tf.Variable(tf.zeros([<span class="number">1</span>])
+ W=tf.Variable(tf.random_uniform([<span class="number">1</span>,<span class="number">2</span>],-<span class="number">1.0</span>,<span class="number">1.0</span>))
+ y=tf.matmul(W,x_data)+b
+<span class="comment">#Minimize the squared errors</span>
+loss=tf.reduce_mean(tf.square(y-y_data))
+optimizer=tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)
+ train=optimizaer.minimize(loss)
+
+<span class="comment">#For initializing the variables.</span>
+ init=tf.initialize_all_variables()
+
+ <span class="comment">#Launch the graph</span>
+sess=tf.Session()
+ sess.<span class="command">run</span>(init)
+
+ <span class="comment">#Fit the plane</span>
+<span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">0</span>,<span class="number">201</span>):
+     sess.<span class="command">run</span>(train)
+     <span class="keyword">if</span> step%<span class="number">20</span>==<span class="number">0</span>:
+     print step,sess.<span class="command">run</span>(W),sess.<span class="command">run</span>(b)
+
+ <span class="comment">#Learns best fit is W:[[0.100 0.200]],b: [0.300]</span>
+</code></pre></span>
       
     </div>
 
@@ -326,6 +349,8 @@ import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Sessio
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/23/TensorFlowWhitePaper/" rel="prev">TensorFlowWhitePaper</a>
             
           </div>
 
@@ -420,7 +445,7 @@ import tensorflow as tfhellp=tf.constant(‘Hello, TensorFlow!’)sess=tf.Sessio
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

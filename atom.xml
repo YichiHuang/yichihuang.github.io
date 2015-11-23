@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-23T12:14:18.907Z</updated>
+  <updated>2015-11-23T12:16:35.332Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,39 +15,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[TensorFlowWhitePaper]]></title>
+    <link href="http://yoursite.com/2015/11/23/TensorFlowWhitePaper/"/>
+    <id>http://yoursite.com/2015/11/23/TensorFlowWhitePaper/</id>
+    <published>2015-11-23T12:16:35.000Z</published>
+    <updated>2015-11-23T12:16:35.332Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[TensorFlow示例程序]]></title>
     <link href="http://yoursite.com/2015/11/23/TensorFlowInstall/"/>
     <id>http://yoursite.com/2015/11/23/TensorFlowInstall/</id>
     <published>2015-11-23T09:40:20.000Z</published>
-    <updated>2015-11-23T12:14:18.907Z</updated>
-    <content type="html"><![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><blockquote>
-<p>$python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import tensorflow as tf<br>hellp=tf.constant(‘Hello, TensorFlow!’)<br>sess=tf.Session()<br>print sess.run(hello)<br>Hello, TensorFlow!<br>a=tf.constant(10)<br>b=tf.constant(32)<br>print sess.run(a+b)<br>42</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h1 id="第二个TensorFlow程序">第二个TensorFlow程序</h1><blockquote>
-<p>import tensorflow as tf<br>import numpy as np</p>
-<p>#Make 100 phony data points in NumPy<br>x_data=np.float32(np.random.rand(2,100))#Random input<br>y_data=np.dot([0.100,0.200], x_data)+0.300</p>
-<p>#Construct a linear model<br>b=tf.Variable(tf.zeros([1])<br>W=tf.Variable(tf.random_uniform([1,2],-1.0,1.0))<br>y=tf.matmul(W,x_data)+b</p>
-<p>#Minimize the squared errors<br>loss=tf.reduce_mean(tf.square(y-y_data))<br>optimizer=tf.train.GradientDescentOptimizer(0.5)<br>train=optimizaer.minimize(loss)</p>
-<p>#For initializing the variables.<br>init=tf.initialize_all_variables()</p>
-<p>#Launch the graph<br>sess=tf.Session()<br>sess.run(init)</p>
-<p>#Fit the plane<br>for step in xrange(0,201):<br>    sess.run(train)<br>    if step%20==0:<br>    print step,sess.run(W),sess.run(b)</p>
-<p>#Learns best fit is W:[[0.100 0.200]],b: [0.300]</p>
-</blockquote>
-]]></content>
+    <updated>2015-11-23T12:18:31.744Z</updated>
+    <content type="html"><![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><pre><code><span class="variable">$python</span>
+&gt;&gt;&gt;import tensorflow as tf
+&gt;&gt;&gt;hellp=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="string">'Hello, TensorFlow!'</span>)</span></span>
+&gt;&gt;&gt;sess=tf.<span class="function"><span class="title">Session</span><span class="params">()</span></span>
+&gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(hello)</span></span>
+Hello, TensorFlow!
+&gt;&gt;&gt;a=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="number">10</span>)</span></span>
+&gt;&gt;&gt;b=tf.<span class="function"><span class="title">constant</span><span class="params">(<span class="number">32</span>)</span></span>
+&gt;&gt;&gt;print sess.<span class="function"><span class="title">run</span><span class="params">(a+b)</span></span>
+ <span class="number">42</span>
+&gt;&gt;&gt;
+</code></pre><h1 id="第二个TensorFlow程序">第二个TensorFlow程序</h1><pre><code> import tensorflow <span class="keyword">as</span> tf
+import numpy <span class="keyword">as</span> np
+<span class="comment">#Make 100 phony data points in NumPy</span>
+x_data=np.float32(np.random.rand(<span class="number">2</span>,<span class="number">100</span>))<span class="comment">#Random input</span>
+y_data=np.dot([<span class="number">0.100</span>,<span class="number">0.200</span>], x_data)+<span class="number">0.300</span>
+
+ <span class="comment">#Construct a linear model</span>
+ b=tf.Variable(tf.zeros([<span class="number">1</span>])
+ W=tf.Variable(tf.random_uniform([<span class="number">1</span>,<span class="number">2</span>],-<span class="number">1.0</span>,<span class="number">1.0</span>))
+ y=tf.matmul(W,x_data)+b
+<span class="comment">#Minimize the squared errors</span>
+loss=tf.reduce_mean(tf.square(y-y_data))
+optimizer=tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)
+ train=optimizaer.minimize(loss)
+
+<span class="comment">#For initializing the variables.</span>
+ init=tf.initialize_all_variables()
+
+ <span class="comment">#Launch the graph</span>
+sess=tf.Session()
+ sess.<span class="command">run</span>(init)
+
+ <span class="comment">#Fit the plane</span>
+<span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">0</span>,<span class="number">201</span>):
+     sess.<span class="command">run</span>(train)
+     <span class="keyword">if</span> step%<span class="number">20</span>==<span class="number">0</span>:
+     print step,sess.<span class="command">run</span>(W),sess.<span class="command">run</span>(b)
+
+ <span class="comment">#Learns best fit is W:[[0.100 0.200]],b: [0.300]</span>
+</code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><blockquote>
-<p>$python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import tensorflow as tf<b]]>
+    <![CDATA[<h1 id="第一个TensorFLow程序">第一个TensorFLow程序</h1><pre><code><span class="variable">$python</span>
+&gt;&gt;&gt;import tensorflow as tf
+&gt;&gt;&g]]>
     </summary>
     
       <category term="Machine learning" scheme="http://yoursite.com/tags/Machine-learning/"/>
@@ -1698,160 +1728,6 @@ public:
       <category term="Hash" scheme="http://yoursite.com/tags/Hash/"/>
     
       <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
-    
-      <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[poj2503字典树的应用]]></title>
-    <link href="http://yoursite.com/2015/04/17/poj2503/"/>
-    <id>http://yoursite.com/2015/04/17/poj2503/</id>
-    <published>2015-04-17T11:45:48.000Z</published>
-    <updated>2015-09-20T11:51:06.965Z</updated>
-    <content type="html"><![CDATA[<h1 id="*题目链接">*题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
-<h1 id="字典树介绍">字典树介绍</h1><p>字典树是一种树形结构，也叫单词搜索树、Trie树，优点是可以利用字符串的公共前缀来节约存储空间，最大限度地减少无谓的字符串的比较。</p>
-<h2 id="特点"><strong>特点</strong></h2><pre><code>-<span class="ruby"> 根节点不包含任何字母，二除它以外的每个结点仅包含一个字母；
-</span>-<span class="ruby"> 从跟结点到某个结点，路径上经过的字母一次连接起来所构成的字母序列，称为该结点对应的单词。单词列表中的每个词，都是该字母树某个结点所对应的单词；
-</span>-<span class="ruby"> 每个结点的所有儿子包含的字母各不相同。字典树的插入、删除、查找都非常简单，用一个重循环即可，即第i次循环找到前i个字母所对应的子树，然后进行相应操作。</span>
-</code></pre><h2 id="字典树的静态与动态实现（模板）"><strong>字典树的静态与动态实现（模板）</strong></h2><h3 id="静态数组实现（费空间）">静态数组实现（费空间）</h3><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1000</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> branch=<span class="number">26</span>;
-<span class="keyword">struct</span> tree_node{
-    <span class="keyword">int</span> count;
-    <span class="keyword">bool</span> end;
-    tree_node *next[branch];
-}root,node[maxn];
-<span class="keyword">int</span> p;<span class="comment">//静态建树的特点，记录用了几个tree_node，则下一个结点是node[p]</span>
-<span class="comment">/*插入*/</span>
-<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *word)</span>
-</span>{
-    tree_node *location=&amp;root;<span class="comment">//起初指向根节点，再一层层向下找</span>
-    <span class="keyword">while</span>(*word){
-        <span class="keyword">if</span>(location-&gt;next[*word-<span class="string">'a'</span>]==<span class="literal">NULL</span>){
-            node[p].count=<span class="number">0</span>;<span class="comment">//初始化新节点</span>
-            node[p].end=<span class="literal">false</span>;
-            <span class="built_in">memset</span>(node[p],<span class="number">0</span>,<span class="keyword">sizeof</span>(node[p]));
-            location-&gt;next[*word-<span class="string">'a'</span>]=&amp;node[p++];
-        }
-        location=location-&gt;next[*word-<span class="string">'a'</span>];
-        location-&gt;count++;
-        word++;
-    }
-    location-&gt;end=<span class="literal">true</span>;
-}
-<span class="comment">/*查找*/</span>
-<span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(cahr *word)</span>
-</span>{
-    tree_node *location=&amp;root;
-    <span class="keyword">while</span>(*word&amp;&amp;location){
-        location=location-&gt;next[*word-<span class="string">'a'</span>];
-        word++;
-    }
-    <span class="keyword">return</span> (location!=<span class="literal">NULL</span>&amp;&amp;location-&gt;end);
-}
-</code></pre><h3 id="动态建树（费时间）">动态建树（费时间）</h3><pre><code>struct tree_node{
-    boot end;
-    tree_node *<span class="keyword">next</span>[branch];<span class="comment">//指向各子树的指针，下标0-25代表26个字符</span>
-    tree_node(){
-        end=<span class="keyword">false</span>;
-        memset(<span class="keyword">next</span>,<span class="keyword">NULL</span>,sizeof(<span class="keyword">next</span>));
-    }
-}root;
-<span class="comment">/*插入*/</span>
-<span class="keyword">void</span> insert(<span class="keyword">char</span> *word)
-{
-    tree_node *location=&amp;root;<span class="comment">//向以root为根节点的树中插入word</span>
-    <span class="keyword">while</span>(*word){
-        <span class="keyword">if</span>(location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>]==<span class="keyword">NULL</span>){
-            tree_node *tmp=<span class="keyword">new</span> tree_node();
-            location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>]=tmp;
-        }
-        location=location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>];
-        word++;
-    }
-    location-&gt;end=<span class="keyword">true</span>;
-}
-<span class="comment">/*查找*/</span>
-bool search(<span class="keyword">char</span> *word)
-{
-    tree_node *location=&amp;root;
-    <span class="keyword">while</span>(*word&amp;&amp;location){
-        location=location-&gt;<span class="keyword">next</span>[*word-<span class="string">'a'</span>];
-        word++;
-    }
-    <span class="keyword">return</span> (location!=<span class="keyword">NULL</span>&amp;&amp;location-&gt;end);
-}
-</code></pre><h1 id="题目描述(Description)">题目描述(Description)</h1><p>给定一些字符串以及它在一种外星语言中的对应解释，现在有若干外星语言中的串，要求把它们翻译成英语。</p>
-<h1 id="分析(Analysis)">分析(Analysis)</h1><p>直接用字典树存外星语，维护一个长度为11的字符数组，用来存对应的英语。</p>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span>
-<span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdlib&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2600010</span>;
-<span class="keyword">const</span> <span class="keyword">int</span> branchNum=<span class="number">26</span>;
-<span class="keyword">struct</span> tree_node{
-    <span class="keyword">char</span> dia[<span class="number">11</span>];
-    tree_node *next[branchNum];
-}root,node[maxn];
-<span class="keyword">int</span> p=<span class="number">0</span>;
-<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> *word,<span class="keyword">char</span> *dia)</span>
-</span>{
-    tree_node *location=&amp;root;
-    <span class="keyword">while</span>(*word)
-    {
-        <span class="keyword">if</span>(location-&gt;next[*word-<span class="string">'a'</span>]==<span class="literal">NULL</span>){
-            <span class="built_in">memset</span>(node[p].next,<span class="literal">NULL</span>,<span class="keyword">sizeof</span>(node[p].next));
-            location-&gt;next[*word-<span class="string">'a'</span>]=&amp;node[p++];
-        }
-        location=location-&gt;next[*word-<span class="string">'a'</span>];
-        word++;
-    }
-    <span class="built_in">strcpy</span>(location-&gt;dia,dia);
-}
-<span class="function"><span class="keyword">void</span> <span class="title">search</span><span class="params">(<span class="keyword">char</span> *word)</span>
-</span>{
-    tree_node *location=&amp;root;
-    <span class="keyword">while</span>(*word&amp;&amp;location)
-    {
-        location=location-&gt;next[*word-<span class="string">'a'</span>];
-        word++;
-    }
-    <span class="keyword">if</span>(location!=<span class="literal">NULL</span>&amp;&amp;location-&gt;dia!=<span class="number">0</span>)
-        <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,location-&gt;dia);
-    <span class="keyword">else</span>
-        <span class="built_in">printf</span>(<span class="string">"eh\n"</span>);
-}
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">char</span> word[<span class="number">11</span>],dia[<span class="number">11</span>],c;
-    <span class="keyword">while</span>(<span class="number">1</span>)
-    {
-        <span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,word,dia);
-        insert(dia,word);
-        getchar();
-        c=getchar();
-        <span class="keyword">if</span>(c==<span class="string">'\n'</span>)
-            <span class="keyword">break</span>;
-        ungetc(c,<span class="built_in">stdin</span>);
-    }
-    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,dia)!=EOF)
-    {
-        search(dia);
-    }
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="*题目链接">*题目链接</h1><p><a href="http://poj.org/problem?id=2503" target="_blank" rel="external">Babelfish</a></p>
-<h1 id="字典树介绍">字典树介绍</]]>
-    </summary>
-    
-      <category term="POJ" scheme="http://yoursite.com/tags/POJ/"/>
-    
-      <category term="Trie" scheme="http://yoursite.com/tags/Trie/"/>
     
       <category term="POJ" scheme="http://yoursite.com/categories/POJ/"/>
     
