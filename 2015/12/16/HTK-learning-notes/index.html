@@ -1,0 +1,863 @@
+<!doctype html>
+<html class="theme-next use-motion ">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video." />
+
+
+
+  <meta name="keywords" content="HTK," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Karry.Blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="来源：HTKbook
+第一章    HTK基础
+HTK是一个构建隐马尔科夫模型（HMMs）的工具。如图1所示，它主要包括两个阶段：
+
+HTK training tools:通过训练样本估计HMMs的参数及其相关的录音文本(transcriptions)
+
+HTK recognition tools:测试的未知文本语音由识别器转录(transcribe)
+
+
+1.1 HMMS基本原则
+如图1.1所示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTKbook第一章">
+<meta property="og:url" content="http://yoursite.com/2015/12/16/HTK-learning-notes/index.html">
+<meta property="og:site_name" content="Karry.Blog">
+<meta property="og:description" content="来源：HTKbook
+第一章    HTK基础
+HTK是一个构建隐马尔科夫模型（HMMs）的工具。如图1所示，它主要包括两个阶段：
+
+HTK training tools:通过训练样本估计HMMs的参数及其相关的录音文本(transcriptions)
+
+HTK recognition tools:测试的未知文本语音由识别器转录(transcribe)
+
+
+1.1 HMMS基本原则
+如图1.1所示">
+<meta property="og:image" content="http://i.imgur.com/rmByzAM.png">
+<meta property="og:image" content="http://i.imgur.com/NFWJEjJ.png">
+<meta property="og:image" content="http://i.imgur.com/x55wftJ.png">
+<meta property="og:image" content="http://i.imgur.com/BQrbeF2.png">
+<meta property="og:image" content="http://i.imgur.com/9daVzmF.png">
+<meta property="og:image" content="http://i.imgur.com/LZq89xi.png">
+<meta property="og:image" content="http://i.imgur.com/JzhPXOG.png">
+<meta property="og:image" content="http://i.imgur.com/hYqtuA1.png">
+<meta property="og:image" content="http://i.imgur.com/7E2TWrU.png">
+<meta property="og:image" content="http://i.imgur.com/vnQue2H.png">
+<meta property="og:image" content="http://i.imgur.com/cLhIAYi.png">
+<meta property="og:image" content="http://i.imgur.com/46P6F1P.jpg">
+<meta property="og:image" content="http://i.imgur.com/HMQWRGl.png">
+<meta property="og:image" content="http://i.imgur.com/CtTi6kJ.png">
+<meta property="og:image" content="http://i.imgur.com/mXKxcti.png">
+<meta property="og:image" content="http://i.imgur.com/y5G2JW3.png">
+<meta property="og:image" content="http://i.imgur.com/dsTKCFq.png">
+<meta property="og:image" content="http://i.imgur.com/0Md3SfB.png">
+<meta property="og:image" content="http://i.imgur.com/bqR6YaU.png">
+<meta property="og:image" content="http://i.imgur.com/cfe4oU3.png">
+<meta property="og:image" content="http://i.imgur.com/C23bo4w.png">
+<meta property="og:image" content="http://i.imgur.com/Hnz3waP.png">
+<meta property="og:image" content="http://i.imgur.com/Ppe2Mnd.png">
+<meta property="og:image" content="http://i.imgur.com/qqLlHCc.png">
+<meta property="og:image" content="http://i.imgur.com/Xw7Scsp.png">
+<meta property="og:image" content="http://i.imgur.com/Grl1y9F.png">
+<meta property="og:updated_time" content="2016-01-09T09:39:04.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTKbook第一章">
+<meta name="twitter:description" content="来源：HTKbook
+第一章    HTK基础
+HTK是一个构建隐马尔科夫模型（HMMs）的工具。如图1所示，它主要包括两个阶段：
+
+HTK training tools:通过训练样本估计HMMs的参数及其相关的录音文本(transcriptions)
+
+HTK recognition tools:测试的未知文本语音由识别器转录(transcribe)
+
+
+1.1 HMMS基本原则
+如图1.1所示">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always'
+  };
+</script>
+
+  <title> HTKbook第一章 | Karry.Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?50c15455e37f70aea674ff4a663eef27";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Karry.Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            <i class="menu-item-icon icon-next-search"></i> <br />
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'aXgZrwYG_3NxX3KswKAg','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              HTKbook第一章
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-12-16T15:10:36+08:00" content="2015-12-16">
+            2015-12-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/HTK/" itemprop="url" rel="index">
+                  <span itemprop="name">HTK</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/12/16/HTK-learning-notes/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/16/HTK-learning-notes/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>来源：<a href="http://htk.eng.cam.ac.uk/" title="HTKbook" target="_blank" rel="external">HTKbook</a></p>
+<h1 id="第一章_HTK基础">第一章    HTK基础</h1><p><img src="http://i.imgur.com/rmByzAM.png" alt="图1"></p>
+<p>HTK是一个构建隐马尔科夫模型（HMMs）的工具。如图1所示，它主要包括两个阶段：</p>
+<ol>
+<li><p>HTK training tools:通过训练样本估计HMMs的参数及其相关的录音文本(transcriptions)</p>
+</li>
+<li><p>HTK recognition tools:测试的未知文本语音由识别器转录(transcribe)</p>
+</li>
+</ol>
+<h2 id="1-1_HMMS基本原则">1.1 HMMS基本原则</h2><p><img src="http://i.imgur.com/NFWJEjJ.png" alt=""></p>
+<p>如图1.1所示，语音识别系统通常会假设语音信号是把消息编码成由一个或多个符号组成的序列(symbols)。识别的过程就是解码，即把测试语音还原成强调的符号序列，连续的语音波形首先被转换为一串等长的离散参数向量。假设这个参数向量的序列恰好是语音波形的最佳表示，参数向量是以单个向量持续时间为基础，通常是10ms，在这个时间内语音波形可以认为是不变的。常用的典型参数是平滑的频谱(smoothed spectra)、LPC(linear prediction coefficients)+其他从中推出的表示。</p>
+<p>识别器(recogniser)的作用就是把speech vectors sequences映射为underlying symbol sequences。这里有两个问题：</p>
+<p>问题一：</p>
+<ol>
+<li><p>从符号到语音的映射不是一对一的，因为不同的强调符号会发出相似的语音。而且由于说话人、说话态度、环境等的不同，最终的语音波形也会千差万别。</p>
+</li>
+<li><p>符号间的边界不能从语音波形中明显地识别出。</p>
+</li>
+</ol>
+<p>因此，不能把语音波形当成一串级联的静态模式(concatenated static patterns)。</p>
+<p>问题二：</p>
+<p>不知道单词边界的位置。这个问题可以通过增加孤立词识别这一条件避免。如图1.2所示，语音波形与单个符号（例如，单词）对应，单词都是从一个固定的字典里选出。所以，首先解决的是孤立词识别问题。</p>
+<h2 id="1-2_孤立词识别(Isolated_Word_Recognition)">1.2 孤立词识别(Isolated Word Recognition)</h2><p><img src="http://i.imgur.com/x55wftJ.png" alt=""></p>
+<p>令每个发音单词用语音向量序列或观察向量O表示，定义为：<br> <img src="http://i.imgur.com/BQrbeF2.png" alt="1.1"><br>                                                 (1.1)</p>
+<p>其中 表示在 时刻观察到的语音向量。就可以认为孤立词识别问题是在计算：</p>
+<p><img src="http://i.imgur.com/9daVzmF.png" alt="">                 (1.2)</p>
+<p>其中 表示第 个词典词。这个概率不是直接计算的，而是由贝叶斯公式给出：</p>
+<p><img src="http://i.imgur.com/LZq89xi.png" alt="">                (1.3)</p>
+<p>因此，给定先验概率<img src="http://i.imgur.com/JzhPXOG.png" alt=""> ，最可能的发音单词就仅仅取决于概率<img src="http://i.imgur.com/hYqtuA1.png" alt=""> 。给定观察序列<img src="http://i.imgur.com/7E2TWrU.png" alt=""> 的维数，从发音单词的样本直接计算联合条件概率 是很难实现的。然而，如果一个单词的参数模型假设是马尔可夫模型，当估计条件观察值密度<img src="http://i.imgur.com/vnQue2H.png" alt=""> 的问题被估计马尔可夫参数的简单问题代替，由观察向量计算<img src="http://i.imgur.com/cLhIAYi.png" alt=""> 就可以实现了。</p>
+<p>当然，所有的这些都要假设每个模型的参数{aij}和{bij｝是已知的。这里依赖于HMM框架的魅力和能力。假定一组训练样本对应一个特定模型，根据一个稳定有效的重估过程可自动求出该模型的参数。因此，当每个单词都有足够多的具有代表性的样本时，一个HMM就可以构造出来了，其中隐含了对真实语音的所有的内在变化的模拟。图1.4描述了HMM在孤立词识别中的应用。首先，在词典中只有“one”，“two”，“three”三个单词的情况下，用各个词典词的许多样本训练出对应的HMM。然后，为了识别未知单词，计算各个模型生成该单词的似然，找出最有可能的一个模型，这就识别出了这一未知的单词。</p>
+<p><img src="http://i.imgur.com/46P6F1P.jpg" alt=""></p>
+<h2 id="1-3_输出概率">1.3 输出概率</h2><p><img src="http://i.imgur.com/HMQWRGl.png" alt=""><br><img src="http://i.imgur.com/CtTi6kJ.png" alt=""></p>
+<h2 id="1-4_Baum-Welch重估">1.4 Baum-Welch重估</h2><p><img src="http://i.imgur.com/mXKxcti.png" alt=""><br><img src="http://i.imgur.com/y5G2JW3.png" alt=""><br><img src="http://i.imgur.com/dsTKCFq.png" alt=""><br><img src="http://i.imgur.com/0Md3SfB.png" alt=""><br><img src="http://i.imgur.com/bqR6YaU.png" alt=""><br><img src="http://i.imgur.com/cfe4oU3.png" alt=""><br><img src="http://i.imgur.com/C23bo4w.png" alt=""><br><img src="http://i.imgur.com/Hnz3waP.png" alt=""></p>
+<h2 id="1-5_识别和Viterbi解码">1.5 识别和Viterbi解码</h2><p><img src="http://i.imgur.com/Ppe2Mnd.png" alt=""><br><img src="http://i.imgur.com/qqLlHCc.png" alt=""><br><img src="http://i.imgur.com/Xw7Scsp.png" alt=""></p>
+<h2 id="1-6_连续语音识别">1.6 连续语音识别</h2><p>现在回到图1.1所示的语音产生和识别的概念模型，需要明白的是推广到连续语音只是简单地让HMM有序地连接在一起。序列中的每个模型和隐藏的符号直接对应。这些符号可能是针对连接语音识别（Connected Speech Recognition）的整个单词，或者是针对连续语音识别的子词（例如音素）。为什么存在没有输出的入口状态和出口状态呢？现在就很明显了，因为这些状态可以用来将各个模型连接在一起。</p>
+<pre><code>然而还得克服一些实际问题中遇到的困难。连续语音的训练数据必须包括连续语料，而一般对应到子词模型的每段语音的切分边界都是不知道的。在实际过程中，通常是人工标注少量的数据边界，这样，一个模型对应的所有语音片段都可以提取出来，也可以进行上述的孤立词训练。然而，用这种方法得到的数据是很有限的，并且模型估计结果也很差。此外，即使有了大量的数据，人工强行标记的边界也可能不是HMM使用的最佳边界。因此，在HTK中使用HInit和HRest初始化子词模型可视为引导（<span class="keyword">bootstrap）操作 </span>。主要的训练阶段还是用工具HERest来完成，它用于嵌入式训练（Embedded Training）。
+</code></pre><p>同孤立词训练一样，嵌入式训练也使用Baum-Welch算法，不同的是前者对各个模型单独训练，而后者是所有模型并行训练。它具体的工作步骤如下：</p>
+<ol>
+<li>为所有模型的所有参数的accumulators分配空间，并置0。</li>
+<li>得到下一个训练语料。</li>
+<li>有序地联结和训练语料的符号脚本相对应的所有HMM，构造出一个复合的HMM。</li>
+<li>对这个复合的HMM计算前向-后向概率。在复合模型中，包含不输出的状态，因此前向概率和后向概率的计算有所改变，但变动很小，这在第八章中将详细地讨论。</li>
+<li>使用前向和后向概率计算在每一帧的状态占有概率，并用通常的方法更新accumulators。</li>
+<li>从第二步开始重复上述操作，直到处理完所有的训练语料。</li>
+<li><p>用accumulators计算所有HMM的新的参数估计值。<br>多次重复这些步骤，直到达到要求的收敛为止。需要指出的是，虽然这个过程没有要求训练数据中的符号边界位置，但每个训练语料的符号脚本还是必须的。<br>对于训练子词模型，Baum-Welch算法需要做的扩展相对Viterbi算法需要做的扩展来说要少一些 。<br>在HTK中，Viterbi算法的另一表述形式为Token Passing Model 。简单地说，Token Passing Model明确地给出状态对齐路径的概念。假设在 时刻HMM的每个状态 对应了一个可移动的token，该token在其它信息中包含了局部log概率 。那么这一token就表示了观测序列 … 与在 时刻进入状态 的模型之间的一个局部匹配。这时可用token passing 算法来代替公式(1.31)表示的路径扩充算法，它在每一帧 都要执行。这个算法的主要步骤如下：</p>
+</li>
+<li><p>拷贝状态 中的每一个token，传给到所有的连接的状态 ，使用 增加所拷贝的token的log概率。</p>
+</li>
+<li><p>检查每个状态的token，留下最大概率的token，扔掉其他token。<br>在实际中，处理不输出的状态时需要一些修改，但这些比较简单，如果token在入口状态，就假设路径延伸到 ，而在出口状态则延伸到 。<br>用Token Passing Model的关键是因为它能很简单地扩展到连续语音的情形。假设HMM序列是一个有限状态网络。例如，图1.7显示了一个简单的网络，每个单词定义为基于音素的HMM序列，所有的单词是放在一个圆环里。在这个网络里，椭圆框表示HMM实例，方框表示word-end节点。这个复合网络正是一个大的HMM，应用了上面的Token Passing 算法。现在唯一的不同是比最优token的log概率需要更多的信息。当最优token到达语音结尾时，为了恢复识别出的模型序列，我们必须知道它通过网络的路径。</p>
+<pre><code>!<span class="attr_selector">[]</span>(<span class="attribute">http</span>:<span class="comment">//i.imgur.com/BNlnrDx.png)</span>
+</code></pre><p>穿过网络的token路径的历史记录可以按照下面方式有效地记录下来。每个token带有一个“Word End Link”指针，当一个token从一个单词的出口状态（用穿过word-end结点表示）传到另一个单词的入口状态产生一个路径时，这一传输表示了一个可能的单词边界。因此生成一个称为“Word Link Record”（WLR）的记录存储该单词的刚刚出现的token和token链的当前值。那么这个实际的token链就是用一个新的WLR指针来代替，图1.8说明了这一过程。<br>一旦处理完所有的未知语音，带有最优token（也就是最大log概率的token）链的WLR能够追溯得到最优匹配单词序列。同时如有需要，也能得到单词边界的位置。<br><img src="http://i.imgur.com/Grl1y9F.png" alt=""><br>上面针对连续语音的Token Passing算法描述仅仅用于记录单词序列。如果需要，该原理还能用来记录在模型和状态级的决策，也能保存每个单词边界上更多的最优路径。这样就为生成hypotheses（译者注：意为可能的识别结果）的lattice（译者注：网格）提供了可能，lattice比单Best输出更有用。基于这个思想的算法称为lattice N-best。因为每个状态一个token，限制了可能得到的不同token历史记录的数量，所以他们不是最合适的。若每个模型状态对应多个token，并且如果认为来自不同前序单词的token是不同的，就可以避免上述限制。这类算法称为word N-best 算法，经验表明它的性能可以和最优的N-best算法相当。<br>上面概述了用在HTK中的Token Passing的主要思想。这些算法植入到了库模块HNet和HRec中，它们会被识别工具HVite调用。它们提供单个和多个Token Passing识别，single-best输出，网格输出，N-best列表，支持上下文相关cross-word，lattice rescoring和forced alignment。</p>
+</li>
+</ol>
+<h2 id="1-7_发音人自适应">1.7 发音人自适应</h2><p>虽然上面所讲的训练和识别技术能够产生出高效的识别系统，但如果对特定发音人的特征定制HMM，那么这些系统的效果将得到进一步的提高。HTK提供了HEAdapt和HVite工具，它们用少量的enrollment或自适应数据来执行自适应。这两个工具的不同之处在于，HEAdapt进行离线有监督的适应，而HVite识别自适应数据并使用生成的脚本来进行自适应。通常，HEAdapt提供的有监督的自适应更稳定一些，但是给定一个初始的已经很好地训练过的模型集，HVite仍然能显著地改善其效果。在第九章将描述自适应的细节及它在HTK中的使用。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTK/" rel="tag">#HTK</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/23/TensorFlowWhitePaper/" rel="next">TensorFlow白皮书【译】</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/hyc.jpg" alt="Karry Huang(黄艺驰)" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Karry Huang(黄艺驰)</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/YichiHuang" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2405696121/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://adsp.szpku.edu.cn/" target="_blank">ADSPLab</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章_HTK基础"><span class="nav-number">1.</span> <span class="nav-text">第一章    HTK基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1_HMMS基本原则"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 HMMS基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2_孤立词识别(Isolated_Word_Recognition)"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 孤立词识别(Isolated Word Recognition)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3_输出概率"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 输出概率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4_Baum-Welch重估"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 Baum-Welch重估</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5_识别和Viterbi解码"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 识别和Viterbi解码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6_连续语音识别"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 连续语音识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7_发音人自适应"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 发音人自适应</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Karry Huang(黄艺驰)</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'karrysblog';
+      var disqus_identifier = '2015/12/16/HTK-learning-notes/';
+      var disqus_title = 'HTKbook第一章';
+      var disqus_url = 'http://yoursite.com/2015/12/16/HTK-learning-notes/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"3","bdPos":"left","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

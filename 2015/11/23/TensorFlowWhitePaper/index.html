@@ -54,7 +54,7 @@ TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常
 <meta property="og:image" content="http://i.imgur.com/qpiRUIP.png">
 <meta property="og:image" content="http://i.imgur.com/8FoQG55.png">
 <meta property="og:image" content="http://i.imgur.com/VHx7CRW.png">
-<meta property="og:updated_time" content="2015-11-24T05:41:23.853Z">
+<meta property="og:updated_time" content="2015-12-02T08:52:15.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow白皮书【译】">
 <meta name="twitter:description" content="TensorFlow:大规模机器学习的异构分布式系统
@@ -302,7 +302,8 @@ TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常
 <p>该置放算法的输入是一个代价模型，包括对每个图节点的输入和输出张亮的规模的估计，和对每个节点在给于其输入张量时的计算时间的。这个代价模型或者是基于关联不同操作类型的启发式规则的静态估计，或者基于实际的为更早的图的执行而做的置放决定集合衡量。</p>
 <p>置放算法首先运行模拟的图的执行过程。模拟按照下面描述进行，对每个节点使用贪心策略选择一个设备。节点到设备的置放过程也是用作真实执行的置放。</p>
 <p>置放算法从计算图的源点开始，在系统中的每个设备上模拟相应的活动。对每个在遍历中抵达的节点，可选 available 设备的集合会被考虑到（设备可能会由于其没能提供实现了特定操作的kernel而不可选）。对那些拥有多个可选设备的节点，置放算法使用一种贪心策略来检查在每个可能谁被上置放节点需要完成的时间的效果完成决策。这种启发式规则考虑了根据代价模型在那种设备上估计的和衡量的执行时间，还有任何用来从其他设备传输输入到该节点的通信的代价。其中节点的操作完成最快的设备会被选作该操作的设备，置放决策然后会继续针对图中其他的节点进行处理，包含那些已经做好模拟执行的下游节点。第 4.3 节描述了一些扩展，让用户可以提供提示和部分限制来指导置放算法。这个算法现在还在持续开发的过程中。</p>
-<h3 id="3-2-2_交叉设备通信">3.2.2 交叉设备通信</h3><h2 id="3-3_分布式执行">3.3 分布式执行</h2><h1 id="4_扩展">4 扩展</h1><h2 id="4-1_梯度计算">4.1 梯度计算</h2><h2 id="4-2_部分执行">4.2 部分执行</h2><h2 id="4-3_设备限制">4.3 设备限制</h2><h2 id="4-4_控制流">4.4 控制流</h2><h2 id="4-5_输入操作">4.5 输入操作</h2><h2 id="4-6_队列">4.6 队列</h2><h2 id="4-7_容器">4.7 容器</h2><h1 id="5_优化">5 优化</h1><h2 id="5-1_通常子表达式消除">5.1 通常子表达式消除</h2><h2 id="5-2_控制数据通信和内存分配">5.2 控制数据通信和内存分配</h2><h2 id="5-3_异步Kernel">5.3 异步Kernel</h2><h2 id="5-4_用于Kernel实现的优化库">5.4 用于Kernel实现的优化库</h2><h2 id="5-5_有损压缩">5.5 有损压缩</h2><h1 id="6_状态和经验">6 状态和经验</h1><h1 id="7_常用编程规范">7 常用编程规范</h1><h1 id="8_性能">8 性能</h1><h1 id="9_工具">9 工具</h1><h2 id="9-1_TensorBoard:图结构和总结统计可视化">9.1 TensorBoard:图结构和总结统计可视化</h2><h2 id="9-2_性能追踪">9.2 性能追踪</h2><h1 id="10_未来工作">10 未来工作</h1><h1 id="11_相关工作">11 相关工作</h1><h1 id="12_结论">12 结论</h1><h1 id="参考文献">参考文献</h1></span>
+<h3 id="3-2-2_交叉设备通信">3.2.2 交叉设备通信</h3><p>一旦置放节点被计算，图会被分割成一系列的子图，每个子图在分布在1台设备上。任何从x到y的交叉设备的边会被移除，然后被一个从x到新的发送节点的边代替</p>
+<h2 id="3-3_分布式执行">3.3 分布式执行</h2><h1 id="4_扩展">4 扩展</h1><h2 id="4-1_梯度计算">4.1 梯度计算</h2><h2 id="4-2_部分执行">4.2 部分执行</h2><h2 id="4-3_设备限制">4.3 设备限制</h2><h2 id="4-4_控制流">4.4 控制流</h2><h2 id="4-5_输入操作">4.5 输入操作</h2><h2 id="4-6_队列">4.6 队列</h2><h2 id="4-7_容器">4.7 容器</h2><h1 id="5_优化">5 优化</h1><h2 id="5-1_通常子表达式消除">5.1 通常子表达式消除</h2><h2 id="5-2_控制数据通信和内存分配">5.2 控制数据通信和内存分配</h2><h2 id="5-3_异步Kernel">5.3 异步Kernel</h2><h2 id="5-4_用于Kernel实现的优化库">5.4 用于Kernel实现的优化库</h2><h2 id="5-5_有损压缩">5.5 有损压缩</h2><h1 id="6_状态和经验">6 状态和经验</h1><h1 id="7_常用编程规范">7 常用编程规范</h1><h1 id="8_性能">8 性能</h1><h1 id="9_工具">9 工具</h1><h2 id="9-1_TensorBoard:图结构和总结统计可视化">9.1 TensorBoard:图结构和总结统计可视化</h2><h2 id="9-2_性能追踪">9.2 性能追踪</h2><h1 id="10_未来工作">10 未来工作</h1><h1 id="11_相关工作">11 相关工作</h1><h1 id="12_结论">12 结论</h1><h1 id="参考文献">参考文献</h1></span>
       
     </div>
 
@@ -320,6 +321,8 @@ TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/16/HTK-learning-notes/" rel="prev">HTKbook第一章</a>
             
           </div>
 
@@ -414,21 +417,21 @@ TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -502,8 +505,8 @@ TensorFlow从名称上看就是两个部分——张量tensor和流flow。非常
     <footer id="footer" class="footer">
       <div class="footer-inner"> <div class="copyright" >
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy; &nbsp;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>
