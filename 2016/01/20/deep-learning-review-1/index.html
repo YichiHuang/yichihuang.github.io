@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Heap,Huffman,POJ," />
+  <meta name="keywords" content="Machine learning,voice,Algorithm" />
 
 
 
@@ -43,34 +43,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="题目链接Fence-Repair
-题目描述(Description)Fence Repair
-题目大意：
-Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;lt;=20,000)，每段木头长度为Li(1&amp;lt;=Li&amp;lt;=50,000)。他买了一根无线长的木头，需要锯N-1次，花费的钱和据木头的长度一样。求FJ的最小花费。
-输入
-
-第一行：一个整数N，代表需要锯的木头">
+<meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="poj3253最小堆 Huffman 贪心">
-<meta property="og:url" content="http://yoursite.com/2015/09/20/poj3253/index.html">
+<meta property="og:title" content="deep learning review">
+<meta property="og:url" content="http://yoursite.com/2016/01/20/deep-learning-review-1/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="题目链接Fence-Repair
-题目描述(Description)Fence Repair
-题目大意：
-Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;lt;=20,000)，每段木头长度为Li(1&amp;lt;=Li&amp;lt;=50,000)。他买了一根无线长的木头，需要锯N-1次，花费的钱和据木头的长度一样。求FJ的最小花费。
-输入
-
-第一行：一个整数N，代表需要锯的木头">
-<meta property="og:updated_time" content="2015-09-20T13:33:37.004Z">
+<meta property="og:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
+<meta property="og:updated_time" content="2016-01-20T11:08:52.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="poj3253最小堆 Huffman 贪心">
-<meta name="twitter:description" content="题目链接Fence-Repair
-题目描述(Description)Fence Repair
-题目大意：
-Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;lt;=20,000)，每段木头长度为Li(1&amp;lt;=Li&amp;lt;=50,000)。他买了一根无线长的木头，需要锯N-1次，花费的钱和据木头的长度一样。求FJ的最小花费。
-输入
-
-第一行：一个整数N，代表需要锯的木头">
+<meta name="twitter:title" content="deep learning review">
+<meta name="twitter:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -80,7 +62,7 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
   };
 </script>
 
-  <title> poj3253最小堆 Huffman 贪心 | Karry.Blog </title>
+  <title> deep learning review | Karry.Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -229,7 +211,7 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
           
           
             
-              poj3253最小堆 Huffman 贪心
+              deep learning review
             
           
         </h1>
@@ -238,34 +220,19 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-20T19:57:30+08:00" content="2015-09-20">
-            2015-09-20
+          <time itemprop="dateCreated" datetime="2016-01-20T19:08:52+08:00" content="2016-01-20">
+            2016-01-20
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/POJ/" itemprop="url" rel="index">
-                  <span itemprop="name">POJ</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/09/20/poj3253/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/20/poj3253/" itemprop="commentsCount"></span>
+            <a href="/2016/01/20/deep-learning-review-1/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/20/deep-learning-review-1/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -279,123 +246,22 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
       
 
       
-        <span itemprop="articleBody"><h1 id="题目链接">题目链接</h1><p><a href="http://poj.org/problem?id=3253" target="_blank" rel="external">Fence-Repair</a></p>
-<h1 id="题目描述(Description)">题目描述(Description)</h1><p><strong>Fence Repair</strong></p>
-<p><strong>题目大意：</strong></p>
-<p>Farmer John想修围墙，需要一堆木头。木头的数量N(1&lt;=N&lt;=20,000)，每段木头长度为Li(1&lt;=Li&lt;=50,000)。他买了一根无线长的木头，需要锯N-1次，花费的钱和据木头的长度一样。求FJ的最小花费。</p>
-<p><strong>输入</strong></p>
-<blockquote>
-<p>第一行：一个整数N，代表需要锯的木头数量</p>
-<p>第二行-第N+1行：每段木头的长度</p>
-</blockquote>
-<p><strong>输出</strong></p>
-<blockquote>
-<p>一行：一个整数–最小花费</p>
-</blockquote>
-<p><strong>样例输入</strong></p>
-<blockquote>
-<p>3</p>
-<p>8</p>
-<p>5</p>
-<p>8</p>
-</blockquote>
-<p><strong>样例输出</strong></p>
-<blockquote>
-<p>34</p>
-</blockquote>
-<h1 id="分析(Analysis)">分析(Analysis)</h1><h2 id="数据存储"><strong>数据存储</strong></h2><ul>
-<li>创建一个一维数组，存每根木头的长度，注意取值范围（可能有大数据），用C++中的<code>long long</code>更保险，否则会<code>WA</code>。</li>
-<li>一个<code>long long</code>全局变量存结果<code>ans</code>。 </li>
-</ul>
-<h2 id="算法"><strong>算法</strong></h2><ul>
-<li>类似<code>Huffman Tree</code>，利用<strong>贪心算法</strong>，采用<code>最小堆</code>的结构，自下而上。每次从剩下的木头中选取长度最短的两根，计算二者之和，直到堆中只有一个元素；</li>
-<li>一开始，把堆顶元素（最小值）赋值给<code>node[0]</code>，然后取堆的最尾元素插入堆顶，自上而下调整生成最小堆，取堆顶元素<code>node[1]</code>。此时<code>node[0]</code>和<code>node[1]</code>是最小的两个元素，计算二者之和，结果存于<code>node[1]</code>，<code>ans</code>加<code>node[1]</code>计算最小花费，再调整生成最小堆；</li>
-<li>重复第二步，直到堆里只有一个元素，循环结束输出<code>ans</code>。</li>
-</ul>
-<h1 id="代码(Code)">代码(Code)</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">long</span> <span class="keyword">long</span> node[<span class="number">40020</span>],ans;
-<span class="comment">/*从根节点开始向下调整*/</span>
-<span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> size)</span>
-</span>{
-    <span class="keyword">long</span> <span class="keyword">long</span> i,j,tmp;
-    tmp=node[x];
-    i=x;
-    j=<span class="number">2</span>*i;
-    <span class="keyword">while</span>(j&lt;=size)
-    {
-        <span class="keyword">if</span>(j&lt;size&amp;&amp;node[j]&gt;node[j+<span class="number">1</span>])
-            j++;
-        <span class="keyword">if</span>(tmp&gt;node[j])
-        {
-            node[i]=node[j];
-            i=j;
-            j=<span class="number">2</span>*i;
-        }
-        <span class="keyword">else</span>
-                <span class="keyword">break</span>;
-    }
-    node[i]=tmp;
-}
-<span class="comment">/*从根节点开始插入元素建堆*/</span>
-<span class="function"><span class="keyword">void</span> <span class="title">buildHeap</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a[],<span class="keyword">long</span> <span class="keyword">long</span> size)</span>
-</span>{
-    <span class="keyword">long</span> <span class="keyword">long</span> i;
-    <span class="keyword">for</span>(i=size/<span class="number">2</span>; i&gt;<span class="number">0</span>; i--)
-    {
-        down(i,size);
-    }
-}
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">long</span> <span class="keyword">long</span> n,k;
-    <span class="built_in">cin</span>&gt;&gt;n;
-    ans=<span class="number">0</span>;
-    <span class="keyword">for</span>(k=<span class="number">1</span>; k&lt;=n; k++)
-    {
-        <span class="built_in">cin</span>&gt;&gt;node[k];
-    }
-    buildHeap(node,n);
-    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)
-    {
-        node[<span class="number">0</span>]=node[<span class="number">1</span>];<span class="comment">/*取出堆顶元素*/</span>
-        node[<span class="number">1</span>]=node[n--];<span class="comment">/*把Node的最后一个元素放到堆顶*/</span>
-        down(<span class="number">1</span>,n);<span class="comment">/*向下调整建立最小堆*/</span>
-        node[<span class="number">1</span>]+=node[<span class="number">0</span>];
-        ans+=node[<span class="number">1</span>];
-        down(<span class="number">1</span>,n);
-    }
-    <span class="built_in">cout</span>&lt;&lt;ans;
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre></span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Heap/" rel="tag">#Heap</a>
-          
-            <a href="/tags/Huffman/" rel="tag">#Huffman</a>
-          
-            <a href="/tags/POJ/" rel="tag">#POJ</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/21/resume/" rel="prev">resume</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/20/leecode-index/" rel="next">leetcode题目汇总</a>
+              <a href="/2016/01/19/deep-learning-review/" rel="next">deep learning review</a>
             
           </div>
         </div>
@@ -556,7 +422,7 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目链接"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述(Description)"><span class="nav-number">2.</span> <span class="nav-text">题目描述(Description)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析(Analysis)"><span class="nav-number">3.</span> <span class="nav-text">分析(Analysis)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据存储"><span class="nav-number">3.1.</span> <span class="nav-text">数据存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">3.2.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码(Code)"><span class="nav-number">4.</span> <span class="nav-text">代码(Code)</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -610,9 +476,9 @@ Farmer John想修围墙，需要一堆木头。木头的数量N(1&amp;lt;=N&amp;
 
     <script type="text/javascript">
       var disqus_shortname = 'karrysblog';
-      var disqus_identifier = '2015/09/20/poj3253/';
-      var disqus_title = 'poj3253最小堆 Huffman 贪心';
-      var disqus_url = 'http://yoursite.com/2015/09/20/poj3253/';
+      var disqus_identifier = '2016/01/20/deep-learning-review-1/';
+      var disqus_title = 'deep learning review';
+      var disqus_url = 'http://yoursite.com/2016/01/20/deep-learning-review-1/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

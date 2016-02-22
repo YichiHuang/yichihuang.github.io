@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="递归," />
+  <meta name="keywords" content="Machine learning,voice,Algorithm" />
 
 
 
@@ -43,34 +43,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="分析从A/B到C总共有两种可能，A-&amp;gt;B-&amp;gt;C或者B-&amp;gt;A-&amp;gt;C
-代码#include&amp;lt;stdio.h&amp;gt;
-void hanio(int n,char A,char B,char C)
-{
-    if(n==1){
-        hanio(n,A,B,C);
-        printf(&quot;Move dist %d from %c to %c&quot;,n,A,C)">
-<meta property="og:type" content="article">
-<meta property="og:title" content="递归实现汉诺塔">
-<meta property="og:url" content="http://yoursite.com/2015/04/02/hanio/index.html">
+<meta name="description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Karry.Blog">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Karry.Blog">
-<meta property="og:description" content="分析从A/B到C总共有两种可能，A-&amp;gt;B-&amp;gt;C或者B-&amp;gt;A-&amp;gt;C
-代码#include&amp;lt;stdio.h&amp;gt;
-void hanio(int n,char A,char B,char C)
-{
-    if(n==1){
-        hanio(n,A,B,C);
-        printf(&quot;Move dist %d from %c to %c&quot;,n,A,C)">
-<meta property="og:updated_time" content="2015-09-20T12:04:37.673Z">
+<meta property="og:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归实现汉诺塔">
-<meta name="twitter:description" content="分析从A/B到C总共有两种可能，A-&amp;gt;B-&amp;gt;C或者B-&amp;gt;A-&amp;gt;C
-代码#include&amp;lt;stdio.h&amp;gt;
-void hanio(int n,char A,char B,char C)
-{
-    if(n==1){
-        hanio(n,A,B,C);
-        printf(&quot;Move dist %d from %c to %c&quot;,n,A,C)">
+<meta name="twitter:title" content="Karry.Blog">
+<meta name="twitter:description" content="CS graduate student of SECE in PKU.Interested in PR and ML applied in voice, image and video.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -80,7 +61,7 @@ void hanio(int n,char A,char B,char C)
   };
 </script>
 
-  <title> 递归实现汉诺塔 | Karry.Blog </title>
+  <title> Karry.Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -108,7 +89,9 @@ void hanio(int n,char A,char B,char C)
 
 
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,9 +199,9 @@ void hanio(int n,char A,char B,char C)
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -229,7 +212,9 @@ void hanio(int n,char A,char B,char C)
           
           
             
-              递归实现汉诺塔
+              <a class="post-title-link" href="/2015/03/30/mathjax/" itemprop="url">
+                如何用mathjax编写数学公式
+              </a>
             
           
         </h1>
@@ -238,8 +223,8 @@ void hanio(int n,char A,char B,char C)
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-02T20:02:07+08:00" content="2015-04-02">
-            2015-04-02
+          <time itemprop="dateCreated" datetime="2015-03-30T12:10:07+08:00" content="2015-03-30">
+            2015-03-30
           </time>
         </span>
 
@@ -248,8 +233,8 @@ void hanio(int n,char A,char B,char C)
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Data-structure-Algorithm/" itemprop="url" rel="index">
-                  <span itemprop="name">Data structure&Algorithm</span>
+                <a href="/categories/mathjax/" itemprop="url" rel="index">
+                  <span itemprop="name">mathjax</span>
                 </a>
               </span>
 
@@ -264,8 +249,8 @@ void hanio(int n,char A,char B,char C)
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/02/hanio/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/02/hanio/" itemprop="commentsCount"></span>
+            <a href="/2015/03/30/mathjax/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/30/mathjax/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -279,104 +264,51 @@ void hanio(int n,char A,char B,char C)
       
 
       
-        <span itemprop="articleBody"><h1 id="分析">分析</h1><p>从A/B到C总共有两种可能，<code>A-&gt;B-&gt;C</code>或者<code>B-&gt;A-&gt;C</code></p>
-<h1 id="代码">代码</h1><pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
-<span class="function"><span class="keyword">void</span> <span class="title">hanio</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> A,<span class="keyword">char</span> B,<span class="keyword">char</span> C)</span>
-</span>{
-    <span class="keyword">if</span>(n==<span class="number">1</span>){
-        hanio(n,A,B,C);
-        <span class="built_in">printf</span>(<span class="string">"Move dist %d from %c to %c"</span>,n,A,C);
-    }
-    <span class="keyword">else</span>{
-        hanio(n-<span class="number">1</span>,A,C,B);
-        <span class="built_in">printf</span>(<span class="string">"Move dist %d from %c to %c"</span>,n,A,C);
-        hanio(n-<span class="number">1</span>,B,A,C);
-}
+        
+          <span itemprop="articleBody">
+            
+            准备用Markdown编写并在本地查看
+把下列代码加入HTML文件&lt;head&gt;``&lt;/head&gt;中（在MarkdownPad中通过点击“工具-&gt;选项-&gt;高级-&gt;HTML head编辑器-&gt;在弹出框里输入”：
 
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>
-</span>{
-    <span class="keyword">int</span> n;
-    <span class="built_in">printf</span>(<span class="string">"Input the order of Hanio tower:\n"</span>);
-    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);
-    hanio(n,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>);
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre></span>
+&lt;script type="text/x-mathjax-config"&gt;
+  MathJax.Hub.Config({
+tex2
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/30/mathjax/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/递归/" rel="tag">#递归</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/04/06/leetcode-binary-tree-preorder-traversal/" rel="prev">leetcode binary tree preorder traversal</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/04/02/c-primerplus-chap1/" rel="next">C++ Primer Plus第一章笔记</a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
 
  </div>
 
         
 
-        
-          <div class="comments" id="comments">
-            
-              <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-              </div>
-            
-          </div>
         
       </div>
 
@@ -393,15 +325,6 @@ void hanio(int n,char A,char B,char C)
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
       
 
       <section class="site-overview">
@@ -480,17 +403,6 @@ void hanio(int n,char A,char B,char C)
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </section>
-      
 
     </div>
   </aside>
@@ -539,9 +451,9 @@ void hanio(int n,char A,char B,char C)
 
     <script type="text/javascript">
       var disqus_shortname = 'karrysblog';
-      var disqus_identifier = '2015/04/02/hanio/';
-      var disqus_title = '递归实现汉诺塔';
-      var disqus_url = 'http://yoursite.com/2015/04/02/hanio/';
+      var disqus_identifier = 'page/5/index.html';
+      var disqus_title = '';
+      var disqus_url = '';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -552,8 +464,6 @@ void hanio(int n,char A,char B,char C)
       }
 
       run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
       
     </script>
   
@@ -580,165 +490,6 @@ void hanio(int n,char A,char B,char C)
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
-      }
-    }
-  });
-</script>
-
-
 
   <script type="text/javascript">
     $(document).ready(function () {
@@ -776,10 +527,6 @@ void hanio(int n,char A,char B,char C)
 
   
   
-
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"3","bdPos":"left","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-
 
   
   <script type="text/javascript" src="/js/lazyload.js"></script>
